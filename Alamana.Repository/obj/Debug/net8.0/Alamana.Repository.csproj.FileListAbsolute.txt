@@ -1,0 +1,15 @@
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\bin\Debug\net8.0\Alamana.Repository.deps.json
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\bin\Debug\net8.0\Alamana.Repository.dll
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\bin\Debug\net8.0\Alamana.Repository.pdb
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\bin\Debug\net8.0\Alamana.Data.dll
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\bin\Debug\net8.0\Alamana.Data.pdb
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\Alamana.Repository.csproj.AssemblyReference.cache
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\Alamana.Repository.GeneratedMSBuildEditorConfig.editorconfig
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\Alamana.Repository.AssemblyInfoInputs.cache
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\Alamana.Repository.AssemblyInfo.cs
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\Alamana.Repository.csproj.CoreCompileInputs.cache
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\Alamana..EC2C4FCD.Up2Date
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\Alamana.Repository.dll
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\refint\Alamana.Repository.dll
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\Alamana.Repository.pdb
+E:\alhendal-Websites\Alamana\backend\Alamana.Repository\obj\Debug\net8.0\ref\Alamana.Repository.dll

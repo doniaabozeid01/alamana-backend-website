@@ -1,0 +1,2310 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\email\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030223208_addEmailToOrder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\orders\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\orders\\dtos\\orderrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\orders\\dtos\\orderitemresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\orders\\dtos\\orderresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\context\\alamanabbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\migrations\\20251030204028_updateorderrelationsandlocationnullability.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\governorate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\district.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030201839_update-order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\cartitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\cartitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\carts\\cartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\carts\\icartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\operationresultservice\\operationresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56F47517-2865-4C18-9F02-6A636D3B2610}|..\\Alamana.Repository\\Alamana.Repository.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.repository\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56F47517-2865-4C18-9F02-6A636D3B2610}|..\\Alamana.Repository\\Alamana.Repository.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.repository\\interfaces\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\carts\\dtos\\addcartitemresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\carts\\dtos\\cartsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\cartitem\\icartitemsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\cartitem\\cartitemsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\cartitem\\dtos\\addcartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\operationresultservice\\operationresultnongeneric.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\advertisment\\advertiseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\migrations\\20251029201247_add-advertisment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\advertisements.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\advertisementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\advertisementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\advertisment\\iadvertiseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\advertisment\\dtos\\advertiseprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\advertisment\\dtos\\advertisedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\advertisment\\dtos\\addadvertise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029200556_add-advertisment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\cartitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\paymentmethodscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\paymentmethodscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\locationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\locationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204840_addWholesaleDiscountTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\controllers\\contactuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:controllers\\contactuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana\\alamana.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{192FB09D-A661-4167-8254-84373A8AB001}|Alamana.csproj|solutionrelative:alamana.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221849_addCartAndCartItems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164152_addProductAndCategoriesAndIdentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Categories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\WholesaleDiscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\IWholesaleDiscountService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\WholesaleDiscountService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\AddWholesaleDiscountDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\WholesaleDiscountProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\getWholesaleDiscountDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\CategoryServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\ProductServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\LocationProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204935_addWholesaleDiscountTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\LocationServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Enums\\CustomerType.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\ContactUsServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\IJwtTokenService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\OrderService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\loginDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Alamana.Service.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\Dtos\\ContactUsDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\IContactUsServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Email\\IEmailSender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Email\\EmailSender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\JwtTokenService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ResetPasswordDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\registerDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ForgotPasswordDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ChangePasswordDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Repositories\\UnitOfWork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IUnitOfWork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Alamana.Data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\BaseEntity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\ILocationServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\PaymentMethodsServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\IPaymentMethodsServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\GetPaymentMethodsDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\paymentMethodsProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCityDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\ICategoryServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCountryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetDestrictDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetGovernorateDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\city.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\District.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Governorate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemRequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\IOrderService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250629164543_addUserIdToOrderTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628222511_addOrderAndPaymentMethodTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\OrderItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628223342_addOrderItems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Enums\\OrderStatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\CartItems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\GetCartItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\GetCartDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\CartService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\ICartService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626200925_addProductIdToCartItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626160224_AddCreateAtToCart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\CartItemProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\AddCategoryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\CartProfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221934_addCartAndCartItems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625184808_UpdateWeightInProduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryWithProductsDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625182801_AddWeightToProduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\IProductServices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\categoryDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\SaveAndDeleteImageService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\ISaveAndDeleteImageService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164315_addProductAndCategoriesAndIdentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\migrations\\20251029191956_delete-wholesalediscount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmailSender.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Email\\EmailSender.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Email\\EmailSender.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Email\\EmailSender.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Email\\EmailSender.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAgwBUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T23:01:16.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20251030223208_addEmailToOrder.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030223208_addEmailToOrder.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251030223208_addEmailToOrder.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030223208_addEmailToOrder.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251030223208_addEmailToOrder.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T22:32:08.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderResponse.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T21:48:27.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderRequest.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T21:47:57.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderItemResponse.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T21:47:49.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20251030204028_updateOrderRelationsAndLocationNullability.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030204028_updateOrderRelationsAndLocationNullability.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251030204028_updateOrderRelationsAndLocationNullability.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030204028_updateOrderRelationsAndLocationNullability.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251030204028_updateOrderRelationsAndLocationNullability.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAgwHQAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T20:40:28.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "OperationResult.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\OperationResultService\\OperationResult.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\OperationResultService\\OperationResult.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\OperationResultService\\OperationResult.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\OperationResultService\\OperationResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T23:56:21.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CartItemsController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\CartItemsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CartItemsController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\CartItemsController.cs",
+              "RelativeToolTip": "Controllers\\CartItemsController.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAhwGUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T20:54:10.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Order.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Order.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Order.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\Order.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:53.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrdersController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAQwEEAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:41:04.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\OrderService.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Orders\\OrderService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\OrderService.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Orders\\OrderService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAADwvzMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T21:49:08.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\OrderItem.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:17:02.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "country.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\country.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\country.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\country.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\country.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:44.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "District.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\District.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\District.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\District.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\District.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:46.302Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Governorate.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Governorate.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Governorate.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Governorate.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\Governorate.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:50.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AlamanaBbContext.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Context\\AlamanaBbContext.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Context\\AlamanaBbContext.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwC8AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:17:30.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20251030201839_update-order.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030201839_update-order.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251030201839_update-order.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030201839_update-order.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251030201839_update-order.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T20:18:39.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "city.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\city.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\city.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\city.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\city.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:41.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
+              "RelativeToolTip": "..\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAkwDEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T00:11:10.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ICartItemsService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\CartItem\\ICartItemsService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\CartItem\\ICartItemsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBIAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T23:55:41.662Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CartItemsService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\CartItem\\CartItemsService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\CartItem\\CartItemsService.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAmwJsAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T23:57:19.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Repository\\Repositories\\GenericRepository.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "..\\Alamana.Repository\\Repositories\\GenericRepository.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAkwHgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T00:11:16.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\CartService.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Carts\\CartService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\CartService.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Carts\\CartService.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAswJAAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T18:46:43.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ICartService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\ICartService.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Carts\\ICartService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\ICartService.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Carts\\ICartService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T18:52:14.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AddCartItemResultDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartItemResultDto.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Carts\\Dtos\\AddCartItemResultDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartItemResultDto.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Carts\\Dtos\\AddCartItemResultDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T18:58:54.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CartSummaryDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\Dtos\\CartSummaryDto.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Carts\\Dtos\\CartSummaryDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\Dtos\\CartSummaryDto.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Carts\\Dtos\\CartSummaryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T18:59:55.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AddCartItem.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T23:53:37.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AdvertiseService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\AdvertiseService.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\AdvertiseService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\AdvertiseService.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Advertisment\\AdvertiseService.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAwwEUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:10:03.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "OperationResultNonGeneric.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\OperationResultService\\OperationResultNonGeneric.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\OperationResultService\\OperationResultNonGeneric.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\OperationResultService\\OperationResultNonGeneric.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\OperationResultService\\OperationResultNonGeneric.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T23:56:40.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "AddAdvertise.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AddAdvertise.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\Dtos\\AddAdvertise.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AddAdvertise.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Advertisment\\Dtos\\AddAdvertise.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:08:16.346Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "AdvertisementsController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\AdvertisementsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdvertisementsController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\AdvertisementsController.cs",
+              "RelativeToolTip": "Controllers\\AdvertisementsController.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAmwB4AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:07:19.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "20251029200556_add-advertisment.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029200556_add-advertisment.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251029200556_add-advertisment.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029200556_add-advertisment.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251029200556_add-advertisment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:05:56.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Advertisements.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Advertisements.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Advertisements.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Advertisements.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\Advertisements.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:05:02.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "PaymentMethod.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\PaymentMethod.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\PaymentMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:17:05.372Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Products.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Products.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Products.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Products.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\Products.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:17:12.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "AdvertiseDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseDto.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseDto.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:08:49.582Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "20251029201247_add-advertisment.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029201247_add-advertisment.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251029201247_add-advertisment.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029201247_add-advertisment.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251029201247_add-advertisment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:12:47.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "AdvertiseProfile.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseProfile.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseProfile.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseProfile.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:09:16.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IAdvertiseService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\IAdvertiseService.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\IAdvertiseService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\IAdvertiseService.cs",
+              "RelativeToolTip": "..\\Alamana.Service\\Advertisment\\IAdvertiseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T20:09:41.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Categories.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Categories.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Categories.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Categories.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\Categories.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:39.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "CartItems.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\CartItems.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\CartItems.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\CartItems.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\CartItems.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:37.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-24T16:16:56.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowD8AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:41:53.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAADwvy0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:38:50.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 149,
+              "Title": "20251029191956_delete-wholesalediscount.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029191956_delete-wholesalediscount.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251029191956_delete-wholesalediscount.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029191956_delete-wholesalediscount.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251029191956_delete-wholesalediscount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:19:56.578Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Cart.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Cart.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Cart.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:34.018Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\ApplicationUser.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "..\\Alamana.Data\\Entities\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-29T19:16:32.174Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwEcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:06:16.672Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 59,
+              "Title": "Categories.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Categories.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Categories.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Categories.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Categories.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:26:31.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 60,
+              "Title": "Products.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Products.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Products.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Products.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Products.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:26:22.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 61,
+              "Title": "WholesaleDiscount.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\WholesaleDiscount.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\WholesaleDiscount.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\WholesaleDiscount.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\WholesaleDiscount.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T23:06:13.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "CartItemsService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T19:55:58.479Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CartController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\CartController.cs",
+              "RelativeToolTip": "Controllers\\CartController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCAAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T16:59:07.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "PaymentMethodsController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\PaymentMethodsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PaymentMethodsController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\PaymentMethodsController.cs",
+              "RelativeToolTip": "Controllers\\PaymentMethodsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T19:49:51.865Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "LocationController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\LocationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LocationController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\LocationController.cs",
+              "RelativeToolTip": "Controllers\\LocationController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:46:28.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "CategoriesController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\CategoriesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoriesController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\CategoriesController.cs",
+              "RelativeToolTip": "Controllers\\CategoriesController.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA1wAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:56:07.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 62,
+              "Title": "IWholesaleDiscountService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\IWholesaleDiscountService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\IWholesaleDiscountService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\IWholesaleDiscountService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\IWholesaleDiscountService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T23:59:00.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 63,
+              "Title": "WholesaleDiscountService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\WholesaleDiscountService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\WholesaleDiscountService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\WholesaleDiscountService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\WholesaleDiscountService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAEwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T23:59:21.487Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 64,
+              "Title": "AddWholesaleDiscountDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\AddWholesaleDiscountDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\AddWholesaleDiscountDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\AddWholesaleDiscountDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\AddWholesaleDiscountDto.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T23:59:50.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 65,
+              "Title": "WholesaleDiscountProfile.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\WholesaleDiscountProfile.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\WholesaleDiscountProfile.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\WholesaleDiscountProfile.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\WholesaleDiscountProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T20:52:47.509Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 66,
+              "Title": "getWholesaleDiscountDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\getWholesaleDiscountDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\getWholesaleDiscountDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\getWholesaleDiscountDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\getWholesaleDiscountDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T20:51:22.725Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 67,
+              "Title": "CategoryServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\CategoryServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\CategoryServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\CategoryServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\CategoryServices.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:58:03.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 68,
+              "Title": "ProductProfile.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductProfile.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductProfile.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductProfile.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T19:49:57.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 69,
+              "Title": "ProductServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\ProductServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\ProductServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\ProductServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\ProductServices.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwGsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T19:55:25.949Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 70,
+              "Title": "LocationProfile.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\LocationProfile.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\LocationProfile.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\LocationProfile.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\LocationProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:57:26.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 71,
+              "Title": "20250907204935_addWholesaleDiscountTable.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204935_addWholesaleDiscountTable.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204935_addWholesaleDiscountTable.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204935_addWholesaleDiscountTable.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204935_addWholesaleDiscountTable.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwCEAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T20:49:35.138Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "20250907204840_addWholesaleDiscountTable.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204840_addWholesaleDiscountTable.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204840_addWholesaleDiscountTable.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204840_addWholesaleDiscountTable.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204840_addWholesaleDiscountTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-07T20:48:40.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 72,
+              "Title": "LocationServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\LocationServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\LocationServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\LocationServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\LocationServices.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAAAIgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:51:20.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 73,
+              "Title": "CustomerType.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Enums\\CustomerType.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Enums\\CustomerType.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Enums\\CustomerType.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Enums\\CustomerType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T23:09:37.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 74,
+              "Title": "AlamanaBbContext.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAcwCgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:20:34.774Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 75,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:25:20.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 76,
+              "Title": "ContactUsServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\ContactUsServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\ContactUsServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\ContactUsServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\ContactUsServices.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAB8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T19:47:13.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "ContactUsController.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\ContactUsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ContactUsController.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\ContactUsController.cs",
+              "RelativeToolTip": "Controllers\\ContactUsController.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAASwBsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T19:48:43.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 77,
+              "Title": "IJwtTokenService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\IJwtTokenService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\IJwtTokenService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\IJwtTokenService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\IJwtTokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:37:08.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 78,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\OrderService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\OrderService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\OrderService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\OrderService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:38:34.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 79,
+              "Title": "loginDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\loginDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\loginDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\loginDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\loginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:39:04.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 80,
+              "Title": "Alamana.Service.csproj",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Alamana.Service.csproj",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Alamana.Service.csproj",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Alamana.Service.csproj",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Alamana.Service.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-24T18:13:09.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 81,
+              "Title": "ContactUsDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\Dtos\\ContactUsDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\Dtos\\ContactUsDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\Dtos\\ContactUsDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\Dtos\\ContactUsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T19:46:10.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 82,
+              "Title": "IContactUsServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\IContactUsServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\IContactUsServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\IContactUsServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\IContactUsServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T19:46:58.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 83,
+              "Title": "IEmailSender.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Email\\IEmailSender.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Email\\IEmailSender.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Email\\IEmailSender.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Email\\IEmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:43:06.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 84,
+              "Title": "EmailSender.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Email\\EmailSender.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Email\\EmailSender.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Email\\EmailSender.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Email\\EmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:43:30.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 85,
+              "Title": "JwtTokenService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\JwtTokenService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\JwtTokenService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\JwtTokenService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\JwtTokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:37:29.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 86,
+              "Title": "ResetPasswordDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ResetPasswordDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ResetPasswordDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ResetPasswordDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ResetPasswordDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:46:41.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 87,
+              "Title": "registerDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\registerDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\registerDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\registerDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\registerDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:39:15.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 88,
+              "Title": "ForgotPasswordDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ForgotPasswordDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ForgotPasswordDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ForgotPasswordDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ForgotPasswordDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:46:18.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 89,
+              "Title": "ChangePasswordDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ChangePasswordDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ChangePasswordDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ChangePasswordDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ChangePasswordDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T20:38:55.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 90,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Repositories\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Repositories\\UnitOfWork.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Repositories\\UnitOfWork.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Repositories\\UnitOfWork.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAACgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:53:21.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 91,
+              "Title": "GenericRepository.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAYwCwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:47:57.69Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 92,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IUnitOfWork.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IUnitOfWork.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:46:26.255Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 93,
+              "Title": "IGenericRepository.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:46:07.269Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Alamana.csproj",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Alamana.csproj",
+              "RelativeDocumentMoniker": "Alamana.csproj",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Alamana.csproj",
+              "RelativeToolTip": "Alamana.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-24T20:48:51.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 94,
+              "Title": "Alamana.Data.csproj",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Alamana.Data.csproj",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Alamana.Data.csproj",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Alamana.Data.csproj",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Alamana.Data.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-24T16:21:40.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 95,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\BaseEntity.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\BaseEntity.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:47:10.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 96,
+              "Title": "OrderResponse.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T17:39:24.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 97,
+              "Title": "OrderItemResponse.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T17:39:02.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 98,
+              "Title": "ILocationServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\ILocationServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\ILocationServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\ILocationServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\ILocationServices.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:51:07.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 99,
+              "Title": "PaymentMethodsServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\PaymentMethodsServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\PaymentMethodsServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\PaymentMethodsServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\PaymentMethodsServices.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T19:46:50.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 100,
+              "Title": "OrderRequest.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:37:27.598Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 101,
+              "Title": "IPaymentMethodsServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\IPaymentMethodsServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\IPaymentMethodsServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\IPaymentMethodsServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\IPaymentMethodsServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T19:46:37.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 102,
+              "Title": "GetPaymentMethodsDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\GetPaymentMethodsDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\GetPaymentMethodsDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\GetPaymentMethodsDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\GetPaymentMethodsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T19:44:57.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 103,
+              "Title": "paymentMethodsProfile.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\paymentMethodsProfile.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\paymentMethodsProfile.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\paymentMethodsProfile.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\paymentMethodsProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T19:45:12.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 104,
+              "Title": "GetCityDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCityDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCityDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCityDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCityDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:48:38.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 105,
+              "Title": "PaymentMethod.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:22:05.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 106,
+              "Title": "ICategoryServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\ICategoryServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\ICategoryServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\ICategoryServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\ICategoryServices.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:57:50.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 107,
+              "Title": "CategoryProfile.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryProfile.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryProfile.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryProfile.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T17:00:27.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 108,
+              "Title": "GetCountryDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCountryDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCountryDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCountryDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCountryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:48:00.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 109,
+              "Title": "GetDestrictDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetDestrictDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetDestrictDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetDestrictDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetDestrictDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:49:08.518Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 110,
+              "Title": "GetGovernorateDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetGovernorateDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetGovernorateDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetGovernorateDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetGovernorateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T18:48:20.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 111,
+              "Title": "city.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\city.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\city.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\city.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\city.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:43:59.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 112,
+              "Title": "Order.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Order.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Order.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Order.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADgvxgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:12:16.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 113,
+              "Title": "country.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\country.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\country.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\country.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\country.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:42:45.287Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 114,
+              "Title": "District.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\District.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\District.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\District.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\District.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:44:22.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 115,
+              "Title": "Governorate.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Governorate.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Governorate.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Governorate.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Governorate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:43:27.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 116,
+              "Title": "OrderItemRequest.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemRequest.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemRequest.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemRequest.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:37:05.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 117,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\IOrderService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\IOrderService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\IOrderService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\IOrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:38:14.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 118,
+              "Title": "20250629164543_addUserIdToOrderTable.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250629164543_addUserIdToOrderTable.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250629164543_addUserIdToOrderTable.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250629164543_addUserIdToOrderTable.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250629164543_addUserIdToOrderTable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-29T16:45:43.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 119,
+              "Title": "20250628222511_addOrderAndPaymentMethodTables.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628222511_addOrderAndPaymentMethodTables.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628222511_addOrderAndPaymentMethodTables.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628222511_addOrderAndPaymentMethodTables.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628222511_addOrderAndPaymentMethodTables.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwDQAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:25:12.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 120,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:32:12.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 121,
+              "Title": "20250628223342_addOrderItems.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628223342_addOrderItems.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628223342_addOrderItems.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628223342_addOrderItems.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628223342_addOrderItems.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:33:42.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 122,
+              "Title": "OrderStatus.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Enums\\OrderStatus.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Enums\\OrderStatus.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Enums\\OrderStatus.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Enums\\OrderStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T22:21:08.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 123,
+              "Title": "20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAgwFgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:54:23.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 124,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Cart.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Cart.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Cart.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T22:10:50.114Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 125,
+              "Title": "CartItems.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\CartItems.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\CartItems.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\CartItems.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\CartItems.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T22:12:35.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:51:31.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 56,
+              "Title": "20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-28T21:50:18.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 126,
+              "Title": "GetCartItem.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\GetCartItem.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\GetCartItem.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\GetCartItem.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\GetCartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T20:01:37.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 127,
+              "Title": "GetCartDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\GetCartDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\GetCartDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\GetCartDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\GetCartDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T15:50:47.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 128,
+              "Title": "ICartItemsService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T19:55:34.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 129,
+              "Title": "CartService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\CartService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\CartService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\CartService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\CartService.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAmwEIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T15:49:33.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 130,
+              "Title": "ICartService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\ICartService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\ICartService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\ICartService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\ICartService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T15:49:18.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 131,
+              "Title": "AddCartItem.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T20:00:57.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 132,
+              "Title": "20250626200925_addProductIdToCartItem.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626200925_addProductIdToCartItem.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626200925_addProductIdToCartItem.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626200925_addProductIdToCartItem.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626200925_addProductIdToCartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T20:09:25.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 133,
+              "Title": "20250626160224_AddCreateAtToCart.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626160224_AddCreateAtToCart.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626160224_AddCreateAtToCart.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626160224_AddCreateAtToCart.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626160224_AddCreateAtToCart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T16:02:25.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 134,
+              "Title": "CartItemProfile.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\CartItemProfile.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\CartItemProfile.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\CartItemProfile.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\CartItemProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T20:02:11.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 135,
+              "Title": "AddCartDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T15:50:04.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 136,
+              "Title": "AddCategoryDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\AddCategoryDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\AddCategoryDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\AddCategoryDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\AddCategoryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:58:41.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 137,
+              "Title": "CartProfile.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\CartProfile.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\CartProfile.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\CartProfile.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\CartProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T15:50:38.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 138,
+              "Title": "20250625221934_addCartAndCartItems.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221934_addCartAndCartItems.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221934_addCartAndCartItems.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221934_addCartAndCartItems.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221934_addCartAndCartItems.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwC8AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T22:19:34.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 57,
+              "Title": "20250625221849_addCartAndCartItems.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221849_addCartAndCartItems.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221849_addCartAndCartItems.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221849_addCartAndCartItems.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221849_addCartAndCartItems.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T22:18:49.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 139,
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T19:49:42.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 140,
+              "Title": "AddProductDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T19:49:29.306Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 141,
+              "Title": "20250625184808_UpdateWeightInProduct.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625184808_UpdateWeightInProduct.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625184808_UpdateWeightInProduct.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625184808_UpdateWeightInProduct.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625184808_UpdateWeightInProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T18:48:08.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 142,
+              "Title": "CategoryWithProductsDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryWithProductsDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryWithProductsDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryWithProductsDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryWithProductsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T19:01:31.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 143,
+              "Title": "20250625182801_AddWeightToProduct.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625182801_AddWeightToProduct.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625182801_AddWeightToProduct.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625182801_AddWeightToProduct.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625182801_AddWeightToProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T18:28:01.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 144,
+              "Title": "IProductServices.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\IProductServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\IProductServices.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\IProductServices.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\IProductServices.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T19:55:14.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 145,
+              "Title": "categoryDto.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\categoryDto.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\categoryDto.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\categoryDto.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\categoryDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T17:00:00.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 146,
+              "Title": "SaveAndDeleteImageService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\SaveAndDeleteImageService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\SaveAndDeleteImageService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\SaveAndDeleteImageService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\SaveAndDeleteImageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T17:03:31.641Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 147,
+              "Title": "ISaveAndDeleteImageService.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\ISaveAndDeleteImageService.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\ISaveAndDeleteImageService.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\ISaveAndDeleteImageService.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\ISaveAndDeleteImageService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T17:03:15.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 148,
+              "Title": "20250624164315_addProductAndCategoriesAndIdentity.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164315_addProductAndCategoriesAndIdentity.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164315_addProductAndCategoriesAndIdentity.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164315_addProductAndCategoriesAndIdentity.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164315_addProductAndCategoriesAndIdentity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:43:16.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 58,
+              "Title": "20250624164152_addProductAndCategoriesAndIdentity.cs",
+              "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164152_addProductAndCategoriesAndIdentity.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164152_addProductAndCategoriesAndIdentity.cs",
+              "ToolTip": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164152_addProductAndCategoriesAndIdentity.cs",
+              "RelativeToolTip": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164152_addProductAndCategoriesAndIdentity.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T16:41:52.316Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
