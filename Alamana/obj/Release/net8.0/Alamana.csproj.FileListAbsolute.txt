@@ -382,3 +382,4 @@ E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Release\net8.0\refint\A
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Release\net8.0\Alamana.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Release\net8.0\Alamana.genruntimeconfig.cache
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Release\net8.0\ref\Alamana.dll
+E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Release\net8.0\Alamana.sourcelink.json

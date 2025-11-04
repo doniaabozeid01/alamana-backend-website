@@ -39,17 +39,13 @@ namespace Alamana.Controllers
             if (user == null) return NotFound(new { message = "User Not Found" });
 
             var cart = await _cartService.GetCartByUserId(userId);
-            if(cart == null)
-            {
-                var cartAdded = await _cartService.AddCart(userId);
-                return cartAdded;
-            }
+            
 
-            return cart;
+            //return cart;
 
-            //return cart == null
-            //    ? BadRequest(new { message = "Failed to create cart." })
-            //    : Ok(cart);
+            return cart == null
+                ? NotFound (new { message = "Cart not found." })
+                : Ok(cart);
 
         }
 

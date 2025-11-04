@@ -12,9 +12,10 @@ namespace Alamana.Service.Product.Dtos
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string Weight { get; set; }
-
         public string Description { get; set; }
-        public IFormFile ImagePathCover { get; set; }
+        //public IFormFile ImagePathCover { get; set; }
+        public List<IFormFile> Gallery { get; set; } = new();  // باقي الصور
+
         public int CategoryId { get; set; }
     }
 }

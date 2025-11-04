@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alamana.Repository")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6927bb4740e6398e9499c8735586412941d1a4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Alamana.Repository")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Alamana.Repository")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

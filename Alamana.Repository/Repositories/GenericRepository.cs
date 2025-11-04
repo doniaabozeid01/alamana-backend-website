@@ -56,6 +56,19 @@ namespace Alamana.Repository.Repositories
         }
 
 
+        public async Task<IReadOnlyList<Products>> GetAllProductsAsync()
+        {
+            return await _context.Set<Products>().Include(x => x.Media).ToListAsync();
+        }
+
+
+        public async Task<IReadOnlyList<Products>> GetRandomProductsAsync()
+        {
+            return await _context.Set<Products>().OrderBy(p => Guid.NewGuid()).Take(5).Include(x => x.Media).ToListAsync();
+        }
+
+
+
         public void Delete(TEntity entity)
         {
             _context.Set<TEntity>().Remove(entity);
@@ -64,7 +77,7 @@ namespace Alamana.Repository.Repositories
 
         public async Task<Categories> GetCategoryByIdAsync(int id)
         {
-            return await _context.Set<Categories>().Include(x => x.Products).FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Set<Categories>().Include(x => x.Products).ThenInclude(c=>c.Media.Where(x=>x.Type == Data.Enums.MediaType.Image)).FirstOrDefaultAsync(x => x.Id == id);
         }
 
 

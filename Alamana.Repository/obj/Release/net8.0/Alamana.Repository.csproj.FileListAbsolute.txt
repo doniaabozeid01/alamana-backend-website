@@ -28,3 +28,4 @@ E:\alhendal-Websites\Alamana-website\backend\Alamana.Repository\obj\Release\net8
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Repository\obj\Release\net8.0\refint\Alamana.Repository.dll
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Repository\obj\Release\net8.0\Alamana.Repository.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Repository\obj\Release\net8.0\ref\Alamana.Repository.dll
+E:\alhendal-Websites\Alamana-website\backend\Alamana.Repository\obj\Release\net8.0\Alamana.Repository.sourcelink.json

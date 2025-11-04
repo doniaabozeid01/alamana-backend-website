@@ -26,3 +26,4 @@ E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Release\net8.0\ref
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Release\net8.0\Alamana.Data.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Release\net8.0\Alamana.Data.genruntimeconfig.cache
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Release\net8.0\ref\Alamana.Data.dll
+E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Release\net8.0\Alamana.Data.sourcelink.json

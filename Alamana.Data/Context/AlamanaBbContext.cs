@@ -86,6 +86,18 @@ namespace Alamana.Data.Context
 
 
 
+            modelBuilder.Entity<ProductMedia>(b =>
+            {
+                b.HasKey(x => x.Id);
+                b.Property(x => x.Url).IsRequired().HasMaxLength(1024);
+                b.HasOne(x => x.Product)
+                 .WithMany(p => p.Media)
+                 .HasForeignKey(x => x.ProductId)
+                 .OnDelete(DeleteBehavior.Cascade);
+
+            });
+
+
 
         }
 
@@ -100,5 +112,6 @@ namespace Alamana.Data.Context
         public DbSet<Order> Order { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Advertisements> Advertisements { get; set; }
+        public DbSet<ProductMedia> ProductMedia { get; set; }
     }
 }

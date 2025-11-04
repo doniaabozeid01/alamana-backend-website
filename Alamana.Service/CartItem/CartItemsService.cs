@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Alamana.Data.Entities;
+using Alamana.Data.Enums;
 using Alamana.Repository.Interfaces;
 using Alamana.Service.CartItem.Dtos;
 using Alamana.Service.OperationResultService;
@@ -64,7 +65,7 @@ namespace Alamana.Service.CartItem
                 productId = dto.productId,
                 Quantity = dto.Quantity,
                 Price = product.Price,
-                ImagePath = product.ImagePathCover,
+                ImagePath = product.Media.FirstOrDefault(x => x.Type == MediaType.Image)?.Url,
                 Name = product.Name,
                 TotalPrice = dto.Quantity * product.Price,
             };

@@ -386,6 +386,32 @@ namespace Alamana.Data.Migrations
                     b.ToTable("PaymentMethods");
                 });
 
+            modelBuilder.Entity("Alamana.Data.Entities.ProductMedia", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("nvarchar(1024)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductMedia");
+                });
+
             modelBuilder.Entity("Alamana.Data.Entities.Products", b =>
                 {
                     b.Property<int>("Id")
@@ -401,13 +427,12 @@ namespace Alamana.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImagePathCover")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("New")
+                        .HasColumnType("bit");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -729,6 +754,17 @@ namespace Alamana.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Alamana.Data.Entities.ProductMedia", b =>
+                {
+                    b.HasOne("Alamana.Data.Entities.Products", "Product")
+                        .WithMany("Media")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Alamana.Data.Entities.Products", b =>
                 {
                     b.HasOne("Alamana.Data.Entities.Categories", "Category")
@@ -829,6 +865,8 @@ namespace Alamana.Data.Migrations
 
             modelBuilder.Entity("Alamana.Data.Entities.Products", b =>
                 {
+                    b.Navigation("Media");
+
                     b.Navigation("OrderItems");
                 });
 

@@ -105,7 +105,7 @@ namespace Alamana.Service.Category
                     Weight = p.Weight,
                     CategoryId = p.CategoryId,
                     Description = p.Description,
-                    ImagePathCover = p.ImagePathCover
+                    GalleryUrls = p.Media.Select(x=>x.Url).ToList()
                 }).ToList()
             };
         }

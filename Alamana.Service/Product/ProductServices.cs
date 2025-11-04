@@ -4,12 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Alamana.Data.Entities;
+using Alamana.Data.Enums;
 using Alamana.Repository.Interfaces;
+using Alamana.Repository.Repositories;
 using Alamana.Service.Category.Dtos;
 using Alamana.Service.Product.Dtos;
 using Alamana.Service.SaveAndDeleteImage;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace Alamana.Service.Product
 {
@@ -32,62 +35,177 @@ namespace Alamana.Service.Product
 
 
 
-        public async Task<ProductDto> AddProduct(AddProductDto productDto, IFormFile image)
-        {
-            var imageUrl = image != null ? await _imageService.UploadToCloudinary(image) : null;
+        //public async Task<ProductDto> AddProduct(AddProductDto productDto, IFormFile image)
+        //{
+        //    var imageUrl = image != null ? await _imageService.UploadToCloudinary(image) : null;
 
+        //    var product = new Products
+        //    {
+        //        Name = productDto.Name,
+        //        Description = productDto.Description,
+        //        CategoryId = productDto.CategoryId,
+        //        Price = productDto.Price,
+        //        Weight = productDto.Weight,
+        //        ImagePathCover = imageUrl
+        //    };
+
+        //    await _unitOfWork.Repository<Products>().AddAsync(product);
+        //    var status = await _unitOfWork.CompleteAsync();
+
+        //    return status == 0 ? null : _mapper.Map<ProductDto>(product);
+        //}
+
+
+
+
+
+
+
+
+        public async Task<ProductDto> AddProduct(AddProductDto productDto)
+        {
+            // 1) إنشاء المنتج (بدون صور)
             var product = new Products
             {
                 Name = productDto.Name,
                 Description = productDto.Description,
                 CategoryId = productDto.CategoryId,
                 Price = productDto.Price,
-                Weight = productDto.Weight,
-                ImagePathCover = imageUrl
+                Weight = productDto.Weight
             };
 
             await _unitOfWork.Repository<Products>().AddAsync(product);
-            var status = await _unitOfWork.CompleteAsync();
+            await _unitOfWork.CompleteAsync(); // للحصول على product.Id
 
-            return status == 0 ? null : _mapper.Map<ProductDto>(product);
-        }
-
-
+            var mediaRepo = _unitOfWork.Repository<ProductMedia>();
+            int sort = 0;
 
 
-
-
-        public async Task<ProductDto> UpdateProduct(int id, AddProductDto productDto, IFormFile newImage)
-        {
-            var product = await _unitOfWork.Repository<Products>().GetByIdAsync(id);
-            if (product == null)
-                return null;
-
-            if (newImage != null)
+            // 3) رفع الجاليري (اختياري)
+            if (productDto.Gallery is not null && productDto.Gallery.Count > 0)
             {
-                // حذف القديمة
-                if (!string.IsNullOrEmpty(product.ImagePathCover))
+                foreach (var file in productDto.Gallery.Where(f => f != null && f.Length > 0))
                 {
-                    var publicId = _imageService.ExtractPublicIdFromUrl(product.ImagePathCover);
-                    _imageService.DeleteFromCloudinary(publicId);
-                }
+                    // (اختياري) تحقق من النوع: image/*
+                    var url = await _imageService.UploadToCloudinary(file);
+                    var media = new ProductMedia
+                    {
+                        ProductId = product.Id,
+                        Type = MediaType.Image,
+                        Url = url,
 
-                product.ImagePathCover = await _imageService.UploadToCloudinary(newImage);
+                    };
+                    await mediaRepo.AddAsync(media);
+                }
             }
 
-            product.Name = productDto.Name;
-            product.Description = productDto.Description;
-            product.CategoryId = productDto.CategoryId;
-            product.Price = productDto.Price;
-            product.Weight = productDto.Weight;
-
-
-            _unitOfWork.Repository<Products>().Update(product);
             var status = await _unitOfWork.CompleteAsync();
+            if (status == 0) return null;
 
-            return status == 0 ? null : _mapper.Map<ProductDto>(product);
+            // 4) ارجعي المنتج مع الوسائط (Load ثم Map)
+            var productWithMedia = await _unitOfWork.Repository<Products>().GetAllProductsAsync();
+
+
+            var dto = new ProductDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                Weight = product.Weight,
+                Description = product.Description,
+                CategoryId = product.CategoryId,
+                // أول صورة فقط
+   
+
+                // باقي الصور (قائمة)
+                GalleryUrls = product.Media
+                        .Where(m => m.Type == MediaType.Image)
+                        .Select(m => m.Url)
+                        .ToList()
+            };
+
+            return dto;
         }
 
+
+
+
+
+
+
+
+
+
+
+
+        public async Task<ProductDto> UpdateProduct(int id, UpdateProductDto dto)
+        {
+            var productRepo = _unitOfWork.Repository<Products>();
+            var mediaRepo = _unitOfWork.Repository<ProductMedia>();
+
+            var product = await productRepo.Query()
+                .Include(p => p.Media)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (product == null) return null;
+
+            // 1) بيانات أساسية
+            product.Name = dto.Name;
+            product.Description = dto.Description;
+            product.CategoryId = dto.CategoryId;
+            product.Price = dto.Price;
+            product.Weight = dto.Weight;
+
+            // helper: آخر ترتيب
+            //int maxSort = product.Media.Any() ? product.Media.Max(m => m.SortOrder) : 0;
+
+            // 2) حذف عناصر مطلوبة
+            if (dto.RemoveMediaIds?.Count > 0)
+            {
+                var toRemove = product.Media.Where(m => dto.RemoveMediaIds.Contains(m.Id)).ToList();
+                foreach (var m in toRemove)
+                {
+                    var publicId = _imageService.ExtractPublicIdFromUrl(m.Url);
+                    if (!string.IsNullOrEmpty(publicId))
+                        _imageService.DeleteFromCloudinary(publicId);
+
+                    mediaRepo.Delete(m);
+                }
+            }
+
+
+
+
+
+            // 5) إضافة جاليري جديد
+            if (dto.NewGallery?.Count > 0)
+            {
+                foreach (var file in dto.NewGallery.Where(f => f != null && f.Length > 0))
+                {
+                    var url = await _imageService.UploadToCloudinary(file);
+                    await mediaRepo.AddAsync(new ProductMedia
+                    {
+                        ProductId = product.Id,
+                        Type = MediaType.Image,
+                        Url = url,
+
+                    });
+                }
+            }
+
+            productRepo.Update(product);
+            var status = await _unitOfWork.CompleteAsync();
+            if (status == 0) return null;
+
+            // رجّعي المنتج مع الوسائط مرتبة
+
+            var products  = _unitOfWork.Repository<Products>();
+            var updated = await products.Query()
+                .Include(p => p.Media)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            return _mapper.Map<ProductDto>(updated);
+        }
 
 
 
@@ -106,10 +224,23 @@ namespace Alamana.Service.Product
 
         public async Task<IReadOnlyList<ProductDto>> GetAllProducts()
         {
-            var products = await _unitOfWork.Repository<Products>().GetAllAsync();
+            var products = await _unitOfWork.Repository<Products>().GetAllProductsAsync();
             var mappedProducts = _mapper.Map<IReadOnlyList<ProductDto>>(products);
             return mappedProducts;
         }
+
+
+
+
+
+        public async Task<IReadOnlyList<ProductDto>> GetRandomProducts()
+        {
+            var products = await _unitOfWork.Repository<Products>().GetRandomProductsAsync();
+            var mappedProducts = _mapper.Map<IReadOnlyList<ProductDto>>(products);
+            return mappedProducts;
+        }
+
+
 
 
 
@@ -125,27 +256,48 @@ namespace Alamana.Service.Product
 
 
 
-        public async Task<int> DeleteProduct(int id)
+
+public async Task<bool> DeleteProduct(int id)
+    {
+        // هات المنتج مع الوسائط
+        var productRepo = _unitOfWork.Repository<Products>();
+        var mediaRepo = _unitOfWork.Repository<ProductMedia>();
+
+        var product = await productRepo.Query()
+            .Include(p => p.Media)
+            .FirstOrDefaultAsync(p => p.Id == id);
+
+        if (product == null) return false;
+
+        // احذف صور Cloudinary أولاً (لو عندك فيديوهات برابط خارجي تجاهلها)
+        foreach (var m in product.Media)
         {
-            var product = await _unitOfWork.Repository<Products>().GetByIdAsync(id);
-            if (product == null)
-                return 0;
-
-            if (!string.IsNullOrEmpty(product.ImagePathCover))
+            if (!string.IsNullOrWhiteSpace(m.Url))
             {
-                var publicId = _imageService.ExtractPublicIdFromUrl(product.ImagePathCover);
-                _imageService.DeleteFromCloudinary(publicId);
+                var publicId = _imageService.ExtractPublicIdFromUrl(m.Url);
+                if (!string.IsNullOrEmpty(publicId))
+                {
+                    try { _imageService.DeleteFromCloudinary(publicId); }
+                    catch { /* ممكن تعملي log وتحبي تكمّلي */ }
+                }
             }
-
-            _unitOfWork.Repository<Products>().Delete(product);
-            return await _unitOfWork.CompleteAsync();
         }
 
+        // لو عندك Cascade من Product -> ProductMedia فمش لازم تحذفي Media يدوي
+        // غير كده احذفيها صراحة:
+        // foreach (var m in product.Media) mediaRepo.Delete(m);
 
+        productRepo.Delete(product);
 
-
-
-
-
+        var status = await _unitOfWork.CompleteAsync();
+        return status > 0;
     }
+
+
+
+
+
+
+
+}
 }

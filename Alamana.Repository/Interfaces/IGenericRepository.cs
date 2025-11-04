@@ -45,10 +45,13 @@ namespace Alamana.Repository.Interfaces
 
 
 
+        Task<IReadOnlyList<Products>> GetAllProductsAsync();
 
+        //IQueryable<BaseEntity> Query();
 
         IQueryable<TEntity> Query(); // 👈 دي ترجع IQueryable من الجدول
 
+        Task<IReadOnlyList<Products>> GetRandomProductsAsync();
 
     }
 }

@@ -13,7 +13,7 @@ namespace Alamana.Service.Product.Dtos
         public decimal Price { get; set; }
         public string Weight { get; set; }
         public string Description { get; set; }
-        public string ImagePathCover { get; set; }
+        public List<string> GalleryUrls { get; set; }
         public int CategoryId { get; set; }
     }
 }

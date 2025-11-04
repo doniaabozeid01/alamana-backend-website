@@ -32,3 +32,4 @@ E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Release\net8.0\
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Release\net8.0\refint\Alamana.Service.dll
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Release\net8.0\Alamana.Service.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Release\net8.0\ref\Alamana.Service.dll
+E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Release\net8.0\Alamana.Service.sourcelink.json

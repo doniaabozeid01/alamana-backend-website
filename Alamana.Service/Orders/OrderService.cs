@@ -113,7 +113,7 @@ namespace Alamana.Service.Orders
                     {
                         ProductName = oi.Product.Name,
                         Quantity = oi.Quantity,
-                        ImageUrl = oi.Product.ImagePathCover,
+                        ImageUrl = oi.Product.Media.FirstOrDefault(x=>x.Type == MediaType.Image).Url ,
                         Price = oi.Product.Price,
                     }).ToList()
                 })

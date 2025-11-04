@@ -11,14 +11,15 @@ namespace Alamana.Service.Product
 {
     public interface IProductServices
     {
-        Task<ProductDto> AddProduct(AddProductDto productDto, IFormFile image);
+        Task<ProductDto> AddProduct(AddProductDto productDto);
 
-        Task<ProductDto> UpdateProduct(int id, AddProductDto productDto, IFormFile newImage);
+        Task<ProductDto> UpdateProduct(int id, UpdateProductDto dto);
 
         Task<ProductDto> GetProductById(int id);
         Task<IReadOnlyList<ProductDto>> GetAllProducts();
+        Task<IReadOnlyList<ProductDto>> GetRandomProducts();
         //Task<int> DeleteCategory(int id);
-        Task<int> DeleteProduct(int id);
+        Task<bool> DeleteProduct(int id);
         //Task<ProductDto> GetCategoryByIdWithInclude(int id);
     }
 }

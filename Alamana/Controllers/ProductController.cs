@@ -21,13 +21,17 @@ namespace Alamana.Controllers
             _productServices = productServices;
         }
 
+
+
+
         [HttpPost("AddProduct")]
-        public async Task<ActionResult<ProductDto>> AddProduct (AddProductDto productDto)
+        [Consumes("multipart/form-data")]
+        public async Task<ActionResult<ProductDto>> AddProduct([FromForm] AddProductDto productDto)
         {
             if (productDto == null)
                 return BadRequest("product shouldn't be empty.");
 
-            var product = await _productServices.AddProduct(productDto, productDto.ImagePathCover);
+            var product = await _productServices.AddProduct(productDto);
 
             return product == null
                 ? BadRequest("Failed to save product.")
@@ -41,25 +45,21 @@ namespace Alamana.Controllers
 
 
 
-        [HttpPut("UpdateProduct/{id}")]
-        public async Task<ActionResult<ProductDto>> UpdateProduct (int id, AddProductDto productDto)
-        {
-            if (id <= 0)
-                return BadRequest("Invalid ID");
 
-            if (productDto == null)
-                return BadRequest("product shouldn't be empty.");
+        [HttpPut("UpdateProduct/{id}")]
+        [Consumes("multipart/form-data")]
+        public async Task<ActionResult<ProductDto>> UpdateProduct(int id, [FromForm] UpdateProductDto productDto)
+        {
+            if (id <= 0) return BadRequest("Invalid ID");
+            if (productDto == null) return BadRequest("product shouldn't be empty.");
 
             var existingProduct = await _productServices.GetProductById(id);
-            if (existingProduct == null)
-                return NotFound("No Product found.");
+            if (existingProduct == null) return NotFound("No Product found.");
 
-            var updatedProduct = await _productServices.UpdateProduct(id, productDto, productDto.ImagePathCover);
-
-            return updatedProduct == null
-                ? BadRequest("Failed to update product.")
-                : Ok(updatedProduct);
+            var updated = await _productServices.UpdateProduct(id, productDto); // ✅ شيل البراميتر الثالث
+            return updated == null ? BadRequest("Failed to update product.") : Ok(updated);
         }
+
 
 
 
@@ -116,23 +116,30 @@ namespace Alamana.Controllers
 
 
 
-        [HttpDelete("DeleteProduct/{id}")]
-        public async Task<ActionResult> DeleteProduct(int id)
+        [HttpGet("GetRandomProducts")]
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetRandomProducts()
         {
-            if (id <= 0)
-                return BadRequest("Invalid Id");
+            var products = await _productServices.GetRandomProducts();
 
-            var existingProducts = await _productServices.GetProductById(id);
-            if (existingProducts == null)
-                return NotFound("No product found.");
+            if (products == null || !products.Any())
+            {
+                return NotFound("No products found.");
+            }
 
-            var result = await _productServices.DeleteProduct(id);
-
-            return result == 0
-                ? NotFound("Failed to delete product.")
-                : Ok("product deleted successfully.");
+            return Ok(products);
         }
 
+
+
+
+        [HttpDelete("DeleteProduct/{id:int}")]
+        public async Task<IActionResult> DeleteProduct(int id)
+        {
+            if (id <= 0) return BadRequest("Invalid Id");
+
+            var ok = await _productServices.DeleteProduct(id);
+            return ok ? NoContent() : NotFound("No product found or failed to delete.");
+        }
 
 
 

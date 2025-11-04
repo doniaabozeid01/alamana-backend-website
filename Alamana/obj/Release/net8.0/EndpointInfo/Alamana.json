@@ -1087,59 +1087,55 @@
         "tags": [
           "Product"
         ],
-        "parameters": [
-          {
-            "name": "Name",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Price",
-            "in": "query",
-            "schema": {
-              "type": "number",
-              "format": "double"
-            }
-          },
-          {
-            "name": "Weight",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Description",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "CategoryId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
         "requestBody": {
           "content": {
             "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "ImagePathCover": {
-                    "type": "string",
-                    "format": "binary"
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Weight": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "Gallery": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  },
+                  "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
                   }
                 }
               },
               "encoding": {
-                "ImagePathCover": {
+                "Name": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "Weight": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Gallery": {
+                  "style": "form"
+                },
+                "CategoryId": {
                   "style": "form"
                 }
               }
@@ -1184,43 +1180,6 @@
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "Name",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Price",
-            "in": "query",
-            "schema": {
-              "type": "number",
-              "format": "double"
-            }
-          },
-          {
-            "name": "Weight",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "Description",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "CategoryId",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
           }
         ],
         "requestBody": {
@@ -1229,14 +1188,59 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "ImagePathCover": {
-                    "type": "string",
-                    "format": "binary"
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  },
+                  "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Price": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Weight": {
+                    "type": "string"
+                  },
+                  "NewGallery": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  },
+                  "RemoveMediaIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
                   }
                 }
               },
               "encoding": {
-                "ImagePathCover": {
+                "Name": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "Weight": {
+                  "style": "form"
+                },
+                "NewGallery": {
+                  "style": "form"
+                },
+                "RemoveMediaIds": {
                   "style": "form"
                 }
               }
@@ -1317,6 +1321,44 @@
       }
     },
     "/api/Product/GetAllProducts": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/GetRandomProducts": {
       "get": {
         "tags": [
           "Product"
@@ -1722,6 +1764,14 @@
         },
         "additionalProperties": false
       },
+      "MediaType": {
+        "enum": [
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "Order": {
         "type": "object",
         "properties": {
@@ -1977,13 +2027,40 @@
             "type": "string",
             "nullable": true
           },
-          "imagePathCover": {
-            "type": "string",
+          "galleryUrls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
             "nullable": true
           },
           "categoryId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProductMedia": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "$ref": "#/components/schemas/MediaType"
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Products"
           }
         },
         "additionalProperties": false
@@ -2011,8 +2088,11 @@
             "type": "string",
             "nullable": true
           },
-          "imagePathCover": {
-            "type": "string",
+          "media": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductMedia"
+            },
             "nullable": true
           },
           "categoryId": {
