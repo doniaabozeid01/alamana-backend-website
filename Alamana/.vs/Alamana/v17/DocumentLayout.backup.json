@@ -44,9 +44,6 @@
       "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\product\\dtos\\productprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251103205950_addProductMediaTable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C099A572-0E2A-48E5-AB65-2C6CD62CD9E6}|..\\Alamana.Service\\Alamana.Service.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.service\\orders\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -500,6 +497,9 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\migrations\\20251030223208_addemailtoorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7AD76E22-7F0B-41EE-974E-921F2F7F7BA9}|..\\Alamana.Data\\Alamana.Data.csproj|e:\\alhendal-websites\\alamana-website\\backend\\alamana.data\\migrations\\20251103205950_addproductmediatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -543,7 +543,7 @@
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251104002718_addNewOptionToProduct.cs",
               "ToolTip": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251104002718_addNewOptionToProduct.cs",
               "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251104002718_addNewOptionToProduct.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-04T00:27:18.519Z",
               "EditorCaption": ""
@@ -558,8 +558,7 @@
               "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251104002653_addNewOptionToProduct.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T00:26:53.246Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-04T00:26:53.246Z"
             },
             {
               "$type": "Document",
@@ -571,8 +570,7 @@
               "RelativeToolTip": "..\\Alamana.Service\\Category\\CategoryServices.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAUwFoAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T20:53:05.801Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T20:53:05.801Z"
             },
             {
               "$type": "Document",
@@ -584,8 +582,7 @@
               "RelativeToolTip": "..\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAtwDUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T00:11:10.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T00:11:10.99Z"
             },
             {
               "$type": "Document",
@@ -597,8 +594,7 @@
               "RelativeToolTip": "..\\Alamana.Repository\\Repositories\\GenericRepository.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAYwEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T00:11:16.956Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T00:11:16.956Z"
             },
             {
               "$type": "Document",
@@ -610,8 +606,7 @@
               "RelativeToolTip": "..\\Alamana.Data\\Entities\\Categories.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T19:16:39.681Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T19:16:39.681Z"
             },
             {
               "$type": "Document",
@@ -623,8 +618,7 @@
               "RelativeToolTip": "..\\Alamana.Service\\Product\\Dtos\\UpdateProductDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T19:39:44.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T19:39:44.359Z"
             },
             {
               "$type": "Document",
@@ -636,8 +630,7 @@
               "RelativeToolTip": "..\\Alamana.Service\\Product\\IProductServices.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAtwBMAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T20:10:09.661Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T20:10:09.661Z"
             },
             {
               "$type": "Document",
@@ -649,8 +642,7 @@
               "RelativeToolTip": "..\\Alamana.Service\\Product\\ProductServices.cs",
               "ViewState": "AgIAANMAAAAAAAAAAAAkwOsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T18:50:27.76Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T18:50:27.76Z"
             },
             {
               "$type": "Document",
@@ -662,8 +654,7 @@
               "RelativeToolTip": "..\\Alamana.Data\\Entities\\Products.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T19:17:12.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T19:17:12.4Z"
             },
             {
               "$type": "Document",
@@ -675,8 +666,7 @@
               "RelativeToolTip": "Controllers\\ProductController.cs",
               "ViewState": "AgIAAGYAAAAAAAAAAAAAwGgAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T20:06:16.672Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T20:06:16.672Z"
             },
             {
               "$type": "Document",
@@ -688,8 +678,7 @@
               "RelativeToolTip": "Controllers\\CategoriesController.cs",
               "ViewState": "AgIAAFwAAAAAAAAAAAAwwG8AAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-24T16:56:07.529Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-24T16:56:07.529Z"
             },
             {
               "$type": "Document",
@@ -701,12 +690,11 @@
               "RelativeToolTip": "..\\Alamana.Service\\Product\\Dtos\\ProductProfile.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAkwBIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T20:18:20.649Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T20:18:20.649Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "OrderService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\OrderService.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Orders\\OrderService.cs",
@@ -714,12 +702,11 @@
               "RelativeToolTip": "..\\Alamana.Service\\Orders\\OrderService.cs",
               "ViewState": "AgIAAGMAAAAAAAAAAAAmwHMAAABmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T21:49:08.725Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T21:49:08.725Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "AlamanaBbContext.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Context\\AlamanaBbContext.cs",
@@ -727,12 +714,11 @@
               "RelativeToolTip": "..\\Alamana.Data\\Context\\AlamanaBbContext.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAuwFsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T19:17:30.671Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T19:17:30.671Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "CartService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\CartService.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Carts\\CartService.cs",
@@ -740,12 +726,11 @@
               "RelativeToolTip": "..\\Alamana.Service\\Carts\\CartService.cs",
               "ViewState": "AgIAAL8AAAAAAAAAAAAuwNAAAABfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T18:46:43.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T18:46:43.864Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 161,
               "Title": "20251103205950_addProductMediaTable.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251103205950_addProductMediaTable.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251103205950_addProductMediaTable.cs",
@@ -753,12 +738,11 @@
               "RelativeToolTip": "..\\Alamana.Data\\Migrations\\20251103205950_addProductMediaTable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T20:59:50.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T20:59:50.663Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "ProductDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
@@ -766,12 +750,11 @@
               "RelativeToolTip": "..\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA8AAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T18:49:56.347Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T18:49:56.347Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "OrderItemResponse.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
@@ -779,12 +762,11 @@
               "RelativeToolTip": "..\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T21:47:49.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-30T21:47:49.721Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "CartItemsService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\CartItem\\CartItemsService.cs",
@@ -792,12 +774,11 @@
               "RelativeToolTip": "..\\Alamana.Service\\CartItem\\CartItemsService.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAuwEMAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-29T23:57:19.45Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-29T23:57:19.45Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "ProductMedia.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\ProductMedia.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\ProductMedia.cs",
@@ -805,12 +786,11 @@
               "RelativeToolTip": "..\\Alamana.Data\\Entities\\ProductMedia.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T19:02:29.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T19:02:29.92Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "AddProductDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
@@ -818,12 +798,11 @@
               "RelativeToolTip": "..\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T19:19:53.654Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T19:19:53.654Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "MediaType.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Enums\\MediaType.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Enums\\MediaType.cs",
@@ -831,12 +810,11 @@
               "RelativeToolTip": "..\\Alamana.Data\\Enums\\MediaType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T19:18:44.042Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T19:18:44.042Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "CartController.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "Controllers\\CartController.cs",
@@ -849,7 +827,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "LocationController.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\LocationController.cs",
               "RelativeDocumentMoniker": "Controllers\\LocationController.cs",
@@ -861,7 +839,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "Order.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Order.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Order.cs",
@@ -873,7 +851,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "CartItemsController.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\CartItemsController.cs",
               "RelativeDocumentMoniker": "Controllers\\CartItemsController.cs",
@@ -885,7 +863,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 38,
               "Title": "OperationResult.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\OperationResultService\\OperationResult.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\OperationResultService\\OperationResult.cs",
@@ -897,7 +875,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "20251030204028_updateOrderRelationsAndLocationNullability.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030204028_updateOrderRelationsAndLocationNullability.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251030204028_updateOrderRelationsAndLocationNullability.cs",
@@ -909,7 +887,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "OrderRequest.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
@@ -921,7 +899,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "OrderResponse.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
@@ -933,7 +911,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "EmailSender.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Email\\EmailSender.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Email\\EmailSender.cs",
@@ -945,7 +923,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 161,
+              "DocumentIndex": 160,
               "Title": "20251030223208_addEmailToOrder.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030223208_addEmailToOrder.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251030223208_addEmailToOrder.cs",
@@ -957,7 +935,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "OrdersController.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\OrdersController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrdersController.cs",
@@ -969,7 +947,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 36,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\OrderItem.cs",
@@ -981,7 +959,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 31,
               "Title": "country.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\country.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\country.cs",
@@ -993,7 +971,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 33,
               "Title": "District.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\District.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\District.cs",
@@ -1005,7 +983,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 32,
               "Title": "Governorate.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Governorate.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Governorate.cs",
@@ -1017,7 +995,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 35,
               "Title": "20251030201839_update-order.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251030201839_update-order.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251030201839_update-order.cs",
@@ -1029,7 +1007,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 34,
               "Title": "city.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\city.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\city.cs",
@@ -1041,7 +1019,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 41,
               "Title": "ICartItemsService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\CartItem\\ICartItemsService.cs",
@@ -1053,7 +1031,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 37,
               "Title": "ICartService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\ICartService.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Carts\\ICartService.cs",
@@ -1065,7 +1043,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 39,
               "Title": "AddCartItemResultDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartItemResultDto.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Carts\\Dtos\\AddCartItemResultDto.cs",
@@ -1077,7 +1055,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 40,
               "Title": "CartSummaryDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Carts\\Dtos\\CartSummaryDto.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Carts\\Dtos\\CartSummaryDto.cs",
@@ -1089,7 +1067,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 42,
               "Title": "AddCartItem.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
@@ -1101,7 +1079,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 44,
               "Title": "AdvertiseService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\AdvertiseService.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\AdvertiseService.cs",
@@ -1113,7 +1091,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 43,
               "Title": "OperationResultNonGeneric.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\OperationResultService\\OperationResultNonGeneric.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\OperationResultService\\OperationResultNonGeneric.cs",
@@ -1125,7 +1103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 51,
               "Title": "AddAdvertise.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AddAdvertise.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\Dtos\\AddAdvertise.cs",
@@ -1137,7 +1115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 47,
               "Title": "AdvertisementsController.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\AdvertisementsController.cs",
               "RelativeDocumentMoniker": "Controllers\\AdvertisementsController.cs",
@@ -1149,7 +1127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 52,
               "Title": "20251029200556_add-advertisment.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029200556_add-advertisment.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251029200556_add-advertisment.cs",
@@ -1161,7 +1139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 46,
               "Title": "Advertisements.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Advertisements.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Advertisements.cs",
@@ -1173,7 +1151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 53,
               "Title": "PaymentMethod.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\PaymentMethod.cs",
@@ -1185,7 +1163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 50,
               "Title": "AdvertiseDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseDto.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseDto.cs",
@@ -1197,7 +1175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 45,
               "Title": "20251029201247_add-advertisment.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029201247_add-advertisment.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251029201247_add-advertisment.cs",
@@ -1209,7 +1187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 49,
               "Title": "AdvertiseProfile.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseProfile.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\Dtos\\AdvertiseProfile.cs",
@@ -1221,7 +1199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 48,
               "Title": "IAdvertiseService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Service\\Advertisment\\IAdvertiseService.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Service\\Advertisment\\IAdvertiseService.cs",
@@ -1233,7 +1211,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 57,
               "Title": "CartItems.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\CartItems.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\CartItems.cs",
@@ -1245,7 +1223,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 56,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -1257,7 +1235,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 55,
               "Title": "AccountController.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
@@ -1269,7 +1247,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 54,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -1281,7 +1259,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 160,
+              "DocumentIndex": 159,
               "Title": "20251029191956_delete-wholesalediscount.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Migrations\\20251029191956_delete-wholesalediscount.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Migrations\\20251029191956_delete-wholesalediscount.cs",
@@ -1293,7 +1271,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 58,
               "Title": "Cart.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\Cart.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\Cart.cs",
@@ -1305,7 +1283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 59,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "..\\Alamana.Data\\Entities\\ApplicationUser.cs",
@@ -1317,7 +1295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 69,
               "Title": "Categories.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Categories.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Categories.cs",
@@ -1329,7 +1307,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 70,
               "Title": "Products.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Products.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Products.cs",
@@ -1341,7 +1319,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 71,
               "Title": "WholesaleDiscount.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\WholesaleDiscount.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\WholesaleDiscount.cs",
@@ -1353,7 +1331,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 60,
               "Title": "CartItemsService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\CartItemsService.cs",
@@ -1364,7 +1342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 61,
               "Title": "PaymentMethodsController.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\PaymentMethodsController.cs",
               "RelativeDocumentMoniker": "Controllers\\PaymentMethodsController.cs",
@@ -1376,7 +1354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 72,
               "Title": "IWholesaleDiscountService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\IWholesaleDiscountService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\IWholesaleDiscountService.cs",
@@ -1388,7 +1366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 73,
               "Title": "WholesaleDiscountService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\WholesaleDiscountService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\WholesaleDiscountService.cs",
@@ -1400,7 +1378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 74,
               "Title": "AddWholesaleDiscountDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\AddWholesaleDiscountDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\AddWholesaleDiscountDto.cs",
@@ -1412,7 +1390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 75,
               "Title": "WholesaleDiscountProfile.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\WholesaleDiscountProfile.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\WholesaleDiscountProfile.cs",
@@ -1424,7 +1402,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 76,
               "Title": "getWholesaleDiscountDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\getWholesaleDiscountDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\WholesaleDiscounts\\Dtos\\getWholesaleDiscountDto.cs",
@@ -1436,7 +1414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 77,
               "Title": "CategoryServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\CategoryServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\CategoryServices.cs",
@@ -1448,7 +1426,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 78,
               "Title": "ProductProfile.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductProfile.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductProfile.cs",
@@ -1460,7 +1438,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 79,
               "Title": "ProductServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\ProductServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\ProductServices.cs",
@@ -1472,7 +1450,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 81,
+              "DocumentIndex": 80,
               "Title": "LocationProfile.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\LocationProfile.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\LocationProfile.cs",
@@ -1484,7 +1462,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
+              "DocumentIndex": 81,
               "Title": "20250907204935_addWholesaleDiscountTable.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204935_addWholesaleDiscountTable.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204935_addWholesaleDiscountTable.cs",
@@ -1496,7 +1474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 62,
               "Title": "20250907204840_addWholesaleDiscountTable.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204840_addWholesaleDiscountTable.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250907204840_addWholesaleDiscountTable.cs",
@@ -1508,7 +1486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 82,
               "Title": "LocationServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\LocationServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\LocationServices.cs",
@@ -1520,7 +1498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 83,
               "Title": "CustomerType.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Enums\\CustomerType.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Enums\\CustomerType.cs",
@@ -1532,7 +1510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 84,
               "Title": "AlamanaBbContext.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Context\\AlamanaBbContext.cs",
@@ -1544,7 +1522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 85,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\ApplicationUser.cs",
@@ -1556,7 +1534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 86,
               "Title": "ContactUsServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\ContactUsServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\ContactUsServices.cs",
@@ -1568,7 +1546,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 63,
               "Title": "ContactUsController.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Controllers\\ContactUsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ContactUsController.cs",
@@ -1580,7 +1558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
+              "DocumentIndex": 87,
               "Title": "IJwtTokenService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\IJwtTokenService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\IJwtTokenService.cs",
@@ -1592,7 +1570,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 88,
               "Title": "OrderService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\OrderService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\OrderService.cs",
@@ -1604,7 +1582,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 90,
+              "DocumentIndex": 89,
               "Title": "loginDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\loginDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\loginDto.cs",
@@ -1616,7 +1594,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 90,
               "Title": "Alamana.Service.csproj",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Alamana.Service.csproj",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Alamana.Service.csproj",
@@ -1628,7 +1606,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 91,
               "Title": "ContactUsDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\Dtos\\ContactUsDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\Dtos\\ContactUsDto.cs",
@@ -1640,7 +1618,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 92,
               "Title": "IContactUsServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\ContactUs\\IContactUsServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\ContactUs\\IContactUsServices.cs",
@@ -1652,7 +1630,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 93,
               "Title": "IEmailSender.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Email\\IEmailSender.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Email\\IEmailSender.cs",
@@ -1664,7 +1642,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 94,
               "Title": "EmailSender.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Email\\EmailSender.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Email\\EmailSender.cs",
@@ -1676,7 +1654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 95,
               "Title": "JwtTokenService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\JwtTokenService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\JwtTokenService.cs",
@@ -1688,7 +1666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 96,
               "Title": "ResetPasswordDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ResetPasswordDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ResetPasswordDto.cs",
@@ -1700,7 +1678,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 97,
               "Title": "registerDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\registerDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\registerDto.cs",
@@ -1712,7 +1690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 98,
               "Title": "ForgotPasswordDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ForgotPasswordDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ForgotPasswordDto.cs",
@@ -1724,7 +1702,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 99,
               "Title": "ChangePasswordDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ChangePasswordDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Authentication\\Dtos\\ChangePasswordDto.cs",
@@ -1736,7 +1714,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 100,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Repositories\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Repositories\\UnitOfWork.cs",
@@ -1748,7 +1726,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 101,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Repositories\\GenericRepository.cs",
@@ -1760,7 +1738,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 102,
               "Title": "IUnitOfWork.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IUnitOfWork.cs",
@@ -1772,7 +1750,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 103,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Repository\\Interfaces\\IGenericRepository.cs",
@@ -1784,7 +1762,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 64,
               "Title": "Alamana.csproj",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana-website\\backend\\Alamana\\Alamana.csproj",
               "RelativeDocumentMoniker": "Alamana.csproj",
@@ -1796,7 +1774,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 104,
               "Title": "Alamana.Data.csproj",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Alamana.Data.csproj",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Alamana.Data.csproj",
@@ -1808,7 +1786,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 105,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\BaseEntity.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\BaseEntity.cs",
@@ -1820,7 +1798,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 107,
+              "DocumentIndex": 106,
               "Title": "OrderResponse.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderResponse.cs",
@@ -1832,7 +1810,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 108,
+              "DocumentIndex": 107,
               "Title": "OrderItemResponse.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemResponse.cs",
@@ -1844,7 +1822,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 109,
+              "DocumentIndex": 108,
               "Title": "ILocationServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\ILocationServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\ILocationServices.cs",
@@ -1856,7 +1834,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 110,
+              "DocumentIndex": 109,
               "Title": "PaymentMethodsServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\PaymentMethodsServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\PaymentMethodsServices.cs",
@@ -1868,7 +1846,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 111,
+              "DocumentIndex": 110,
               "Title": "OrderRequest.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderRequest.cs",
@@ -1880,7 +1858,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 112,
+              "DocumentIndex": 111,
               "Title": "IPaymentMethodsServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\IPaymentMethodsServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\IPaymentMethodsServices.cs",
@@ -1892,7 +1870,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 113,
+              "DocumentIndex": 112,
               "Title": "GetPaymentMethodsDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\GetPaymentMethodsDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\GetPaymentMethodsDto.cs",
@@ -1904,7 +1882,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 114,
+              "DocumentIndex": 113,
               "Title": "paymentMethodsProfile.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\paymentMethodsProfile.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Payment\\Dtos\\paymentMethodsProfile.cs",
@@ -1916,7 +1894,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 115,
+              "DocumentIndex": 114,
               "Title": "GetCityDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCityDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCityDto.cs",
@@ -1928,7 +1906,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 116,
+              "DocumentIndex": 115,
               "Title": "PaymentMethod.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\PaymentMethod.cs",
@@ -1940,7 +1918,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 117,
+              "DocumentIndex": 116,
               "Title": "ICategoryServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\ICategoryServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\ICategoryServices.cs",
@@ -1952,7 +1930,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 118,
+              "DocumentIndex": 117,
               "Title": "CategoryProfile.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryProfile.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryProfile.cs",
@@ -1964,7 +1942,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 119,
+              "DocumentIndex": 118,
               "Title": "GetCountryDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCountryDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetCountryDto.cs",
@@ -1976,7 +1954,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 120,
+              "DocumentIndex": 119,
               "Title": "GetDestrictDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetDestrictDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetDestrictDto.cs",
@@ -1988,7 +1966,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 121,
+              "DocumentIndex": 120,
               "Title": "GetGovernorateDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetGovernorateDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Location\\Dtos\\GetGovernorateDto.cs",
@@ -2000,7 +1978,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 122,
+              "DocumentIndex": 121,
               "Title": "city.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\city.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\city.cs",
@@ -2012,7 +1990,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 123,
+              "DocumentIndex": 122,
               "Title": "Order.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Order.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Order.cs",
@@ -2024,7 +2002,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 124,
+              "DocumentIndex": 123,
               "Title": "country.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\country.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\country.cs",
@@ -2036,7 +2014,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 125,
+              "DocumentIndex": 124,
               "Title": "District.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\District.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\District.cs",
@@ -2048,7 +2026,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 126,
+              "DocumentIndex": 125,
               "Title": "Governorate.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Governorate.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Governorate.cs",
@@ -2060,7 +2038,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 127,
+              "DocumentIndex": 126,
               "Title": "OrderItemRequest.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemRequest.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\Dtos\\OrderItemRequest.cs",
@@ -2072,7 +2050,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 128,
+              "DocumentIndex": 127,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Orders\\IOrderService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Orders\\IOrderService.cs",
@@ -2084,7 +2062,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 129,
+              "DocumentIndex": 128,
               "Title": "20250629164543_addUserIdToOrderTable.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250629164543_addUserIdToOrderTable.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250629164543_addUserIdToOrderTable.cs",
@@ -2096,7 +2074,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 130,
+              "DocumentIndex": 129,
               "Title": "20250628222511_addOrderAndPaymentMethodTables.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628222511_addOrderAndPaymentMethodTables.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628222511_addOrderAndPaymentMethodTables.cs",
@@ -2108,7 +2086,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 131,
+              "DocumentIndex": 130,
               "Title": "OrderItem.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\OrderItem.cs",
@@ -2120,7 +2098,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 132,
+              "DocumentIndex": 131,
               "Title": "20250628223342_addOrderItems.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628223342_addOrderItems.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628223342_addOrderItems.cs",
@@ -2132,7 +2110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 133,
+              "DocumentIndex": 132,
               "Title": "OrderStatus.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Enums\\OrderStatus.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Enums\\OrderStatus.cs",
@@ -2144,7 +2122,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 134,
+              "DocumentIndex": 133,
               "Title": "20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215423_addCountryAndGovernomentAndCityAndDistrictTables.cs",
@@ -2156,7 +2134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 135,
+              "DocumentIndex": 134,
               "Title": "Cart.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\Cart.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\Cart.cs",
@@ -2168,7 +2146,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 136,
+              "DocumentIndex": 135,
               "Title": "CartItems.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Entities\\CartItems.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Entities\\CartItems.cs",
@@ -2180,7 +2158,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 65,
               "Title": "20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215131_addCountryAndGovernomentAndCityAndDistrictTables.cs",
@@ -2192,7 +2170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
+              "DocumentIndex": 66,
               "Title": "20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250628215018_addCountryAndGovernomentAndCityAndDistrictTables.cs",
@@ -2204,7 +2182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 137,
+              "DocumentIndex": 136,
               "Title": "GetCartItem.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\GetCartItem.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\GetCartItem.cs",
@@ -2216,7 +2194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 138,
+              "DocumentIndex": 137,
               "Title": "GetCartDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\GetCartDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\GetCartDto.cs",
@@ -2228,7 +2206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 139,
+              "DocumentIndex": 138,
               "Title": "ICartItemsService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\ICartItemsService.cs",
@@ -2240,7 +2218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 140,
+              "DocumentIndex": 139,
               "Title": "CartService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\CartService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\CartService.cs",
@@ -2252,7 +2230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 141,
+              "DocumentIndex": 140,
               "Title": "ICartService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\ICartService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\ICartService.cs",
@@ -2264,7 +2242,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 142,
+              "DocumentIndex": 141,
               "Title": "AddCartItem.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\AddCartItem.cs",
@@ -2276,7 +2254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 143,
+              "DocumentIndex": 142,
               "Title": "20250626200925_addProductIdToCartItem.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626200925_addProductIdToCartItem.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626200925_addProductIdToCartItem.cs",
@@ -2288,7 +2266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 144,
+              "DocumentIndex": 143,
               "Title": "20250626160224_AddCreateAtToCart.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626160224_AddCreateAtToCart.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250626160224_AddCreateAtToCart.cs",
@@ -2300,7 +2278,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 145,
+              "DocumentIndex": 144,
               "Title": "CartItemProfile.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\CartItemProfile.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\CartItem\\Dtos\\CartItemProfile.cs",
@@ -2312,7 +2290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 146,
+              "DocumentIndex": 145,
               "Title": "AddCartDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\AddCartDto.cs",
@@ -2324,7 +2302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 147,
+              "DocumentIndex": 146,
               "Title": "AddCategoryDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\AddCategoryDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\AddCategoryDto.cs",
@@ -2336,7 +2314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 148,
+              "DocumentIndex": 147,
               "Title": "CartProfile.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\CartProfile.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Carts\\Dtos\\CartProfile.cs",
@@ -2348,7 +2326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 149,
+              "DocumentIndex": 148,
               "Title": "20250625221934_addCartAndCartItems.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221934_addCartAndCartItems.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221934_addCartAndCartItems.cs",
@@ -2360,7 +2338,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 68,
+              "DocumentIndex": 67,
               "Title": "20250625221849_addCartAndCartItems.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221849_addCartAndCartItems.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625221849_addCartAndCartItems.cs",
@@ -2372,7 +2350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 150,
+              "DocumentIndex": 149,
               "Title": "ProductDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\ProductDto.cs",
@@ -2384,7 +2362,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 151,
+              "DocumentIndex": 150,
               "Title": "AddProductDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\Dtos\\AddProductDto.cs",
@@ -2396,7 +2374,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 152,
+              "DocumentIndex": 151,
               "Title": "20250625184808_UpdateWeightInProduct.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625184808_UpdateWeightInProduct.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625184808_UpdateWeightInProduct.cs",
@@ -2408,7 +2386,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 153,
+              "DocumentIndex": 152,
               "Title": "CategoryWithProductsDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryWithProductsDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\CategoryWithProductsDto.cs",
@@ -2420,7 +2398,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 154,
+              "DocumentIndex": 153,
               "Title": "20250625182801_AddWeightToProduct.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625182801_AddWeightToProduct.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250625182801_AddWeightToProduct.cs",
@@ -2432,7 +2410,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 155,
+              "DocumentIndex": 154,
               "Title": "IProductServices.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Product\\IProductServices.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Product\\IProductServices.cs",
@@ -2444,7 +2422,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 156,
+              "DocumentIndex": 155,
               "Title": "categoryDto.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\categoryDto.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\Category\\Dtos\\categoryDto.cs",
@@ -2456,7 +2434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 157,
+              "DocumentIndex": 156,
               "Title": "SaveAndDeleteImageService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\SaveAndDeleteImageService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\SaveAndDeleteImageService.cs",
@@ -2468,7 +2446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 158,
+              "DocumentIndex": 157,
               "Title": "ISaveAndDeleteImageService.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\ISaveAndDeleteImageService.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Service\\SaveAndDeleteImage\\ISaveAndDeleteImageService.cs",
@@ -2480,7 +2458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 159,
+              "DocumentIndex": 158,
               "Title": "20250624164315_addProductAndCategoriesAndIdentity.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164315_addProductAndCategoriesAndIdentity.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164315_addProductAndCategoriesAndIdentity.cs",
@@ -2492,7 +2470,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 68,
               "Title": "20250624164152_addProductAndCategoriesAndIdentity.cs",
               "DocumentMoniker": "E:\\alhendal-Websites\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164152_addProductAndCategoriesAndIdentity.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\Alamana\\backend\\Alamana.Data\\Migrations\\20250624164152_addProductAndCategoriesAndIdentity.cs",

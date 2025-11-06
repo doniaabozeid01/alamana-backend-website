@@ -2088,6 +2088,9 @@
             "type": "string",
             "nullable": true
           },
+          "new": {
+            "type": "boolean"
+          },
           "media": {
             "type": "array",
             "items": {
