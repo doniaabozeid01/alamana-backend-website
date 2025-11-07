@@ -12,7 +12,7 @@ using Alamana.Service.OperationResultService;
 
 namespace Alamana.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class CartItemsController : ControllerBase
     {

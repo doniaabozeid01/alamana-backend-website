@@ -26,7 +26,9 @@ namespace Alamana.Data.Context
             //modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(x => new { x.LoginProvider, x.ProviderKey });
             //modelBuilder.Entity<IdentityUserRole<string>>().HasKey(x => new { x.UserId, x.RoleId });
             //modelBuilder.Entity<IdentityUserToken<string>>().HasKey(x => new { x.UserId, x.LoginProvider, x.Name });
-
+            modelBuilder.Entity<FavouriteProducts>()
+                .HasIndex(f => new { f.ProductId, f.UserId })
+                .IsUnique();
 
             // هيراركي العناوين (لو حابّة تسيبيها Cascade)
             modelBuilder.Entity<Governorate>()
@@ -113,5 +115,6 @@ namespace Alamana.Data.Context
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Advertisements> Advertisements { get; set; }
         public DbSet<ProductMedia> ProductMedia { get; set; }
+        public DbSet<FavouriteProducts> FavouriteProducts { get; set; }
     }
 }

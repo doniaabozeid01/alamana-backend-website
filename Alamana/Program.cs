@@ -3,6 +3,8 @@ using Alamana.Data.Context;
 using Alamana.Data.Entities;
 using Alamana.Repository.Interfaces;
 using Alamana.Repository.Repositories;
+using Alamana.Service.Advertisment;
+using Alamana.Service.Advertisment.Dtos;
 using Alamana.Service.Authentication;
 using Alamana.Service.CartItem;
 using Alamana.Service.CartItem.Dtos;
@@ -18,6 +20,8 @@ using Alamana.Service.Orders;
 using Alamana.Service.Payment;
 using Alamana.Service.Payment.Dtos;
 using Alamana.Service.Product;
+using Alamana.Service.ProductFavourite;
+using Alamana.Service.ProductFavourite.Dtos;
 using Alamana.Service.SaveAndDeleteImage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -80,6 +84,8 @@ builder.Services.AddScoped<ICartItemsService, CartItemsService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ISaveAndDeleteImageService, SaveAndDeleteImageService>();
 builder.Services.AddScoped<ILocationServices, LocationServices>();
+builder.Services.AddScoped<IAdvertiseService, AdvertiseService>();
+builder.Services.AddScoped<IFavouriteServices, FavouriteServices>();
 builder.Services.AddScoped<IPaymentMethodsServices, PaymentMethodsServices>();
 builder.Services.AddScoped<IContactUsServices, ContactUsServices>();
 
@@ -95,23 +101,14 @@ builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 builder.Services.AddAutoMapper(typeof(CategoryProfile));
 builder.Services.AddAutoMapper(typeof(ProductServices));
 builder.Services.AddAutoMapper(typeof(CartProfile));
 builder.Services.AddAutoMapper(typeof(CartItemProfile));
 builder.Services.AddAutoMapper(typeof(LocationProfile));
 builder.Services.AddAutoMapper(typeof(paymentMethodsProfile));
+builder.Services.AddAutoMapper(typeof(AdvertiseProfile));
+builder.Services.AddAutoMapper(typeof(FavouriteProfile));
 
 
 

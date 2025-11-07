@@ -133,5 +133,43 @@ namespace Alamana.Repository.Repositories
         {
             return _context.Set<TEntity>().AsQueryable();
         }
+
+
+
+
+
+
+
+        public async Task<FavouriteProducts> GetProductFavouriteByProductIdAndUserId(int productId, string userId)
+        {
+            return await _context.Set<FavouriteProducts>().Include(x=>x.Product).Include(x=>x.User).FirstOrDefaultAsync(x => x.ProductId == productId && x.UserId == userId);
+        }
+
+
+
+
+
+        public async Task<IReadOnlyList<FavouriteProducts>> GetProductFavouriteByUserId(string userId)
+        {
+            return await _context.Set<FavouriteProducts>()
+                .AsNoTracking()
+                .Where(f => f.UserId == userId)
+                // ⬅️ هنا الفلترة على التجميعة BranchStocks
+                .Include(f => f.Product).ThenInclude(p => p.Media)
+                // (اختياري) لو EF Core 5+: Include مُفلتر لصف مخزون الفرع فقط
+                .ToListAsync();
+        }
+
+
+
+
+        public async Task<FavouriteProducts> GetProductFavourite(int productId, string userId)
+        {
+            return await _context.Set<FavouriteProducts>().Where(x => x.UserId == userId && x.ProductId == productId ).FirstOrDefaultAsync();
+        }
+
+
+
+
     }
 }

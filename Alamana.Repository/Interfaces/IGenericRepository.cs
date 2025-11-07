@@ -53,5 +53,13 @@ namespace Alamana.Repository.Interfaces
 
         Task<IReadOnlyList<Products>> GetRandomProductsAsync();
 
+
+        Task<FavouriteProducts> GetProductFavourite(int productId, string userId);
+
+        Task<IReadOnlyList<FavouriteProducts>> GetProductFavouriteByUserId(string userId);
+
+        Task<FavouriteProducts> GetProductFavouriteByProductIdAndUserId(int productId, string userId);
+
+
     }
 }

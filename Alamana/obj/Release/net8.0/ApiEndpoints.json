@@ -128,7 +128,7 @@
   {
     "ContainingType": "Alamana.Controllers.AdvertisementsController",
     "Method": "AddAdvertisement",
-    "RelativePath": "api/Advertisements/admin/Advertisements/AddAdvertisement",
+    "RelativePath": "api/admin/Advertisements/AddAdvertisement",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -154,7 +154,7 @@
   {
     "ContainingType": "Alamana.Controllers.AdvertisementsController",
     "Method": "DeleteAdvertisement",
-    "RelativePath": "api/Advertisements/admin/Advertisements/DeleteAdvertisement/{id}",
+    "RelativePath": "api/admin/Advertisements/DeleteAdvertisement/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -170,7 +170,7 @@
   {
     "ContainingType": "Alamana.Controllers.AdvertisementsController",
     "Method": "UpdateAdvertisement",
-    "RelativePath": "api/Advertisements/admin/Advertisements/UpdateAdvertisement/{id}",
+    "RelativePath": "api/admin/Advertisements/UpdateAdvertisement/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -201,7 +201,7 @@
   {
     "ContainingType": "Alamana.Controllers.AdvertisementsController",
     "Method": "GetAdvertisementById",
-    "RelativePath": "api/Advertisements/Advertisements/GetAdvertisementById/{id}",
+    "RelativePath": "api/Advertisements/GetAdvertisementById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -227,7 +227,7 @@
   {
     "ContainingType": "Alamana.Controllers.AdvertisementsController",
     "Method": "GetAllAdvertisements",
-    "RelativePath": "api/Advertisements/Advertisements/GetAllAdvertisements",
+    "RelativePath": "api/Advertisements/GetAllAdvertisements",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -299,7 +299,7 @@
   {
     "ContainingType": "Alamana.Controllers.CartItemsController",
     "Method": "AddCartItem",
-    "RelativePath": "api/CartItems/CartItems/AddCartItem",
+    "RelativePath": "api/CartItems/AddCartItem",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -315,7 +315,7 @@
   {
     "ContainingType": "Alamana.Controllers.CartItemsController",
     "Method": "ClearCart",
-    "RelativePath": "api/CartItems/CartItems/ClearCart/{cartId}",
+    "RelativePath": "api/CartItems/ClearCart/{cartId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -331,7 +331,7 @@
   {
     "ContainingType": "Alamana.Controllers.CartItemsController",
     "Method": "DeleteCartItem",
-    "RelativePath": "api/CartItems/CartItems/DeleteCartItem/{id}",
+    "RelativePath": "api/CartItems/DeleteCartItem/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -523,6 +523,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.DiagnosticsController",
+    "Method": "Ping",
+    "RelativePath": "api/Diagnostics/ping",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -840,6 +850,110 @@
     "ReturnTypes": [
       {
         "Type": "Alamana.Service.Product.Dtos.ProductDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductFavouriteController",
+    "Method": "AddProductFavourite",
+    "RelativePath": "api/ProductFavourite/AddProductFavourite",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "favouriteDto",
+        "Type": "Alamana.Service.ProductFavourite.Dtos.AddFavouriteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductFavouriteController",
+    "Method": "DeleteProductFromFavourite",
+    "RelativePath": "api/ProductFavourite/DeleteProductFromFavourite",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.ProductFavourite.Dtos.FavouriteDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductFavouriteController",
+    "Method": "GetProductFavouriteByUserId",
+    "RelativePath": "api/ProductFavourite/GetProductFavouriteByUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.ProductFavourite.Dtos.FavouriteDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductFavouriteController",
+    "Method": "GetProductFavouriteByUserIdAndProductId",
+    "RelativePath": "api/ProductFavourite/GetProductFavouriteByUserIdAndProductId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.ProductFavourite.Dtos.FavouriteDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

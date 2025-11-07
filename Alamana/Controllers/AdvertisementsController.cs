@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Alamana.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class AdvertisementsController : ControllerBase
     {
