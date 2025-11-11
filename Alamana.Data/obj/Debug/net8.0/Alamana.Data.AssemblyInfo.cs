@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alamana.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5253d64c613d146bf15f5fd920b2186837c8762")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c0862ca3cd71af5654bc5aec5901067590fd326")]
 [assembly: System.Reflection.AssemblyProductAttribute("Alamana.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Alamana.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

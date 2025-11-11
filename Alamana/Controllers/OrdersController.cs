@@ -66,7 +66,7 @@ namespace Alamana.Controllers
                 var subject = "New Order from " + request.FullName;
 
                 await _emailSender.SendEmailAsync(
-                    toEmail: request.Email,
+                    toEmail: request.Email??user.Email,
                     subject: subject,
                     body: emailBody
                 );

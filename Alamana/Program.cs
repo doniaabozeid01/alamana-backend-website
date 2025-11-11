@@ -141,20 +141,37 @@ builder.Services.AddSwaggerGen();
 
 
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll", builder =>
+//        builder.AllowAnyOrigin() // ?????? ??? ????
+//               .AllowAnyHeader() // ?????? ??? ??????
+//               .AllowAnyMethod()); // ?????? ??? ????? HTTP
+//});
+
+
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", builder =>
-        builder.AllowAnyOrigin() // ?????? ??? ????
-               .AllowAnyHeader() // ?????? ??? ??????
-               .AllowAnyMethod()); // ?????? ??? ????? HTTP
+    options.AddPolicy("AllowAlamanaOrigins", policy =>
+        policy.WithOrigins(
+                "http://localhost:4200",
+                "https://alamanamarket.com",
+                "https://www.alamanamarket.com"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials());
+
 });
+
 
 
 
 var app = builder.Build();
 
 
-app.UseCors("AllowAll");
+app.UseCors("AllowAlamanaOrigins");
 
 
 

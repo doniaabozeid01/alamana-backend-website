@@ -72,7 +72,8 @@ namespace Alamana.Service.Product
                 CategoryId = productDto.CategoryId,
                 Price = productDto.Price,
                 New = productDto.New,
-                Weight = productDto.Weight
+                Weight = productDto.Weight,
+                Discount = productDto.Discount,
             };
 
             await _unitOfWork.Repository<Products>().AddAsync(product);
@@ -119,6 +120,9 @@ namespace Alamana.Service.Product
                 Price = product.Price,
                 Weight = product.Weight,
                 Description = product.Description,
+                Discount = product.Discount,
+                priceAfterDiscount = priceAfterDiscount(product.Price, product.Discount),
+
                 category = new productCategoryDto
                 {
                     Id = product.Category.Id,
@@ -201,6 +205,7 @@ namespace Alamana.Service.Product
             product.Price = dto.Price;
             product.Weight = dto.Weight;
             product.New = dto.New;
+            product.Discount = dto.Discount;
 
             // helper: آخر ترتيب
             //int maxSort = product.Media.Any() ? product.Media.Max(m => m.SortOrder) : 0;
@@ -278,7 +283,9 @@ namespace Alamana.Service.Product
                 Price = p.Price,
                 Weight = p.Weight,
                 Description = p.Description,
+                Discount = p.Discount,
                 New = p.New,
+                priceAfterDiscount = priceAfterDiscount(p.Price, p.Discount),
 
                 category = p.Category == null ? null : new productCategoryDto
                 {
@@ -316,8 +323,9 @@ namespace Alamana.Service.Product
                 Price = p.Price,
                 Weight = p.Weight,
                 Description = p.Description,
+                Discount= p.Discount,
                 New = p.New,
-
+                priceAfterDiscount = priceAfterDiscount(p.Price, p.Discount),
                 category = p.Category == null ? null : new productCategoryDto
                 {
                     Id = p.Category.Id,
@@ -355,7 +363,8 @@ namespace Alamana.Service.Product
                 Weight = p.Weight,
                 Description = p.Description,
                 New = p.New,
-
+                Discount = p.Discount,
+                priceAfterDiscount = priceAfterDiscount(p.Price, p.Discount),
                 category = p.Category == null ? null : new productCategoryDto
                 {
                     Id = p.Category.Id,
@@ -391,7 +400,8 @@ namespace Alamana.Service.Product
                 Weight = product.Weight,
                 Description = product.Description,
                 New = product.New,
-
+                Discount = product.Discount,
+                priceAfterDiscount = priceAfterDiscount(product.Price, product.Discount),
                 category = product.Category == null ? null : new productCategoryDto
                 {
                     Id = product.Category.Id,
@@ -455,7 +465,13 @@ public async Task<bool> DeleteProduct(int id)
 
 
 
+        private decimal priceAfterDiscount(decimal price, decimal discount)
+        {
+            var result = 0m;
+            result = price - (price * (discount / 100m));
+            return result;
 
+        }
 
 
 }

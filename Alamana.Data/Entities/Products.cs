@@ -11,6 +11,7 @@ namespace Alamana.Data.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
+        public decimal Discount { get; set; }
         public string Weight { get; set; }
         public string Description { get; set; }
         public bool New { get; set; } = false;

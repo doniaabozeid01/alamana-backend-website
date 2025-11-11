@@ -32,7 +32,7 @@ namespace Alamana.Data.Entities
         public int PaymentMethodId { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public decimal TotalAmount { get; set; }
-        public OrderStatus Status { get; set; }
+        //public OrderStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
 

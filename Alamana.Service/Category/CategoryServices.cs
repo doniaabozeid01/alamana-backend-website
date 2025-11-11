@@ -104,6 +104,7 @@ namespace Alamana.Service.Category
                     Price = p.Price,
                     Weight = p.Weight,
                     Description = p.Description,
+                    priceAfterDiscount = p.Price - (p.Price * (p.Discount / 100 )),
                     GalleryUrls = p.Media.Select(m => new mediaDto
                     {
                         Url = m.Url,

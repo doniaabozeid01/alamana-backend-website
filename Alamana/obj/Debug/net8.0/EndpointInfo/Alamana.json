@@ -1229,6 +1229,10 @@
                   "New": {
                     "type": "boolean"
                   },
+                  "Discount": {
+                    "type": "number",
+                    "format": "double"
+                  },
                   "Gallery": {
                     "type": "array",
                     "items": {
@@ -1256,6 +1260,9 @@
                   "style": "form"
                 },
                 "New": {
+                  "style": "form"
+                },
+                "Discount": {
                   "style": "form"
                 },
                 "Gallery": {
@@ -1331,6 +1338,10 @@
                   "Weight": {
                     "type": "string"
                   },
+                  "Discount": {
+                    "type": "number",
+                    "format": "double"
+                  },
                   "New": {
                     "type": "boolean"
                   },
@@ -1364,6 +1375,9 @@
                   "style": "form"
                 },
                 "Weight": {
+                  "style": "form"
+                },
+                "Discount": {
                   "style": "form"
                 },
                 "New": {
@@ -2275,9 +2289,6 @@
             "type": "number",
             "format": "double"
           },
-          "status": {
-            "$ref": "#/components/schemas/OrderStatus"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -2390,16 +2401,6 @@
         },
         "additionalProperties": false
       },
-      "OrderStatus": {
-        "enum": [
-          "Pending",
-          "Confirmed",
-          "Shipped",
-          "Delivered",
-          "Canceled"
-        ],
-        "type": "string"
-      },
       "PaymentMethod": {
         "type": "object",
         "properties": {
@@ -2438,6 +2439,14 @@
           },
           "new": {
             "type": "boolean"
+          },
+          "discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "priceAfterDiscount": {
+            "type": "number",
+            "format": "double"
           },
           "weight": {
             "type": "string",
@@ -2496,6 +2505,10 @@
             "nullable": true
           },
           "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "discount": {
             "type": "number",
             "format": "double"
           },

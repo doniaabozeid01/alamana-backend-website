@@ -26,6 +26,7 @@ namespace Alamana.Service.Orders
             var cart = await _context.Cart
                 .Include(c => c.cartItems)
                 .ThenInclude(ci => ci.product)
+                .Include(x=>x.user)
                 .FirstOrDefaultAsync(c => c.userId == request.UserId);
 
             if (cart == null || cart.cartItems == null || !cart.cartItems.Any())
@@ -52,7 +53,7 @@ namespace Alamana.Service.Orders
             {
                 userId = request.UserId, // ✅ تخزين UserId
                 FullName = request.FullName,
-                Email = request.Email,
+                Email = request.Email ?? cart.user.Email,
                 Phone = request.Phone,
                 CountryId = request.CountryId,
                 GovernorateId = request.GovernorateId,
@@ -65,7 +66,7 @@ namespace Alamana.Service.Orders
                 Landmark = request.Landmark,
                 PaymentMethodId = request.PaymentMethodId,
                 TotalAmount = total,
-                Status = OrderStatus.Pending,
+                //Status = OrderStatus.Pending,
                 CreatedAt = DateTime.UtcNow,
                 OrderItems = orderItems
             };
@@ -107,7 +108,7 @@ namespace Alamana.Service.Orders
                 {
                     OrderId = o.Id,
                     TotalAmount = o.TotalAmount,
-                    Status = o.Status.ToString(),
+                    //Status = o.Status.ToString(),
                     CreatedAt = o.CreatedAt,
                     Items = o.OrderItems.Select(oi => new OrderItemResponse
                     {

@@ -14,6 +14,8 @@ namespace Alamana.Service.Product.Dtos
         public string Weight { get; set; }
         public string Description { get; set; }
         public bool New { get; set; }
+        public decimal Discount { get; set; }
+
         //public IFormFile ImagePathCover { get; set; }
         public List<IFormFile> Gallery { get; set; } = new();  
 

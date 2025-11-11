@@ -10,7 +10,7 @@ namespace Alamana.Service.Orders.Dtos
     {
         public string UserId { get; set; } // ✅ إضافة UserId
         public string FullName { get; set; }
-        public string Email { get; set; }
+        public string? Email { get; set; }
         public string Phone { get; set; }
         public int CountryId { get; set; }
         public int GovernorateId { get; set; }
