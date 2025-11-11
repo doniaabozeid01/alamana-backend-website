@@ -18,6 +18,8 @@ namespace Alamana.Service.Product
         Task<ProductDto> GetProductById(int id);
         Task<IReadOnlyList<ProductDto>> GetAllProducts();
         Task<IReadOnlyList<ProductDto>> GetRandomProducts();
+        Task<IReadOnlyList<ProductDto>> GetNewProducts();
+
         //Task<int> DeleteCategory(int id);
         Task<bool> DeleteProduct(int id);
         //Task<ProductDto> GetCategoryByIdWithInclude(int id);

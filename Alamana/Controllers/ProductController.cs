@@ -132,6 +132,27 @@ namespace Alamana.Controllers
 
 
 
+
+
+
+        [HttpGet("GetNewProducts")]
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetNewProducts()
+        {
+            var products = await _productServices.GetNewProducts();
+
+            //if (products == null || !products.Any())
+            //{
+            //    return NotFound("No products found.", []);
+            //}
+
+            return Ok(products);
+        }
+
+
+
+
+
+
         [HttpDelete("DeleteProduct/{id:int}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {

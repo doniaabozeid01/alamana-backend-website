@@ -14,6 +14,7 @@ namespace Alamana.Service.Product.Dtos
         public int CategoryId { get; set; }
         public decimal Price { get; set; }
         public string Weight { get; set; }
+        public bool New { get; set; }
 
         // وسائط (اختياري)
         //public IFormFile NewCover { get; set; }                // صورة غلاف جديدة

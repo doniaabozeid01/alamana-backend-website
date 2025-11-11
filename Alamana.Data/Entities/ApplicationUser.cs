@@ -11,6 +11,6 @@ namespace Alamana.Data.Entities
     public class ApplicationUser : IdentityUser
     {
         public string FullName { get; set; }
-        public CustomerType? CustomerType { get; set; } = 0;
+        //public CustomerType? CustomerType { get; set; } = 0;
     }
 }

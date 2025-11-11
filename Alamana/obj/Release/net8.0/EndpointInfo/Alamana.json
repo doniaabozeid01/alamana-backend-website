@@ -82,6 +82,114 @@
         }
       }
     },
+    "/api/Account/SendConfirmationEmail": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/loginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/confirmEmail/{confirmationId}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "parameters": [
+          {
+            "name": "confirmationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/rejectEmail/{confirmationId}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "parameters": [
+          {
+            "name": "confirmationId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Account/resend-confirmation": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Account/login": {
       "post": {
         "tags": [
@@ -1118,6 +1226,9 @@
                   "Description": {
                     "type": "string"
                   },
+                  "New": {
+                    "type": "boolean"
+                  },
                   "Gallery": {
                     "type": "array",
                     "items": {
@@ -1142,6 +1253,9 @@
                   "style": "form"
                 },
                 "Description": {
+                  "style": "form"
+                },
+                "New": {
                   "style": "form"
                 },
                 "Gallery": {
@@ -1217,6 +1331,9 @@
                   "Weight": {
                     "type": "string"
                   },
+                  "New": {
+                    "type": "boolean"
+                  },
                   "NewGallery": {
                     "type": "array",
                     "items": {
@@ -1247,6 +1364,9 @@
                   "style": "form"
                 },
                 "Weight": {
+                  "style": "form"
+                },
+                "New": {
                   "style": "form"
                 },
                 "NewGallery": {
@@ -1371,6 +1491,44 @@
       }
     },
     "/api/Product/GetRandomProducts": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProductDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/GetNewProducts": {
       "get": {
         "tags": [
           "Product"
@@ -1745,9 +1903,6 @@
           "fullName": {
             "type": "string",
             "nullable": true
-          },
-          "customerType": {
-            "$ref": "#/components/schemas/CustomerType"
           }
         },
         "additionalProperties": false
@@ -1845,14 +2000,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "CustomerType": {
-        "enum": [
-          0,
-          1
-        ],
-        "type": "integer",
-        "format": "int32"
       },
       "District": {
         "type": "object",
@@ -2290,6 +2437,9 @@
           "price": {
             "type": "number",
             "format": "double"
+          },
+          "new": {
+            "type": "boolean"
           },
           "weight": {
             "type": "string",

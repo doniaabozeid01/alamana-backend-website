@@ -21,6 +21,7 @@ namespace Alamana.Repository.Interfaces
 
         Task<CartItems> GetCartByUserIdAndProuctIdAsync(int cartId, int productId);
         Task<Cart> GetCartByUserId(string userId);
+        Task<Products> GetProductByIdAsync(int productId);
 
         Task<Categories> GetCategoryByIdAsync(int id);
 
@@ -52,6 +53,7 @@ namespace Alamana.Repository.Interfaces
         IQueryable<TEntity> Query(); // 👈 دي ترجع IQueryable من الجدول
 
         Task<IReadOnlyList<Products>> GetRandomProductsAsync();
+        Task<IReadOnlyList<Products>> GetNewProducts();
 
 
         Task<FavouriteProducts> GetProductFavourite(int productId, string userId);

@@ -31,7 +31,7 @@ namespace Alamana.Data.Context
                 .IsUnique();
 
             // هيراركي العناوين (لو حابّة تسيبيها Cascade)
-            modelBuilder.Entity<Governorate>()
+            modelBuilder.Entity<Governorate>()  
                 .HasOne(g => g.Country)
                 .WithMany(c => c.Governorate)
                 .HasForeignKey(g => g.CountryId)
@@ -116,5 +116,7 @@ namespace Alamana.Data.Context
         public DbSet<Advertisements> Advertisements { get; set; }
         public DbSet<ProductMedia> ProductMedia { get; set; }
         public DbSet<FavouriteProducts> FavouriteProducts { get; set; }
+        public DbSet<EmailConfirmationRequest> EmailConfirmationRequests { get; set; }
+
     }
 }

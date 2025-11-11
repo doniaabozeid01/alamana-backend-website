@@ -103,9 +103,12 @@ namespace Alamana.Service.Category
                     Name = p.Name,
                     Price = p.Price,
                     Weight = p.Weight,
-                    CategoryId = p.CategoryId,
                     Description = p.Description,
-                    GalleryUrls = p.Media.Select(x=>x.Url).ToList()
+                    GalleryUrls = p.Media.Select(m => new mediaDto
+                    {
+                        Url = m.Url,
+                        Type = m.Type // يحوّل Enum لقيمة نصية مثل "Image" أو "Video"
+                    }).ToList()
                 }).ToList()
             };
         }

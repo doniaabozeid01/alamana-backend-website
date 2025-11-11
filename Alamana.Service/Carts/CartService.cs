@@ -172,7 +172,7 @@ namespace Alamana.Service.Carts
         {
             // 1) التحقق من المنتج
             var productRepo = _unitOfWork.Repository<Products>();
-            var product = await productRepo.GetByIdAsync(dto.productId);
+            var product = await productRepo.GetProductByIdAsync(dto.productId);
             if (product == null)
                 return OperationResult<AddCartItemResultDto>.Fail("المنتج غير موجود");
 
@@ -206,7 +206,7 @@ namespace Alamana.Service.Carts
                     productId = dto.productId,
                     Quantity = dto.Quantity,
                     Price = product.Price,                   
-                    ImagePath = product.Media.FirstOrDefault(x=>x.Type == MediaType.Image)?.Url,
+                    ImagePath = product.Media?.FirstOrDefault(x=>x.Type == MediaType.Image)?.Url ?? "https://res.cloudinary.com/dvo2qoi4s/image/upload/v1762765573/categories/sdqfxip73rxgvif0trxm.png",
                     Name = product.Name,
                     TotalPrice = product.Price * dto.Quantity
                 };

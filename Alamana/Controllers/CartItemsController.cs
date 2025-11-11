@@ -54,8 +54,8 @@ namespace Alamana.Controllers
         [HttpPost("[controller]/AddCartItem")]
         public async Task<IActionResult> AddCartItem([FromBody] AddCartItem dto)
         {
-            if (dto == null || dto.Quantity <= 0)
-                return BadRequest(new { success = false, message = "كمية غير صحيحة" });
+            if (dto == null)
+                return BadRequest(new { success = false, message = "بيانات غير صحيحة" });
 
             try
             {

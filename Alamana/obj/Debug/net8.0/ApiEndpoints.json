@@ -17,6 +17,22 @@
   },
   {
     "ContainingType": "Alamana.Controllers.AccountController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Account/confirmEmail/{confirmationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "confirmationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AccountController",
     "Method": "ForgotPassword",
     "RelativePath": "api/Account/forgotPassword",
     "HttpMethod": "POST",
@@ -76,8 +92,40 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "loginDto",
+        "Name": "request",
         "Type": "Alamana.Service.Authentication.Dtos.loginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AccountController",
+    "Method": "RejectEmail",
+    "RelativePath": "api/Account/rejectEmail/{confirmationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "confirmationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AccountController",
+    "Method": "ResendConfirmation",
+    "RelativePath": "api/Account/resend-confirmation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -111,6 +159,22 @@
   },
   {
     "ContainingType": "Alamana.Controllers.AccountController",
+    "Method": "SendConfirmationEmail",
+    "RelativePath": "api/Account/SendConfirmationEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Alamana.Service.Authentication.Dtos.loginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AccountController",
     "Method": "UserRegister",
     "RelativePath": "api/Account/userRegister",
     "HttpMethod": "POST",
@@ -118,12 +182,131 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "registerDto",
+        "Name": "dto",
         "Type": "Alamana.Service.Authentication.Dtos.registerDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AdvertisementsController",
+    "Method": "AddAdvertisement",
+    "RelativePath": "api/admin/Advertisements/AddAdvertisement",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ImageUrl",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AdvertisementsController",
+    "Method": "DeleteAdvertisement",
+    "RelativePath": "api/admin/Advertisements/DeleteAdvertisement/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AdvertisementsController",
+    "Method": "UpdateAdvertisement",
+    "RelativePath": "api/admin/Advertisements/UpdateAdvertisement/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ImageUrl",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "Title",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AdvertisementsController",
+    "Method": "GetAdvertisementById",
+    "RelativePath": "api/Advertisements/GetAdvertisementById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Alamana.Service.Advertisment.Dtos.AdvertiseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AdvertisementsController",
+    "Method": "GetAllAdvertisements",
+    "RelativePath": "api/Advertisements/GetAllAdvertisements",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.Advertisment.AdvertiseService, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "Alamana.Controllers.CartController",
@@ -221,43 +404,6 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Alamana.Controllers.CartItemsController",
-    "Method": "GetCartItemById",
-    "RelativePath": "api/CartItems/GetCartItemById/{cartId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "cartId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Alamana.Controllers.CartItemsController",
-    "Method": "UpdateCartItem",
-    "RelativePath": "api/CartItems/UpdateCartItem/{id}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "quantity",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -444,6 +590,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Alamana.Controllers.DiagnosticsController",
+    "Method": "Ping",
+    "RelativePath": "api/Diagnostics/ping",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Alamana.Controllers.LocationController",
     "Method": "GetAllCities",
     "RelativePath": "api/Location/GetAllCities",
@@ -602,8 +758,13 @@
         "IsRequired": false
       },
       {
-        "Name": "ImagePathCover",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "New",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Gallery",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
       },
       {
@@ -662,6 +823,26 @@
   },
   {
     "ContainingType": "Alamana.Controllers.ProductController",
+    "Method": "GetNewProducts",
+    "RelativePath": "api/Product/GetNewProducts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Alamana.Service.Product.Dtos.ProductDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductController",
     "Method": "GetProductById",
     "RelativePath": "api/Product/GetProductById/{id}",
     "HttpMethod": "GET",
@@ -677,6 +858,26 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.Product.Dtos.ProductDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductController",
+    "Method": "GetRandomProducts",
+    "RelativePath": "api/Product/GetRandomProducts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Alamana.Service.Product.Dtos.ProductDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -705,6 +906,16 @@
         "IsRequired": false
       },
       {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "Price",
         "Type": "System.Decimal",
         "IsRequired": false
@@ -715,18 +926,18 @@
         "IsRequired": false
       },
       {
-        "Name": "Description",
-        "Type": "System.String",
+        "Name": "New",
+        "Type": "System.Boolean",
         "IsRequired": false
       },
       {
-        "Name": "ImagePathCover",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "Name": "NewGallery",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
       },
       {
-        "Name": "CategoryId",
-        "Type": "System.Int32",
+        "Name": "RemoveMediaIds",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -743,16 +954,43 @@
     ]
   },
   {
-    "ContainingType": "Alamana.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
+    "ContainingType": "Alamana.Controllers.ProductFavouriteController",
+    "Method": "AddProductFavourite",
+    "RelativePath": "api/ProductFavourite/AddProductFavourite",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "favouriteDto",
+        "Type": "Alamana.Service.ProductFavourite.Dtos.AddFavouriteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductFavouriteController",
+    "Method": "DeleteProductFromFavourite",
+    "RelativePath": "api/ProductFavourite/DeleteProductFromFavourite",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Alamana.WeatherForecast, Alamana, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.ProductFavourite.Dtos.FavouriteDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -760,7 +998,63 @@
         ],
         "StatusCode": 200
       }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductFavouriteController",
+    "Method": "GetProductFavouriteByUserId",
+    "RelativePath": "api/ProductFavourite/GetProductFavouriteByUserId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
     ],
-    "EndpointName": "GetWeatherForecast"
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.ProductFavourite.Dtos.FavouriteDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductFavouriteController",
+    "Method": "GetProductFavouriteByUserIdAndProductId",
+    "RelativePath": "api/ProductFavourite/GetProductFavouriteByUserIdAndProductId/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "productId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.ProductFavourite.Dtos.FavouriteDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

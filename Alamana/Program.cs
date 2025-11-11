@@ -12,6 +12,7 @@ using Alamana.Service.Carts;
 using Alamana.Service.Carts.Dtos;
 using Alamana.Service.Category;
 using Alamana.Service.Category.Dtos;
+using Alamana.Service.ConfirmationEmail;
 using Alamana.Service.ContactUs;
 using Alamana.Service.Email;
 using Alamana.Service.Location;
@@ -24,6 +25,7 @@ using Alamana.Service.ProductFavourite;
 using Alamana.Service.ProductFavourite.Dtos;
 using Alamana.Service.SaveAndDeleteImage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -32,7 +34,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(
+            new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
 
 
 builder.Services.AddDbContext<AlamanaBbContext>(options =>
@@ -75,6 +83,18 @@ builder.Services.AddAuthentication(options =>
 
 
 
+builder.Services.Configure<FormOptions>(o =>
+{
+    o.MultipartBodyLengthLimit = 500_000_000; // 500MB ?????? ????? ???????
+});
+
+
+builder.WebHost.ConfigureKestrel(o =>
+{
+    o.Limits.MaxRequestBodySize = 500_000_000; // ??? ????
+});
+
+
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ICategoryServices, CategoryServices>();
@@ -93,6 +113,7 @@ builder.Services.AddScoped<IContactUsServices, ContactUsServices>();
 
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IConfirmationService, ConfirmationService>();
 
 
 

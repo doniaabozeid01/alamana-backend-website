@@ -44,6 +44,13 @@ namespace Alamana.Repository.Repositories
 
 
 
+        public async Task<Products> GetProductByIdAsync(int productId)
+        {
+            return await _context.Set<Products>().Include(x => x.Category).Include(x=>x.Media).FirstOrDefaultAsync(x => x.Id == productId);
+        }
+
+
+
         public void Update(TEntity entity)
         {
             _context.Set<TEntity>().Update(entity);
@@ -58,15 +65,21 @@ namespace Alamana.Repository.Repositories
 
         public async Task<IReadOnlyList<Products>> GetAllProductsAsync()
         {
-            return await _context.Set<Products>().Include(x => x.Media).ToListAsync();
+            return await _context.Set<Products>().Include(x=>x.Category).Include(x => x.Media).ToListAsync();
         }
 
 
         public async Task<IReadOnlyList<Products>> GetRandomProductsAsync()
         {
-            return await _context.Set<Products>().OrderBy(p => Guid.NewGuid()).Take(5).Include(x => x.Media).ToListAsync();
+            return await _context.Set<Products>().OrderBy(p => Guid.NewGuid()).Take(5).Include(x => x.Media).Include(x => x.Category).ToListAsync();
         }
 
+
+
+        public async Task<IReadOnlyList<Products>> GetNewProducts()
+        {
+            return await _context.Set<Products>().Include(x=>x.Media).Include(x => x.Category).Where(x => x.New == true).ToListAsync();
+        }
 
 
         public void Delete(TEntity entity)
@@ -172,4 +185,5 @@ namespace Alamana.Repository.Repositories
 
 
     }
+
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Alamana.Data.Enums
 {
-    public enum CustomerType
-    {
-        Retail = 0,  // تجزئة
-        Wholesale = 1 // جملة
-    }
+    //public enum CustomerType
+    //{
+    //    Retail = 0,  // تجزئة
+    //    Wholesale = 1 // جملة
+    //}
 }

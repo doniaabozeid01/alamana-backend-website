@@ -17,6 +17,22 @@
   },
   {
     "ContainingType": "Alamana.Controllers.AccountController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "api/Account/confirmEmail/{confirmationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "confirmationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AccountController",
     "Method": "ForgotPassword",
     "RelativePath": "api/Account/forgotPassword",
     "HttpMethod": "POST",
@@ -76,8 +92,40 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "loginDto",
+        "Name": "request",
         "Type": "Alamana.Service.Authentication.Dtos.loginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AccountController",
+    "Method": "RejectEmail",
+    "RelativePath": "api/Account/rejectEmail/{confirmationId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "confirmationId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AccountController",
+    "Method": "ResendConfirmation",
+    "RelativePath": "api/Account/resend-confirmation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -111,6 +159,22 @@
   },
   {
     "ContainingType": "Alamana.Controllers.AccountController",
+    "Method": "SendConfirmationEmail",
+    "RelativePath": "api/Account/SendConfirmationEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Alamana.Service.Authentication.Dtos.loginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.AccountController",
     "Method": "UserRegister",
     "RelativePath": "api/Account/userRegister",
     "HttpMethod": "POST",
@@ -118,7 +182,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "registerDto",
+        "Name": "dto",
         "Type": "Alamana.Service.Authentication.Dtos.registerDto",
         "IsRequired": true
       }
@@ -694,6 +758,11 @@
         "IsRequired": false
       },
       {
+        "Name": "New",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
         "Name": "Gallery",
         "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
@@ -736,6 +805,26 @@
     "ContainingType": "Alamana.Controllers.ProductController",
     "Method": "GetAllProducts",
     "RelativePath": "api/Product/GetAllProducts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Alamana.Service.Product.Dtos.ProductDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductController",
+    "Method": "GetNewProducts",
+    "RelativePath": "api/Product/GetNewProducts",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -834,6 +923,11 @@
       {
         "Name": "Weight",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "New",
+        "Type": "System.Boolean",
         "IsRequired": false
       },
       {

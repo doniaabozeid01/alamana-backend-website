@@ -71,6 +71,7 @@ namespace Alamana.Service.Product
                 Description = productDto.Description,
                 CategoryId = productDto.CategoryId,
                 Price = productDto.Price,
+                New = productDto.New,
                 Weight = productDto.Weight
             };
 
@@ -82,22 +83,27 @@ namespace Alamana.Service.Product
 
 
             // 3) رفع الجاليري (اختياري)
+            // 3) رفع الجاليري (اختياري)
             if (productDto.Gallery is not null && productDto.Gallery.Count > 0)
             {
                 foreach (var file in productDto.Gallery.Where(f => f != null && f.Length > 0))
                 {
-                    // (اختياري) تحقق من النوع: image/*
                     var url = await _imageService.UploadToCloudinary(file);
+
                     var media = new ProductMedia
                     {
                         ProductId = product.Id,
-                        Type = MediaType.Image,
+                        Type = DetectMediaType(file), // 👈 هنا بنحدّد Image أو Video
                         Url = url,
-
+                        // (اختياري) خزين معلومات مفيدة للديبَغينغ
+                        //MimeType = file.ContentType,
+                        //FileName = file.FileName
                     };
+
                     await mediaRepo.AddAsync(media);
                 }
             }
+
 
             var status = await _unitOfWork.CompleteAsync();
             if (status == 0) return null;
@@ -113,20 +119,59 @@ namespace Alamana.Service.Product
                 Price = product.Price,
                 Weight = product.Weight,
                 Description = product.Description,
-                CategoryId = product.CategoryId,
+                category = new productCategoryDto
+                {
+                    Id = product.Category.Id,
+                    Name = product.Category.Name,
+                    Description = product.Category.Description
+                },
+                New = product.New,
                 // أول صورة فقط
-   
+
 
                 // باقي الصور (قائمة)
-                GalleryUrls = product.Media
-                        .Where(m => m.Type == MediaType.Image)
-                        .Select(m => m.Url)
-                        .ToList()
+                // قائمة الصور والفيديوهات مع النوع
+    //            GalleryUrls = product.Media
+    //.Select(m => new
+    //{
+    //    Url = m.Url,
+    //    Type = m.Type.ToString() // يحوّل enum إلى "Image" أو "Video"
+    //})
+    //.ToList();
+
             };
 
             return dto;
         }
 
+        private static MediaType DetectMediaType(IFormFile file)
+        {
+            // 1) من الـ MIME
+            if (!string.IsNullOrWhiteSpace(file.ContentType))
+            {
+                if (file.ContentType.StartsWith("video/", StringComparison.OrdinalIgnoreCase))
+                    return MediaType.Video;
+
+                if (file.ContentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase))
+                    return MediaType.Image;
+            }
+
+            // 2) من الامتداد (fallback)
+            var ext = Path.GetExtension(file.FileName)?.ToLowerInvariant();
+
+            // اشهر فيديوهات
+            var videoExts = new HashSet<string> { ".mp4", ".mov", ".mkv", ".webm", ".avi" };
+            if (!string.IsNullOrEmpty(ext) && videoExts.Contains(ext))
+                return MediaType.Video;
+
+            // اشهر صور
+            var imageExts = new HashSet<string> { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" };
+            if (!string.IsNullOrEmpty(ext) && imageExts.Contains(ext))
+                return MediaType.Image;
+
+            // افتراضيًا اعتبرها صورة
+            return MediaType.Image;
+        }
 
 
 
@@ -155,6 +200,7 @@ namespace Alamana.Service.Product
             product.CategoryId = dto.CategoryId;
             product.Price = dto.Price;
             product.Weight = dto.Weight;
+            product.New = dto.New;
 
             // helper: آخر ترتيب
             //int maxSort = product.Media.Any() ? product.Media.Max(m => m.SortOrder) : 0;
@@ -225,8 +271,35 @@ namespace Alamana.Service.Product
         public async Task<IReadOnlyList<ProductDto>> GetAllProducts()
         {
             var products = await _unitOfWork.Repository<Products>().GetAllProductsAsync();
-            var mappedProducts = _mapper.Map<IReadOnlyList<ProductDto>>(products);
-            return mappedProducts;
+            var result = products.Select(p => new ProductDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                Weight = p.Weight,
+                Description = p.Description,
+                New = p.New,
+
+                category = p.Category == null ? null : new productCategoryDto
+                {
+                    Id = p.Category.Id,
+                    Name = p.Category.Name,
+                    Description = p.Category.Description
+                },
+                // باقي الصور
+                GalleryUrls = p.Media
+                .Select(m => new mediaDto
+                {
+                    Url = m.Url,
+                    Type = m.Type
+                })
+                .ToList()
+
+
+            })
+                .ToList();
+
+            return result;
         }
 
 
@@ -236,8 +309,33 @@ namespace Alamana.Service.Product
         public async Task<IReadOnlyList<ProductDto>> GetRandomProducts()
         {
             var products = await _unitOfWork.Repository<Products>().GetRandomProductsAsync();
-            var mappedProducts = _mapper.Map<IReadOnlyList<ProductDto>>(products);
-            return mappedProducts;
+            var result = products.Select(p => new ProductDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                Weight = p.Weight,
+                Description = p.Description,
+                New = p.New,
+
+                category = p.Category == null ? null : new productCategoryDto
+                {
+                    Id = p.Category.Id,
+                    Name = p.Category.Name,
+                    Description = p.Category.Description
+                },
+                // باقي الصور
+                GalleryUrls = p.Media
+                .Select(m => new mediaDto
+                {
+                    Url = m.Url,
+                    Type = m.Type
+                })
+                .ToList()
+
+
+            })
+                .ToList(); return result;
         }
 
 
@@ -246,11 +344,72 @@ namespace Alamana.Service.Product
 
 
 
+        public async Task<IReadOnlyList<ProductDto>> GetNewProducts()
+        {
+            var products = await _unitOfWork.Repository<Products>().GetNewProducts();
+            var result = products.Select(p => new ProductDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                Weight = p.Weight,
+                Description = p.Description,
+                New = p.New,
+
+                category = p.Category == null ? null : new productCategoryDto
+                {
+                    Id = p.Category.Id,
+                    Name = p.Category.Name,
+                    Description = p.Category.Description
+                },
+                // باقي الصور
+                GalleryUrls = p.Media
+                .Select(m => new mediaDto
+                {
+                    Url = m.Url,
+                    Type = m.Type
+                })
+                .ToList()
+
+
+            })
+                .ToList(); 
+            return result;
+        }
+
+
+
         public async Task<ProductDto> GetProductById(int id)
         {
-            var product = await _unitOfWork.Repository<Products>().GetByIdAsync(id);
-            var mappedProduct = _mapper.Map<ProductDto>(product);
-            return mappedProduct;
+            var product = await _unitOfWork.Repository<Products>().GetProductByIdAsync(id);
+            //var mappedProduct = _mapper.Map<ProductDto>(product);
+            var result = new ProductDto
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                Weight = product.Weight,
+                Description = product.Description,
+                New = product.New,
+
+                category = product.Category == null ? null : new productCategoryDto
+                {
+                    Id = product.Category.Id,
+                    Name = product.Category.Name,
+                    Description = product.Category.Description
+                },
+                // باقي الصور
+                GalleryUrls = product.Media
+    .Select(m => new mediaDto
+    {
+        Url = m.Url,
+        Type = m.Type
+    })
+    .ToList()
+            };
+
+            
+            return result;
         }
 
 

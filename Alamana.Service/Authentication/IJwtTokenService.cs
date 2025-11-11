@@ -9,7 +9,7 @@ namespace Alamana.Service.Authentication
 {
     public interface IJwtTokenService
     {
-        string GenerateJwtToken(ApplicationUser user);
+        string GenerateJwtToken(ApplicationUser user, string role);
 
     }
 }

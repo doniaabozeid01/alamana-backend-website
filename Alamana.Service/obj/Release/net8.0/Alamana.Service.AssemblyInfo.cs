@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alamana.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+adafd6f2047d13f6719524b83a543f0624073853")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5253d64c613d146bf15f5fd920b2186837c8762")]
 [assembly: System.Reflection.AssemblyProductAttribute("Alamana.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Alamana.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

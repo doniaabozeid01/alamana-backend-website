@@ -382,3 +382,4 @@ E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\refint\Ala
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\Alamana.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\Alamana.genruntimeconfig.cache
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\ref\Alamana.dll
+E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
