@@ -23,5 +23,7 @@ namespace Alamana.Service.Product
         //Task<int> DeleteCategory(int id);
         Task<bool> DeleteProduct(int id);
         //Task<ProductDto> GetCategoryByIdWithInclude(int id);
+        Task<IReadOnlyList<ProductDto>> GetTopBestSellersAsync(int take = 5);
+
     }
 }

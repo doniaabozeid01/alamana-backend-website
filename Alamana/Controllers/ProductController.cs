@@ -167,5 +167,35 @@ namespace Alamana.Controllers
 
 
 
+
+
+        //[HttpGet("GetBestSellerProducts")]
+        //public async Task<ActionResult<List<ProductDto>>> GetBestSellerProducts()
+        //{
+        //    try
+        //    {
+        //        var result = await _productServices.GetBestSellerProducts();
+        //        return Ok(result);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Internal server error: {ex.Message}");
+        //    }
+        //}
+
+
+
+
+
+        [HttpGet("best-sellers")]
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetBestSellers([FromQuery] int take = 5)
+        {
+            var products = await _productServices.GetTopBestSellersAsync(take);
+            return Ok(products);
+        }
+
+
+
+
     }
 }

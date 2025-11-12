@@ -792,6 +792,32 @@
   },
   {
     "ContainingType": "Alamana.Controllers.ProductController",
+    "Method": "GetBestSellers",
+    "RelativePath": "api/Product/best-sellers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "take",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Alamana.Service.Product.Dtos.ProductDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductController",
     "Method": "DeleteProduct",
     "RelativePath": "api/Product/DeleteProduct/{id}",
     "HttpMethod": "DELETE",

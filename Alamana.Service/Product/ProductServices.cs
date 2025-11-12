@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Alamana.Data.Context;
 using Alamana.Data.Entities;
 using Alamana.Data.Enums;
 using Alamana.Repository.Interfaces;
@@ -23,13 +24,14 @@ namespace Alamana.Service.Product
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ISaveAndDeleteImageService _imageService;
+        private readonly AlamanaBbContext _context;
 
-        public ProductServices(IUnitOfWork unitOfWork, IMapper mapper, ISaveAndDeleteImageService imageService)
+        public ProductServices(IUnitOfWork unitOfWork, IMapper mapper, ISaveAndDeleteImageService imageService , AlamanaBbContext context)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _imageService = imageService;
-
+            _context = context;
         }
 
 
@@ -474,5 +476,96 @@ public async Task<bool> DeleteProduct(int id)
         }
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public async Task<IReadOnlyList<ProductDto>> GetTopBestSellersAsync(int take = 5)
+        {
+            // 1️⃣ نجيب إجمالي المبيعات حسب المنتج
+            var topSales = await _context.OrderItem
+                .GroupBy(o => o.ProductId)
+                .Select(g => new
+                {
+                    ProductId = g.Key,
+                    TotalSold = g.Sum(x => x.Quantity)
+                })
+                .OrderByDescending(x => x.TotalSold)
+                .Take(take)
+                .ToListAsync();
+
+            var topIds = topSales.Select(x => x.ProductId).ToList();
+
+            // 2️⃣ نجيب المنتجات دي
+            var topProducts = await _context.Product
+                .Include(p => p.Category)
+                .Include(p => p.Media)
+                .Where(p => topIds.Contains(p.Id))
+                .ToListAsync();
+
+            // 3️⃣ نحافظ على الترتيب حسب المبيعات
+            topProducts = topProducts
+                .OrderBy(p => topIds.IndexOf(p.Id))
+                .ToList();
+
+            // 4️⃣ لو أقل من المطلوب، نكمّل من باقي المنتجات
+            var remaining = take - topProducts.Count;
+            if (remaining > 0)
+            {
+                var filler = await _context.Product
+                    .Include(p => p.Category)
+                    .Include(p => p.Media)
+                    .Where(p => !topIds.Contains(p.Id))
+                    .OrderByDescending(p => p.Id) // أو CreatedAt
+                    .Take(remaining)
+                    .ToListAsync();
+
+                topProducts.AddRange(filler);
+            }
+
+            // 5️⃣ نحولهم إلى DTO
+            var result = topProducts.Select(p => new ProductDto
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Price = p.Price,
+                New = p.New,                      // لو عندك عمود IsNew في الـ Entity
+                Discount = p.Discount,
+                priceAfterDiscount = p.Price - (p.Price * (p.Discount / 100)),
+                Weight = p.Weight,
+                Description = p.Description,
+                GalleryUrls = p.Media
+                    .Select(m => new mediaDto
+                    {
+                        Url = m.Url,
+                        Type = m.Type
+                    })
+                    .ToList(),
+                category = new productCategoryDto
+                {
+                    Id = p.Category.Id,
+                    Name = p.Category.Name,
+                    Description = p.Category.Description
+                }
+            }).ToList();
+
+            return result;
+        }
+
+
+
+
+
+
+    }
 }

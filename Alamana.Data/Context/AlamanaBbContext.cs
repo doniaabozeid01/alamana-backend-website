@@ -112,6 +112,7 @@ namespace Alamana.Data.Context
         public DbSet<city> City { get; set; }
         public DbSet<District> District { get; set; }
         public DbSet<Order> Order { get; set; }
+        public DbSet<OrderItem> OrderItem { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Advertisements> Advertisements { get; set; }
         public DbSet<ProductMedia> ProductMedia { get; set; }
