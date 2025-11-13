@@ -505,6 +505,31 @@ namespace Alamana.Data.Migrations
                     b.ToTable("Product");
                 });
 
+            modelBuilder.Entity("Alamana.Data.Entities.Videos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IsDefault")
+                        .IsUnique()
+                        .HasFilter("[IsDefault] = 1");
+
+                    b.ToTable("Videos");
+                });
+
             modelBuilder.Entity("Alamana.Data.Entities.city", b =>
                 {
                     b.Property<int>("Id")

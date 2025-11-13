@@ -7,6 +7,7 @@ using Alamana.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Alamana.Data.Context
 {
@@ -101,6 +102,14 @@ namespace Alamana.Data.Context
 
 
 
+            modelBuilder.Entity<Videos>(e =>
+            {
+                e.Property(x => x.Url).IsRequired().HasMaxLength(500);
+                // (اختياري) ضمان Video واحد فقط Default
+                e.HasIndex(x => x.IsDefault).IsUnique().HasFilter("[IsDefault] = 1");
+            });
+
+
         }
 
         public DbSet<Categories> Category { get; set; }
@@ -118,6 +127,8 @@ namespace Alamana.Data.Context
         public DbSet<ProductMedia> ProductMedia { get; set; }
         public DbSet<FavouriteProducts> FavouriteProducts { get; set; }
         public DbSet<EmailConfirmationRequest> EmailConfirmationRequests { get; set; }
+        public DbSet<Videos> Videos { get; set; }
+        //public DbSet<Videos> Videos => Set<Videos>();
 
     }
 }

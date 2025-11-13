@@ -24,6 +24,7 @@ using Alamana.Service.Product;
 using Alamana.Service.ProductFavourite;
 using Alamana.Service.ProductFavourite.Dtos;
 using Alamana.Service.SaveAndDeleteImage;
+using Alamana.Service.Video;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
@@ -108,6 +109,7 @@ builder.Services.AddScoped<IAdvertiseService, AdvertiseService>();
 builder.Services.AddScoped<IFavouriteServices, FavouriteServices>();
 builder.Services.AddScoped<IPaymentMethodsServices, PaymentMethodsServices>();
 builder.Services.AddScoped<IContactUsServices, ContactUsServices>();
+builder.Services.AddScoped<IVideoService, VideosService>();
 
 
 
