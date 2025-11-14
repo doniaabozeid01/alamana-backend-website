@@ -1095,8 +1095,61 @@
   },
   {
     "ContainingType": "Alamana.Controllers.VideosController",
-    "Method": "GetAll",
-    "RelativePath": "api/Videos",
+    "Method": "SetDefault",
+    "RelativePath": "api/Videos/{id}/set-default",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.VideosController",
+    "Method": "AddVideo",
+    "RelativePath": "api/Videos/AddVideo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "video",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsDefault",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.VideosController",
+    "Method": "DeleteVideo",
+    "RelativePath": "api/Videos/DeleteVideo/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.VideosController",
+    "Method": "GetAllVideos",
+    "RelativePath": "api/Videos/GetAllVideos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1115,8 +1168,8 @@
   },
   {
     "ContainingType": "Alamana.Controllers.VideosController",
-    "Method": "GetById",
-    "RelativePath": "api/Videos/{id}",
+    "Method": "GetVideoById",
+    "RelativePath": "api/Videos/GetVideoById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1141,8 +1194,8 @@
   },
   {
     "ContainingType": "Alamana.Controllers.VideosController",
-    "Method": "SetDefault",
-    "RelativePath": "api/Videos/{id}/set-default",
+    "Method": "UpdateVideo",
+    "RelativePath": "api/Videos/UpdateVideo/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -1151,6 +1204,16 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "video",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "IsDefault",
+        "Type": "System.Boolean",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

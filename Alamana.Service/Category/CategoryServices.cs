@@ -79,6 +79,7 @@ namespace Alamana.Service.Category
             var status = await _unitOfWork.CompleteAsync();
 
             return status == 0 ? null : _mapper.Map<categoryDto>(category);
+
         }
 
 

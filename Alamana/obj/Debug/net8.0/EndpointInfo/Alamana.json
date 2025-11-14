@@ -1842,7 +1842,7 @@
         }
       }
     },
-    "/api/Videos": {
+    "/api/Videos/GetAllVideos": {
       "get": {
         "tags": [
           "Videos"
@@ -1880,7 +1880,7 @@
         }
       }
     },
-    "/api/Videos/{id}": {
+    "/api/Videos/GetVideoById/{id}": {
       "get": {
         "tags": [
           "Videos"
@@ -1916,6 +1916,116 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/Videos/AddVideo": {
+      "post": {
+        "tags": [
+          "Videos"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "video": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "IsDefault": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "encoding": {
+                "video": {
+                  "style": "form"
+                },
+                "IsDefault": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Videos/UpdateVideo/{id}": {
+      "put": {
+        "tags": [
+          "Videos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "video": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "IsDefault": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "encoding": {
+                "video": {
+                  "style": "form"
+                },
+                "IsDefault": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Videos/DeleteVideo/{id}": {
+      "delete": {
+        "tags": [
+          "Videos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }

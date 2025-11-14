@@ -18,7 +18,7 @@ namespace Alamana.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ContactUsDto dto)
+        public async Task<IActionResult> Post ([FromBody] ContactUsDto dto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

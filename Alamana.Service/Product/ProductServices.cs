@@ -150,6 +150,11 @@ namespace Alamana.Service.Product
             return dto;
         }
 
+
+
+
+
+
         private static MediaType DetectMediaType(IFormFile file)
         {
             // 1) من الـ MIME
