@@ -21,37 +21,91 @@ namespace Alamana.Service.Orders
         }
 
 
+        //public async Task<int> CreateOrderAsync(OrderRequest request)
+        //{
+        //    var cart = await _context.Cart
+        //        .Include(c => c.cartItems)
+        //        .ThenInclude(ci => ci.product)
+        //        .Include(x=>x.user)
+        //        .FirstOrDefaultAsync(c => c.userId == request.UserId);
+
+        //    if (cart == null || cart.cartItems == null || !cart.cartItems.Any())
+        //        throw new Exception("سلة التسوق فارغة أو غير موجودة.");
+
+        //    var orderItems = new List<OrderItem>();
+        //    decimal total = 0;
+
+        //    foreach (var cartItem in cart.cartItems)
+        //    {
+        //        var itemTotal = cartItem.product.Price * cartItem.Quantity;
+        //        total += itemTotal;
+
+        //        orderItems.Add(new OrderItem
+        //        {
+        //            ProductId = cartItem.productId,
+        //            Quantity = cartItem.Quantity,
+        //            UnitPrice = cartItem.product.Price,
+        //            TotalPrice = itemTotal
+        //        });
+        //    }
+
+        //    var order = new Order
+        //    {
+        //        userId = request.UserId, // ✅ تخزين UserId
+        //        FullName = request.FullName,
+        //        Email = request.Email ?? cart.user.Email,
+        //        Phone = request.Phone,
+        //        CountryId = request.CountryId,
+        //        GovernorateId = request.GovernorateId,
+        //        CityId = request.CityId,
+        //        DistrictId = request.DistrictId,
+        //        Street = request.Street,
+        //        BuildingNumber = request.BuildingNumber,
+        //        Floor = request.Floor,
+        //        Apartment = request.Apartment,
+        //        Landmark = request.Landmark,
+        //        PaymentMethodId = request.PaymentMethodId,
+        //        TotalAmount = total,
+        //        //Status = OrderStatus.Pending,
+        //        CreatedAt = DateTime.UtcNow,
+        //        OrderItems = orderItems
+        //    };
+
+        //    await _context.Order.AddAsync(order);
+
+        //    // 🧹 حذف السلة بعد تأكيد الطلب
+        //    _context.CartItems.RemoveRange(cart.cartItems);
+        //    _context.Cart.Remove(cart);
+
+        //    await _context.SaveChangesAsync();
+
+        //    return order.Id;
+        //}
+
+
+
+
+
+
+
+
+
         public async Task<int> CreateOrderAsync(OrderRequest request)
         {
             var cart = await _context.Cart
                 .Include(c => c.cartItems)
                 .ThenInclude(ci => ci.product)
-                .Include(x=>x.user)
+                .Include(x => x.user)
                 .FirstOrDefaultAsync(c => c.userId == request.UserId);
 
             if (cart == null || cart.cartItems == null || !cart.cartItems.Any())
                 throw new Exception("سلة التسوق فارغة أو غير موجودة.");
 
-            var orderItems = new List<OrderItem>();
             decimal total = 0;
-
-            foreach (var cartItem in cart.cartItems)
-            {
-                var itemTotal = cartItem.product.Price * cartItem.Quantity;
-                total += itemTotal;
-
-                orderItems.Add(new OrderItem
-                {
-                    ProductId = cartItem.productId,
-                    Quantity = cartItem.Quantity,
-                    UnitPrice = cartItem.product.Price,
-                    TotalPrice = itemTotal
-                });
-            }
 
             var order = new Order
             {
-                userId = request.UserId, // ✅ تخزين UserId
+                userId = request.UserId,
                 FullName = request.FullName,
                 Email = request.Email ?? cart.user.Email,
                 Phone = request.Phone,
@@ -65,15 +119,32 @@ namespace Alamana.Service.Orders
                 Apartment = request.Apartment,
                 Landmark = request.Landmark,
                 PaymentMethodId = request.PaymentMethodId,
-                TotalAmount = total,
-                //Status = OrderStatus.Pending,
                 CreatedAt = DateTime.UtcNow,
-                OrderItems = orderItems
+                TotalAmount = 0 // هنحدّثه بعدين
             };
 
             await _context.Order.AddAsync(order);
+            await _context.SaveChangesAsync(); // مهم: عشان ناخد order.Id
 
-            // 🧹 حذف السلة بعد تأكيد الطلب
+            var orderItems = cart.cartItems.Select(ci =>
+            {
+                var itemTotal = ci.product.Price * ci.Quantity;
+                total += itemTotal;
+
+                return new OrderItem
+                {
+                    OrderId = order.Id,              // ✅ ربط مباشر
+                    ProductId = ci.productId,
+                    Quantity = ci.Quantity,
+                    UnitPrice = ci.product.Price,
+                    TotalPrice = itemTotal
+                };
+            }).ToList();
+
+            await _context.OrderItem.AddRangeAsync(orderItems); // ✅ إضافة صريحة
+
+            order.TotalAmount = total;
+
             _context.CartItems.RemoveRange(cart.cartItems);
             _context.Cart.Remove(cart);
 
@@ -81,7 +152,6 @@ namespace Alamana.Service.Orders
 
             return order.Id;
         }
-
 
 
 

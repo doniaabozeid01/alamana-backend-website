@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Alamana.Controllers
 {
-    [Route("api/")]
+    [Route("api/[controller]")]
     [ApiController]
     public class AdvertisementsController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace Alamana.Controllers
             _advertiseService = advertiseService;
         }
 
-        [HttpGet("[controller]/GetAllAdvertisements")]
+        [HttpGet("GetAllAdvertisements")]
         public async Task<ActionResult<IReadOnlyList<AdvertiseService>>> GetAllAdvertisements()
         {
             var Advertises = await _advertiseService.GetAllAdvertisements();
@@ -27,7 +27,7 @@ namespace Alamana.Controllers
         }
 
 
-        [HttpGet("[controller]/GetAdvertisementById/{id}")]
+        [HttpGet("GetAdvertisementById/{id}")]
         public async Task<ActionResult<AdvertiseDto>> GetAdvertisementById(int id)
         {
             var img = await _advertiseService.GetAdvertisementById(id);
@@ -41,7 +41,7 @@ namespace Alamana.Controllers
 
 
         //[Authorize(Roles = "Admin")]
-        [HttpPost("admin/[controller]/AddAdvertisement")]
+        [HttpPost("AddAdvertisement")]
         public async Task<ActionResult> AddAdvertisement([FromForm] AddAdvertise imageDto)
         {
             if (imageDto.ImageUrl == null || imageDto.ImageUrl.Length == 0)
@@ -62,7 +62,7 @@ namespace Alamana.Controllers
 
 
         //[Authorize(Roles = "Admin")]
-        [HttpPut("admin/[controller]/UpdateAdvertisement/{id}")]
+        [HttpPut("UpdateAdvertisement/{id}")]
         public async Task<ActionResult> UpdateAdvertisement(int id, [FromForm] AddAdvertise imageDto)
         {
             var img = await _advertiseService.GetAdvertisementById(id);
@@ -85,7 +85,7 @@ namespace Alamana.Controllers
 
 
         //[Authorize(Roles = "Admin")]
-        [HttpDelete("admin/[controller]/DeleteAdvertisement/{id}")]
+        [HttpDelete("DeleteAdvertisement/{id}")]
         public async Task<ActionResult> DeleteAdvertisement(int id)
         {
             var image = await _advertiseService.GetAdvertisementById(id);

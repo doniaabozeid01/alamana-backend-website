@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +20,8 @@ namespace Alamana.Service.Product.Dtos
 
         // وسائط (اختياري)
         //public IFormFile NewCover { get; set; }                // صورة غلاف جديدة
-        public List<IFormFile> NewGallery { get; set; } = new();
+        public List<IFormFile>? NewGallery { get; set; }
 
-        public List<int> RemoveMediaIds { get; set; } = new(); // IDs عناصر نزيلها
+        public List<int>? RemoveMediaIds { get; set; } // IDs عناصر نزيلها
     }
 }

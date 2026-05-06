@@ -133,7 +133,13 @@ namespace Alamana.Controllers
 
 
             var cart = await _cartService.GetCartById(cartItem.cartId);
-            if (cart != null && cart.TotalAmount == 0)
+            //if (cart != null && cart.TotalAmount == 0)
+            //{
+            //    await _cartService.DeleteCartByIdAsync(cartItem.cartId);
+
+            //}
+
+            if (cart == null)
             {
                 await _cartService.DeleteCartByIdAsync(cartItem.cartId);
 

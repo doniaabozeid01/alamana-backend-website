@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +17,7 @@ namespace Alamana.Service.Product.Dtos
         public decimal Discount { get; set; }
 
         //public IFormFile ImagePathCover { get; set; }
-        public List<IFormFile> Gallery { get; set; } = new();  
+        public List<IFormFile>? Gallery { get; set; }
 
         public int CategoryId { get; set; }
     }

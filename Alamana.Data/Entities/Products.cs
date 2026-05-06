@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alamana.Data.Entities
 {
-    public class Products : BaseEntity  
+    public class Products : BaseEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

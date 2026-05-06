@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,6 +92,11 @@ namespace Alamana.Service.Product
                 foreach (var file in productDto.Gallery.Where(f => f != null && f.Length > 0))
                 {
                     var url = await _imageService.UploadToCloudinary(file);
+                    if (string.IsNullOrWhiteSpace(url))
+                    {
+                        // Skip failed uploads so we never persist an empty required Url.
+                        continue;
+                    }
 
                     var media = new ProductMedia
                     {
@@ -105,15 +110,14 @@ namespace Alamana.Service.Product
 
                     await mediaRepo.AddAsync(media);
                 }
+
+                var status = await _unitOfWork.CompleteAsync();
+                if (status == 0) return null;
+
             }
-
-
-            var status = await _unitOfWork.CompleteAsync();
-            if (status == 0) return null;
 
             // 4) ارجعي المنتج مع الوسائط (Load ثم Map)
             var productWithMedia = await _unitOfWork.Repository<Products>().GetAllProductsAsync();
-
 
             var dto = new ProductDto
             {
@@ -241,10 +245,16 @@ namespace Alamana.Service.Product
                 foreach (var file in dto.NewGallery.Where(f => f != null && f.Length > 0))
                 {
                     var url = await _imageService.UploadToCloudinary(file);
+                    if (string.IsNullOrWhiteSpace(url))
+                    {
+                        // Skip failed uploads so Url never violates required constraint.
+                        continue;
+                    }
+
                     await mediaRepo.AddAsync(new ProductMedia
                     {
                         ProductId = product.Id,
-                        Type = MediaType.Image,
+                        Type = DetectMediaType(file),
                         Url = url,
 
                     });
@@ -280,9 +290,14 @@ namespace Alamana.Service.Product
 
 
 
-        public async Task<IReadOnlyList<ProductDto>> GetAllProducts()
+        public async Task<IReadOnlyList<ProductDto>> GetAllProducts(int? categoryId = null)
         {
             var products = await _unitOfWork.Repository<Products>().GetAllProductsAsync();
+            if (categoryId.HasValue)
+            {
+                products = products.Where(p => p.CategoryId == categoryId.Value).ToList();
+            }
+
             var result = products.Select(p => new ProductDto
             {
                 Id = p.Id,

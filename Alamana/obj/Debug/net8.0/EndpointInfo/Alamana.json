@@ -404,7 +404,7 @@
         }
       }
     },
-    "/api/admin/Advertisements/AddAdvertisement": {
+    "/api/Advertisements/AddAdvertisement": {
       "post": {
         "tags": [
           "Advertisements"
@@ -448,7 +448,7 @@
         }
       }
     },
-    "/api/admin/Advertisements/UpdateAdvertisement/{id}": {
+    "/api/Advertisements/UpdateAdvertisement/{id}": {
       "put": {
         "tags": [
           "Advertisements"
@@ -503,7 +503,7 @@
         }
       }
     },
-    "/api/admin/Advertisements/DeleteAdvertisement/{id}": {
+    "/api/Advertisements/DeleteAdvertisement/{id}": {
       "delete": {
         "tags": [
           "Advertisements"
@@ -1470,6 +1470,16 @@
       "get": {
         "tags": [
           "Product"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {

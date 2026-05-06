@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -73,7 +73,10 @@ namespace Alamana.Service.SaveAndDeleteImage
                     //ChunkSize = 6_000_000 // 6MB chunks
                 };
                 var r = await cloudinary.UploadLargeAsync(p);
-                return r.StatusCode == HttpStatusCode.OK ? r.SecureUrl?.ToString() : null;
+                var url = r?.SecureUrl?.ToString();
+                if (!string.IsNullOrWhiteSpace(url)) return url;
+                var reason = r?.Error?.Message ?? $"StatusCode: {r?.StatusCode}";
+                throw new InvalidOperationException($"Cloudinary video upload failed for '{file.FileName}'. {reason}");
             }
             else
             {
@@ -84,7 +87,10 @@ namespace Alamana.Service.SaveAndDeleteImage
                     //ResourceType = ResourceType.Video
                 };
                 var r = await cloudinary.UploadAsync(p);
-                return r.StatusCode == HttpStatusCode.OK ? r.SecureUrl?.ToString() : null;
+                var url = r?.SecureUrl?.ToString();
+                if (!string.IsNullOrWhiteSpace(url)) return url;
+                var reason = r?.Error?.Message ?? $"StatusCode: {r?.StatusCode}";
+                throw new InvalidOperationException($"Cloudinary video upload failed for '{file.FileName}'. {reason}");
             }
         }
         else
@@ -95,7 +101,10 @@ namespace Alamana.Service.SaveAndDeleteImage
                 Folder = "categories"
             };
             var r = await cloudinary.UploadAsync(p);
-            return r.StatusCode == HttpStatusCode.OK ? r.SecureUrl?.ToString() : null;
+            var url = r?.SecureUrl?.ToString();
+            if (!string.IsNullOrWhiteSpace(url)) return url;
+            var reason = r?.Error?.Message ?? $"StatusCode: {r?.StatusCode}";
+            throw new InvalidOperationException($"Cloudinary image upload failed for '{file.FileName}'. {reason}");
         }
     }
 

@@ -221,7 +221,7 @@ namespace Alamana.Controllers
             await _userManager.AddToRoleAsync(user, role);
 
             // ابعتي إيميل تأكيد للتسجيل
-            await _confirmationService.SendOrRenewConfirmationAsync(user.Id, user.Email!, "register");
+            //await _confirmationService.SendOrRenewConfirmationAsync(user.Id, user.Email!, "register");
 
             return Ok(new
             {
@@ -807,19 +807,19 @@ namespace Alamana.Controllers
                 }
             }
 
-            if (!user.EmailConfirmed)
-            {
-                // ابعتي/جددي لينك التأكيد (كل محاولة Login هتبعت له)
-                await _confirmationService.SendOrRenewConfirmationAsync(user.Id, user.Email!, "login");
+            //if (!user.EmailConfirmed)
+            //{
+            //    // ابعتي/جددي لينك التأكيد (كل محاولة Login هتبعت له)
+            //    await _confirmationService.SendOrRenewConfirmationAsync(user.Id, user.Email!, "login");
 
-                return Ok(new
-                {
-                    success = false,
-                    needEmailConfirmation = true,
-                    message = "Your account is not verified. A confirmation message has been sent to your email.",
-                    messageAr = "حسابك غير مؤكد. تم إرسال رسالة تأكيد إلى بريدك الإلكتروني."
-                });
-            }
+            //    return Ok(new
+            //    {
+            //        success = false,
+            //        needEmailConfirmation = true,
+            //        message = "Your account is not verified. A confirmation message has been sent to your email.",
+            //        messageAr = "حسابك غير مؤكد. تم إرسال رسالة تأكيد إلى بريدك الإلكتروني."
+            //    });
+            //}
 
             // لو Confirmed → اصدر JWT وادخليه
             //var role = (await _userManager.GetRolesAsync(user)).FirstOrDefault() ?? "User";

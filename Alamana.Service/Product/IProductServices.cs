@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,7 @@ namespace Alamana.Service.Product
         Task<ProductDto> UpdateProduct(int id, UpdateProductDto dto);
 
         Task<ProductDto> GetProductById(int id);
-        Task<IReadOnlyList<ProductDto>> GetAllProducts();
+        Task<IReadOnlyList<ProductDto>> GetAllProducts(int? categoryId = null);
         Task<IReadOnlyList<ProductDto>> GetRandomProducts();
         Task<IReadOnlyList<ProductDto>> GetNewProducts();
 

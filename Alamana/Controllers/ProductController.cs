@@ -1,4 +1,4 @@
-﻿using Alamana.Service.Category.Dtos;
+using Alamana.Service.Category.Dtos;
 using Alamana.Service.Category;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,16 +13,12 @@ namespace Alamana.Controllers
     {
 
 
-
         private readonly IProductServices _productServices;
 
         public ProductController(IProductServices productServices)
         {
             _productServices = productServices;
         }
-
-
-
 
         [HttpPost("AddProduct")]
         [Consumes("multipart/form-data")]
@@ -31,11 +27,20 @@ namespace Alamana.Controllers
             if (productDto == null)
                 return BadRequest("product shouldn't be empty.");
 
-            var product = await _productServices.AddProduct(productDto);
+            try
+            {
+                var product = await _productServices.AddProduct(productDto);
 
-            return product == null
-                ? BadRequest("Failed to save product.")
-                : Ok(product);
+                return product == null
+                    ? BadRequest("Failed to save product.")
+                    : Ok(product);
+            }
+            
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
 
@@ -100,9 +105,9 @@ namespace Alamana.Controllers
 
 
         [HttpGet("GetAllProducts")]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts()
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts([FromQuery] int? categoryId = null)
         {
-            var products = await _productServices.GetAllProducts();
+            var products = await _productServices.GetAllProducts(categoryId);
 
             if (products == null || !products.Any())
             {
