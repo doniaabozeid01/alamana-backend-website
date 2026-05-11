@@ -211,6 +211,11 @@
         "Name": "Description",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "ProductIds",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -267,7 +272,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.Advertisment.AdvertiseService, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.Advertisment.Dtos.AdvertiseDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -303,6 +308,11 @@
       {
         "Name": "Description",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ProductIds",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
       }
     ],
@@ -428,6 +438,11 @@
       },
       {
         "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "MobileImage",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }
@@ -557,6 +572,11 @@
       },
       {
         "Name": "Image",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "MobileImage",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       }
@@ -776,6 +796,16 @@
         "Name": "CategoryId",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "Details",
+        "Type": "System.Collections.Generic.List\u00601[[Alamana.Service.Product.Dtos.ProductDetailFormItem, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "DetailsJson",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -980,6 +1010,16 @@
       {
         "Name": "RemoveMediaIds",
         "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Details",
+        "Type": "System.Collections.Generic.List\u00601[[Alamana.Service.Product.Dtos.ProductDetailFormItem, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "DetailsJson",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

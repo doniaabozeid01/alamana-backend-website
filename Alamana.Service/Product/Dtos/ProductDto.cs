@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +17,7 @@ namespace Alamana.Service.Product.Dtos
         public decimal priceAfterDiscount { get; set; }
         public string Weight { get; set; }
         public string Description { get; set; }
+        public List<ProductDetailEntryDto> Details { get; set; } = new();
         public List<mediaDto> GalleryUrls { get; set; }
         public productCategoryDto category { get; set; }
     }

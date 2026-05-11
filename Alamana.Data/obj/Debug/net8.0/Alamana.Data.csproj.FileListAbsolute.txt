@@ -27,3 +27,7 @@ E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Debug\net8.0\refin
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Debug\net8.0\Alamana.Data.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Debug\net8.0\Alamana.Data.genruntimeconfig.cache
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Data\obj\Debug\net8.0\ref\Alamana.Data.dll
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.Data.deps.json
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.Data.runtimeconfig.json
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.Data.dll
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.Data.pdb

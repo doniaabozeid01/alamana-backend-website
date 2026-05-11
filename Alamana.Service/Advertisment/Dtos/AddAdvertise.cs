@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +14,8 @@ namespace Alamana.Service.Advertisment.Dtos
         //public string TitleAr { get; set; }
         public string Description { get; set; }
         //public string DescriptionAr { get; set; }
+
+        /// <summary>معرّفات المنتجات المرتبطة بالإعلان (اختياري). في multipart: ProductIds=1&amp;ProductIds=2</summary>
+        public List<int>? ProductIds { get; set; }
     }
 }

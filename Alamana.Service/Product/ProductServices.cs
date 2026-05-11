@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Alamana.Data.Context;
 using Alamana.Data.Entities;
@@ -66,7 +67,8 @@ namespace Alamana.Service.Product
 
         public async Task<ProductDto> AddProduct(AddProductDto productDto)
         {
-            // 1) إنشاء المنتج (بدون صور)
+            var detailItems = ResolveDetailItemsForAdd(productDto);
+
             var product = new Products
             {
                 Name = productDto.Name,
@@ -79,79 +81,40 @@ namespace Alamana.Service.Product
             };
 
             await _unitOfWork.Repository<Products>().AddAsync(product);
-            await _unitOfWork.CompleteAsync(); // للحصول على product.Id
+            await _unitOfWork.CompleteAsync();
+
+            if (detailItems != null)
+                await ReplaceProductDetailEntriesAsync(product.Id, detailItems);
 
             var mediaRepo = _unitOfWork.Repository<ProductMedia>();
-            int sort = 0;
 
-
-            // 3) رفع الجاليري (اختياري)
-            // 3) رفع الجاليري (اختياري)
             if (productDto.Gallery is not null && productDto.Gallery.Count > 0)
             {
                 foreach (var file in productDto.Gallery.Where(f => f != null && f.Length > 0))
                 {
                     var url = await _imageService.UploadToCloudinary(file);
                     if (string.IsNullOrWhiteSpace(url))
-                    {
-                        // Skip failed uploads so we never persist an empty required Url.
                         continue;
-                    }
 
-                    var media = new ProductMedia
+                    await mediaRepo.AddAsync(new ProductMedia
                     {
                         ProductId = product.Id,
-                        Type = DetectMediaType(file), // 👈 هنا بنحدّد Image أو Video
+                        Type = DetectMediaType(file),
                         Url = url,
-                        // (اختياري) خزين معلومات مفيدة للديبَغينغ
-                        //MimeType = file.ContentType,
-                        //FileName = file.FileName
-                    };
-
-                    await mediaRepo.AddAsync(media);
+                    });
                 }
 
                 var status = await _unitOfWork.CompleteAsync();
                 if (status == 0) return null;
-
             }
 
-            // 4) ارجعي المنتج مع الوسائط (Load ثم Map)
-            var productWithMedia = await _unitOfWork.Repository<Products>().GetAllProductsAsync();
+            var loaded = await _unitOfWork.Repository<Products>().Query()
+                .Include(p => p.Category)
+                .Include(p => p.Media)
+                .Include(p => p.DetailEntries)
+                .FirstOrDefaultAsync(p => p.Id == product.Id);
 
-            var dto = new ProductDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                Weight = product.Weight,
-                Description = product.Description,
-                Discount = product.Discount,
-                priceAfterDiscount = priceAfterDiscount(product.Price, product.Discount),
-
-                category = new productCategoryDto
-                {
-                    Id = product.Category.Id,
-                    Name = product.Category.Name,
-                    Description = product.Category.Description
-                },
-                New = product.New,
-                // أول صورة فقط
-
-
-                // باقي الصور (قائمة)
-                // قائمة الصور والفيديوهات مع النوع
-    //            GalleryUrls = product.Media
-    //.Select(m => new
-    //{
-    //    Url = m.Url,
-    //    Type = m.Type.ToString() // يحوّل enum إلى "Image" أو "Video"
-    //})
-    //.ToList();
-
-            };
-
-            return dto;
+            return loaded == null ? null : _mapper.Map<ProductDto>(loaded);
         }
 
 
@@ -209,6 +172,22 @@ namespace Alamana.Service.Product
 
             if (product == null) return null;
 
+            IReadOnlyList<(string key, string value, int sort)>? parsedDetailsReplacement = null;
+            var detailsTouched = false;
+            if (HasMeaningfulDetailsJson(dto.DetailsJson))
+            {
+                if (TryParseDetailsJsonArray(dto.DetailsJson!, out var fromJson))
+                {
+                    detailsTouched = true;
+                    parsedDetailsReplacement = fromJson;
+                }
+            }
+            else if (dto.Details != null)
+            {
+                detailsTouched = true;
+                parsedDetailsReplacement = NormalizeDetailsFromForm(dto.Details);
+            }
+
             // 1) بيانات أساسية
             product.Name = dto.Name;
             product.Description = dto.Description;
@@ -265,11 +244,14 @@ namespace Alamana.Service.Product
             var status = await _unitOfWork.CompleteAsync();
             if (status == 0) return null;
 
-            // رجّعي المنتج مع الوسائط مرتبة
+            if (detailsTouched)
+                await ReplaceProductDetailEntriesAsync(id, parsedDetailsReplacement!);
 
-            var products  = _unitOfWork.Repository<Products>();
+            var products = _unitOfWork.Repository<Products>();
             var updated = await products.Query()
+                .Include(p => p.Category)
                 .Include(p => p.Media)
+                .Include(p => p.DetailEntries)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
             return _mapper.Map<ProductDto>(updated);
@@ -322,8 +304,18 @@ namespace Alamana.Service.Product
                     Url = m.Url,
                     Type = m.Type
                 })
-                .ToList()
-
+                .ToList(),
+                Details = p.DetailEntries
+                    .OrderBy(e => e.SortOrder)
+                    .ThenBy(e => e.Id)
+                    .Select(e => new ProductDetailEntryDto
+                    {
+                        Id = e.Id,
+                        Key = e.EntryKey,
+                        Value = e.EntryValue,
+                        SortOrder = e.SortOrder
+                    })
+                    .ToList()
 
             })
                 .ToList();
@@ -361,8 +353,18 @@ namespace Alamana.Service.Product
                     Url = m.Url,
                     Type = m.Type
                 })
-                .ToList()
-
+                .ToList(),
+                Details = p.DetailEntries
+                    .OrderBy(e => e.SortOrder)
+                    .ThenBy(e => e.Id)
+                    .Select(e => new ProductDetailEntryDto
+                    {
+                        Id = e.Id,
+                        Key = e.EntryKey,
+                        Value = e.EntryValue,
+                        SortOrder = e.SortOrder
+                    })
+                    .ToList()
 
             })
                 .ToList(); return result;
@@ -400,11 +402,21 @@ namespace Alamana.Service.Product
                     Url = m.Url,
                     Type = m.Type
                 })
-                .ToList()
-
+                .ToList(),
+                Details = p.DetailEntries
+                    .OrderBy(e => e.SortOrder)
+                    .ThenBy(e => e.Id)
+                    .Select(e => new ProductDetailEntryDto
+                    {
+                        Id = e.Id,
+                        Key = e.EntryKey,
+                        Value = e.EntryValue,
+                        SortOrder = e.SortOrder
+                    })
+                    .ToList()
 
             })
-                .ToList(); 
+                .ToList();
             return result;
         }
 
@@ -413,35 +425,7 @@ namespace Alamana.Service.Product
         public async Task<ProductDto> GetProductById(int id)
         {
             var product = await _unitOfWork.Repository<Products>().GetProductByIdAsync(id);
-            //var mappedProduct = _mapper.Map<ProductDto>(product);
-            var result = new ProductDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                Weight = product.Weight,
-                Description = product.Description,
-                New = product.New,
-                Discount = product.Discount,
-                priceAfterDiscount = priceAfterDiscount(product.Price, product.Discount),
-                category = product.Category == null ? null : new productCategoryDto
-                {
-                    Id = product.Category.Id,
-                    Name = product.Category.Name,
-                    Description = product.Category.Description
-                },
-                // باقي الصور
-                GalleryUrls = product.Media
-    .Select(m => new mediaDto
-    {
-        Url = m.Url,
-        Type = m.Type
-    })
-    .ToList()
-            };
-
-            
-            return result;
+            return product == null ? null : _mapper.Map<ProductDto>(product);
         }
 
 
@@ -484,8 +468,105 @@ public async Task<bool> DeleteProduct(int id)
         return status > 0;
     }
 
+        private static IReadOnlyList<(string key, string value, int sort)>? ResolveDetailItemsForAdd(AddProductDto dto)
+        {
+            if (HasMeaningfulDetailsJson(dto.DetailsJson) &&
+                TryParseDetailsJsonArray(dto.DetailsJson!, out var fromJson))
+            {
+                return fromJson.Count > 0 ? fromJson : null;
+            }
 
+            var list = NormalizeDetailsFromForm(dto.Details);
+            return list.Count > 0 ? list : null;
+        }
 
+        /// <summary>يتجاهل قيم Swagger الافتراضية زي "string".</summary>
+        private static bool HasMeaningfulDetailsJson(string? json)
+        {
+            if (string.IsNullOrWhiteSpace(json))
+                return false;
+            return !string.Equals(json.Trim(), "string", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private sealed class DetailJsonRow
+        {
+            public string? Key { get; set; }
+            public string? Value { get; set; }
+            public int? Order { get; set; }
+            public int? SortOrder { get; set; }
+        }
+
+        private static readonly JsonSerializerOptions DetailsJsonSerializerOptions = new()
+        {
+            PropertyNameCaseInsensitive = true,
+            ReadCommentHandling = JsonCommentHandling.Skip,
+            AllowTrailingCommas = true,
+        };
+
+        /// <returns>false لو JSON غير صالح (نُهمِل الحقل).</returns>
+        private static bool TryParseDetailsJsonArray(string json, out List<(string key, string value, int sort)> result)
+        {
+            result = new List<(string, string, int)>();
+            try
+            {
+                var rows = JsonSerializer.Deserialize<List<DetailJsonRow>>(json.Trim(), DetailsJsonSerializerOptions);
+                if (rows == null)
+                    return true;
+
+                for (var i = 0; i < rows.Count; i++)
+                {
+                    var r = rows[i];
+                    if (r == null || string.IsNullOrWhiteSpace(r.Key))
+                        continue;
+                    var sort = r.Order ?? r.SortOrder ?? i;
+                    result.Add((r.Key.Trim(), r.Value?.Trim() ?? string.Empty, sort));
+                }
+
+                return true;
+            }
+            catch (JsonException)
+            {
+                result = new List<(string, string, int)>();
+                return false;
+            }
+        }
+
+        private static List<(string key, string value, int sort)> NormalizeDetailsFromForm(List<ProductDetailFormItem>? details)
+        {
+            var result = new List<(string, string, int)>();
+            if (details == null) return result;
+            for (var i = 0; i < details.Count; i++)
+            {
+                var d = details[i];
+                if (d == null || string.IsNullOrWhiteSpace(d.Key))
+                    continue;
+                var sort = d.Order ?? i;
+                result.Add((d.Key.Trim(), d.Value?.Trim() ?? string.Empty, sort));
+            }
+            return result;
+        }
+
+        private async Task ReplaceProductDetailEntriesAsync(int productId, IReadOnlyList<(string key, string value, int sort)> items)
+        {
+            var detailRepo = _unitOfWork.Repository<ProductDetailEntry>();
+            var existing = await detailRepo.Query().Where(x => x.ProductId == productId).ToListAsync();
+            foreach (var e in existing)
+                detailRepo.Delete(e);
+            await _unitOfWork.CompleteAsync();
+
+            foreach (var (key, value, sort) in items)
+            {
+                await detailRepo.AddAsync(new ProductDetailEntry
+                {
+                    ProductId = productId,
+                    EntryKey = key,
+                    EntryValue = value,
+                    SortOrder = sort
+                });
+            }
+
+            await _unitOfWork.CompleteAsync();
+        }
 
         private decimal priceAfterDiscount(decimal price, decimal discount)
         {
@@ -530,6 +611,7 @@ public async Task<bool> DeleteProduct(int id)
             var topProducts = await _context.Product
                 .Include(p => p.Category)
                 .Include(p => p.Media)
+                .Include(p => p.DetailEntries)
                 .Where(p => topIds.Contains(p.Id))
                 .ToListAsync();
 
@@ -545,6 +627,7 @@ public async Task<bool> DeleteProduct(int id)
                 var filler = await _context.Product
                     .Include(p => p.Category)
                     .Include(p => p.Media)
+                    .Include(p => p.DetailEntries)
                     .Where(p => !topIds.Contains(p.Id))
                     .OrderByDescending(p => p.Id) // أو CreatedAt
                     .Take(remaining)
@@ -569,6 +652,17 @@ public async Task<bool> DeleteProduct(int id)
                     {
                         Url = m.Url,
                         Type = m.Type
+                    })
+                    .ToList(),
+                Details = p.DetailEntries
+                    .OrderBy(e => e.SortOrder)
+                    .ThenBy(e => e.Id)
+                    .Select(e => new ProductDetailEntryDto
+                    {
+                        Id = e.Id,
+                        Key = e.EntryKey,
+                        Value = e.EntryValue,
+                        SortOrder = e.SortOrder
                     })
                     .ToList(),
                 category = new productCategoryDto

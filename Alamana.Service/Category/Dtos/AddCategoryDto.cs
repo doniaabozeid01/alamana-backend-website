@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +13,6 @@ namespace Alamana.Service.Category.Dtos
         public string Name { get; set; }
         public string Description { get; set; }
         public IFormFile? Image { get; set; }
+        public IFormFile? MobileImage { get; set; }
     }
 }

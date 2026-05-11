@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -100,6 +100,17 @@ namespace Alamana.Data.Context
 
             });
 
+            modelBuilder.Entity<ProductDetailEntry>(b =>
+            {
+                b.HasKey(x => x.Id);
+                b.Property(x => x.EntryKey).IsRequired().HasMaxLength(512);
+                b.Property(x => x.EntryValue).IsRequired();
+                b.HasOne(x => x.Product)
+                    .WithMany(p => p.DetailEntries)
+                    .HasForeignKey(x => x.ProductId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
 
 
             modelBuilder.Entity<Videos>(e =>
@@ -107,6 +118,20 @@ namespace Alamana.Data.Context
                 e.Property(x => x.Url).IsRequired().HasMaxLength(500);
                 // (اختياري) ضمان Video واحد فقط Default
                 e.HasIndex(x => x.IsDefault).IsUnique().HasFilter("[IsDefault] = 1");
+            });
+
+            modelBuilder.Entity<AdvertisementProduct>(e =>
+            {
+                e.HasKey(x => x.Id);
+                e.HasIndex(x => new { x.AdvertisementId, x.ProductId }).IsUnique();
+                e.HasOne(x => x.Advertisement)
+                    .WithMany(a => a.AdvertisementProducts)
+                    .HasForeignKey(x => x.AdvertisementId)
+                    .OnDelete(DeleteBehavior.Cascade);
+                e.HasOne(x => x.Product)
+                    .WithMany(p => p.AdvertisementProducts)
+                    .HasForeignKey(x => x.ProductId)
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
 
@@ -124,7 +149,9 @@ namespace Alamana.Data.Context
         public DbSet<OrderItem> OrderItem { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Advertisements> Advertisements { get; set; }
+        public DbSet<AdvertisementProduct> AdvertisementProducts { get; set; }
         public DbSet<ProductMedia> ProductMedia { get; set; }
+        public DbSet<ProductDetailEntry> ProductDetailEntries { get; set; }
         public DbSet<FavouriteProducts> FavouriteProducts { get; set; }
         public DbSet<EmailConfirmationRequest> EmailConfirmationRequests { get; set; }
         public DbSet<Videos> Videos { get; set; }

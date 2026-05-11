@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
 namespace Alamana.Service.Product.Dtos
@@ -16,9 +12,18 @@ namespace Alamana.Service.Product.Dtos
         public bool New { get; set; }
         public decimal Discount { get; set; }
 
-        //public IFormFile ImagePathCover { get; set; }
         public List<IFormFile>? Gallery { get; set; }
 
         public int CategoryId { get; set; }
+
+        /// <summary>أقسام المنتج (key / value / order) — اختياري.</summary>
+        public List<ProductDetailFormItem>? Details { get; set; }
+
+        /// <summary>
+        /// اختياري: مصفوفة JSON واحدة مثل
+        /// <c>[{"key":"وصف","value":"نص","sortOrder":1}]</c>
+        /// لها أولوية على <see cref="Details"/> إذا كانت غير فارغة بعد التحليل.
+        /// </summary>
+        public string? DetailsJson { get; set; }
     }
 }

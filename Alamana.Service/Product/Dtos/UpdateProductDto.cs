@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
 namespace Alamana.Service.Product.Dtos
@@ -18,10 +14,16 @@ namespace Alamana.Service.Product.Dtos
 
         public bool New { get; set; }
 
-        // وسائط (اختياري)
-        //public IFormFile NewCover { get; set; }                // صورة غلاف جديدة
         public List<IFormFile>? NewGallery { get; set; }
 
-        public List<int>? RemoveMediaIds { get; set; } // IDs عناصر نزيلها
+        public List<int>? RemoveMediaIds { get; set; }
+
+        /// <summary>null = لا تغيّر التفاصيل. قائمة (حتى فارغة) = استبدال كامل.</summary>
+        public List<ProductDetailFormItem>? Details { get; set; }
+
+        /// <summary>
+        /// إن وُجدت (حتى <c>[]</c>) تستبدل التفاصيل بالكامل؛ لها أولوية على <see cref="Details"/> إن كانت غير فارغة بعد التحليل.
+        /// </summary>
+        public string? DetailsJson { get; set; }
     }
 }

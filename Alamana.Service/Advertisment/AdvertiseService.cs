@@ -1,23 +1,21 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Alamana.Data.Entities;
 using Alamana.Repository.Interfaces;
 using Alamana.Service.Advertisment.Dtos;
 using Alamana.Service.SaveAndDeleteImage;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Alamana.Service.Advertisment
 {
     public class AdvertiseService : IAdvertiseService
     {
-
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ISaveAndDeleteImageService _imageService;
-
 
         public AdvertiseService(IUnitOfWork unitOfWork, IMapper mapper, ISaveAndDeleteImageService imageService)
         {
@@ -37,9 +35,7 @@ namespace Alamana.Service.Advertisment
             {
                 ImageUrl = imageUrl,
                 Title = imageDto.Title,
-                //TitleAr = imageDto.TitleAr,
                 Description = imageDto.Description,
-                //DescriptionAr = imageDto.DescriptionAr,
             };
 
             await _unitOfWork.Repository<Advertisements>().AddAsync(img);
@@ -48,11 +44,10 @@ namespace Alamana.Service.Advertisment
             if (status == 0)
                 return null;
 
-            return _mapper.Map<AdvertiseDto>(img);
+            await SyncAdvertisementProductsAsync(img.Id, imageDto.ProductIds);
+
+            return await GetAdvertisementDtoByIdAsync(img.Id);
         }
-
-
-
 
         public async Task<AdvertiseDto> UpdateAdvertise(int id, AddAdvertise imageDto)
         {
@@ -62,36 +57,45 @@ namespace Alamana.Service.Advertisment
 
             if (imageDto.ImageUrl != null)
             {
-                var publicId = _imageService.ExtractPublicIdFromUrl(img.ImageUrl);
-                _imageService.DeleteFromCloudinary(publicId); // حذف القديمة
-                img.ImageUrl = await _imageService.UploadToCloudinary(imageDto.ImageUrl); // رفع الجديدة
+                if (!string.IsNullOrEmpty(img.ImageUrl))
+                {
+                    var publicId = _imageService.ExtractPublicIdFromUrl(img.ImageUrl);
+                    if (!string.IsNullOrEmpty(publicId))
+                        _imageService.DeleteFromCloudinary(publicId);
+                }
+
+                img.ImageUrl = await _imageService.UploadToCloudinary(imageDto.ImageUrl);
             }
 
-            imageDto.Title = imageDto.Title;
-            //imageDto.TitleAr = imageDto.TitleAr;
-            imageDto.Description = imageDto.Description;
-            //imageDto.DescriptionAr = imageDto.DescriptionAr;
+            img.Title = imageDto.Title;
+            img.Description = imageDto.Description;
 
             _unitOfWork.Repository<Advertisements>().Update(img);
             var status = await _unitOfWork.CompleteAsync();
 
-            return status == 0 ? null : _mapper.Map<AdvertiseDto>(img);
-        }
+            if (status == 0)
+                return null;
 
+            if (imageDto.ProductIds != null)
+                await SyncAdvertisementProductsAsync(id, imageDto.ProductIds);
+
+            return await GetAdvertisementDtoByIdAsync(id);
+        }
 
         public async Task<IReadOnlyList<AdvertiseDto>> GetAllAdvertisements()
         {
-            var imgs = await _unitOfWork.Repository<Advertisements>().GetAllAsync();
+            var imgs = await _unitOfWork.Repository<Advertisements>()
+                .Query()
+                .Include(a => a.AdvertisementProducts)
+                .OrderByDescending(a => a.Id)
+                .ToListAsync();
+
             return _mapper.Map<IReadOnlyList<AdvertiseDto>>(imgs);
         }
 
-
-
-
         public async Task<AdvertiseDto> GetAdvertisementById(int id)
         {
-            var img = await _unitOfWork.Repository<Advertisements>().GetByIdAsync(id);
-            return _mapper.Map<AdvertiseDto>(img);
+            return await GetAdvertisementDtoByIdAsync(id);
         }
 
         public async Task<int> DeleteAdvertisement(int id)
@@ -103,13 +107,61 @@ namespace Alamana.Service.Advertisment
             if (!string.IsNullOrEmpty(img.ImageUrl))
             {
                 var publicId = _imageService.ExtractPublicIdFromUrl(img.ImageUrl);
-                _imageService.DeleteFromCloudinary(publicId);
+                if (!string.IsNullOrEmpty(publicId))
+                    _imageService.DeleteFromCloudinary(publicId);
             }
 
             _unitOfWork.Repository<Advertisements>().Delete(img);
             return await _unitOfWork.CompleteAsync();
         }
 
-    }
+        private async Task<AdvertiseDto?> GetAdvertisementDtoByIdAsync(int id)
+        {
+            var img = await _unitOfWork.Repository<Advertisements>()
+                .Query()
+                .Include(a => a.AdvertisementProducts)
+                .FirstOrDefaultAsync(a => a.Id == id);
 
+            return img == null ? null : _mapper.Map<AdvertiseDto>(img);
+        }
+
+        private async Task SyncAdvertisementProductsAsync(int advertisementId, IList<int>? productIds)
+        {
+            var linkRepo = _unitOfWork.Repository<AdvertisementProduct>();
+
+            var existing = await linkRepo.Query()
+                .Where(x => x.AdvertisementId == advertisementId)
+                .ToListAsync();
+
+            foreach (var row in existing)
+                linkRepo.Delete(row);
+
+            await _unitOfWork.CompleteAsync();
+
+            var ids = (productIds ?? Array.Empty<int>())
+                .Where(pid => pid > 0)
+                .Distinct()
+                .ToList();
+
+            if (ids.Count == 0)
+                return;
+
+            var validIds = await _unitOfWork.Repository<Products>()
+                .Query()
+                .Where(p => ids.Contains(p.Id))
+                .Select(p => p.Id)
+                .ToListAsync();
+
+            foreach (var pid in validIds)
+            {
+                await linkRepo.AddAsync(new AdvertisementProduct
+                {
+                    AdvertisementId = advertisementId,
+                    ProductId = pid
+                });
+            }
+
+            await _unitOfWork.CompleteAsync();
+        }
+    }
 }

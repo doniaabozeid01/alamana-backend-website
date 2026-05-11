@@ -76,7 +76,7 @@ namespace Alamana.Service.SaveAndDeleteImage
                 var url = r?.SecureUrl?.ToString();
                 if (!string.IsNullOrWhiteSpace(url)) return url;
                 var reason = r?.Error?.Message ?? $"StatusCode: {r?.StatusCode}";
-                throw new InvalidOperationException($"Cloudinary video upload failed for '{file.FileName}'. {reason}");
+                throw new InvalidOperationException(FormatCloudinaryFailure(file.FileName, reason, isVideo: true));
             }
             else
             {
@@ -90,7 +90,7 @@ namespace Alamana.Service.SaveAndDeleteImage
                 var url = r?.SecureUrl?.ToString();
                 if (!string.IsNullOrWhiteSpace(url)) return url;
                 var reason = r?.Error?.Message ?? $"StatusCode: {r?.StatusCode}";
-                throw new InvalidOperationException($"Cloudinary video upload failed for '{file.FileName}'. {reason}");
+                throw new InvalidOperationException(FormatCloudinaryFailure(file.FileName, reason, isVideo: true));
             }
         }
         else
@@ -104,8 +104,20 @@ namespace Alamana.Service.SaveAndDeleteImage
             var url = r?.SecureUrl?.ToString();
             if (!string.IsNullOrWhiteSpace(url)) return url;
             var reason = r?.Error?.Message ?? $"StatusCode: {r?.StatusCode}";
-            throw new InvalidOperationException($"Cloudinary image upload failed for '{file.FileName}'. {reason}");
+            throw new InvalidOperationException(FormatCloudinaryFailure(file.FileName, reason, isVideo: false));
         }
+    }
+
+    private static string FormatCloudinaryFailure(string fileName, string reason, bool isVideo)
+    {
+        var kind = isVideo ? "video" : "image";
+        var msg = $"Cloudinary {kind} upload failed for '{fileName}'. {reason}";
+        if (reason.Contains("Stale request", StringComparison.OrdinalIgnoreCase))
+        {
+            msg += " The server clock is out of sync with Cloudinary (difference > 1 hour). On Windows: Settings → Time & language → enable “Set time automatically”, then “Sync now”. / ساعة الجهاز غير متزامنة مع الإنترنت؛ فعّلي ضبط الوقت تلقائياً واضغطي مزامنة الآن.";
+        }
+
+        return msg;
     }
 
     private static bool IsVideo(IFormFile file)

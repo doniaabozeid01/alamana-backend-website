@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +12,12 @@ namespace Alamana.Service.Advertisment.Dtos
     {
         public AdvertiseProfile()
         {
-            CreateMap<Advertisements, AddAdvertise>().ReverseMap();
-            CreateMap<Advertisements, AdvertiseDto>().ReverseMap();
+            CreateMap<Advertisements, AdvertiseDto>()
+                .ForMember(d => d.ProductIds, o => o.MapFrom(s =>
+                    s.AdvertisementProducts
+                        .OrderBy(ap => ap.Id)
+                        .Select(ap => ap.ProductId)
+                        .ToList()));
         }
     }
 }

@@ -25,6 +25,7 @@ using Alamana.Service.ProductFavourite;
 using Alamana.Service.ProductFavourite.Dtos;
 using Alamana.Service.SaveAndDeleteImage;
 using Alamana.Service.Video;
+using Alamana.ModelBinding;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
@@ -36,7 +37,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 //builder.Services.AddControllers();
-builder.Services.AddControllers()
+builder.Services.AddControllers(options =>
+    {
+        options.ModelBinderProviders.Insert(0, new ProductDetailsListModelBinderProvider());
+    })
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.Converters.Add(

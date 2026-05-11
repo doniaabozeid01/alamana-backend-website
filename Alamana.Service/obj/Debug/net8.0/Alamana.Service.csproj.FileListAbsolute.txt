@@ -33,3 +33,6 @@ E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Debug\net8.0\Al
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Debug\net8.0\refint\Alamana.Service.dll
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Debug\net8.0\Alamana.Service.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana.Service\obj\Debug\net8.0\ref\Alamana.Service.dll
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.Service.deps.json
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.Service.dll
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.Service.pdb

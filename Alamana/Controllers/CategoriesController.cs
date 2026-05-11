@@ -1,4 +1,4 @@
-﻿using Alamana.Service.Category.Dtos;
+using Alamana.Service.Category.Dtos;
 using Alamana.Service.Category;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,16 +23,24 @@ namespace Alamana.Controllers
 
 
         [HttpPost("AddCategory")]
-        public async Task<ActionResult<categoryDto>> AddCategory( AddCategoryDto categoryDto)
+        [Consumes("multipart/form-data")]
+        public async Task<ActionResult<categoryDto>> AddCategory([FromForm] AddCategoryDto categoryDto)
         {
             if (categoryDto == null)
                 return BadRequest("Category shouldn't be empty.");
 
-            var category = await _categoryServices.AddCategory(categoryDto, categoryDto.Image);
+            try
+            {
+                var category = await _categoryServices.AddCategory(categoryDto);
 
-            return category == null
-                ? BadRequest("Failed to save category.")
-                : Ok(category);
+                return category == null
+                    ? BadRequest("Failed to save category.")
+                    : Ok(category);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 
@@ -43,6 +51,7 @@ namespace Alamana.Controllers
 
 
         [HttpPut("UpdateCategory/{id}")]
+        [Consumes("multipart/form-data")]
         public async Task<ActionResult<categoryDto>> UpdateCategory(int id, [FromForm] AddCategoryDto categoryDto)
         {
             if (id <= 0)
@@ -55,11 +64,18 @@ namespace Alamana.Controllers
             if (existingCategory == null)
                 return NotFound("No category found.");
 
-            var updatedCategory = await _categoryServices.UpdateCategory(id, categoryDto, categoryDto.Image);
+            try
+            {
+                var updatedCategory = await _categoryServices.UpdateCategory(id, categoryDto);
 
-            return updatedCategory == null
-                ? BadRequest("Failed to update category.")
-                : Ok(updatedCategory);
+                return updatedCategory == null
+                    ? BadRequest("Failed to update category.")
+                    : Ok(updatedCategory);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 

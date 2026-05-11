@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,7 +46,11 @@ namespace Alamana.Repository.Repositories
 
         public async Task<Products> GetProductByIdAsync(int productId)
         {
-            return await _context.Set<Products>().Include(x => x.Category).Include(x=>x.Media).FirstOrDefaultAsync(x => x.Id == productId);
+            return await _context.Set<Products>()
+                .Include(x => x.Category)
+                .Include(x => x.Media)
+                .Include(x => x.DetailEntries)
+                .FirstOrDefaultAsync(x => x.Id == productId);
         }
 
 
@@ -65,20 +69,35 @@ namespace Alamana.Repository.Repositories
 
         public async Task<IReadOnlyList<Products>> GetAllProductsAsync()
         {
-            return await _context.Set<Products>().Include(x=>x.Category).Include(x => x.Media).ToListAsync();
+            return await _context.Set<Products>()
+                .Include(x => x.Category)
+                .Include(x => x.Media)
+                .Include(x => x.DetailEntries)
+                .ToListAsync();
         }
 
 
         public async Task<IReadOnlyList<Products>> GetRandomProductsAsync()
         {
-            return await _context.Set<Products>().OrderBy(p => Guid.NewGuid()).Take(5).Include(x => x.Media).Include(x => x.Category).ToListAsync();
+            return await _context.Set<Products>()
+                .OrderBy(p => Guid.NewGuid())
+                .Take(5)
+                .Include(x => x.Media)
+                .Include(x => x.Category)
+                .Include(x => x.DetailEntries)
+                .ToListAsync();
         }
 
 
 
         public async Task<IReadOnlyList<Products>> GetNewProducts()
         {
-            return await _context.Set<Products>().Include(x=>x.Media).Include(x => x.Category).Where(x => x.New == true).ToListAsync();
+            return await _context.Set<Products>()
+                .Include(x => x.Media)
+                .Include(x => x.Category)
+                .Include(x => x.DetailEntries)
+                .Where(x => x.New == true)
+                .ToListAsync();
         }
 
 
@@ -90,7 +109,12 @@ namespace Alamana.Repository.Repositories
 
         public async Task<Categories> GetCategoryByIdAsync(int id)
         {
-            return await _context.Set<Categories>().Include(x => x.Products).ThenInclude(c=>c.Media.Where(x=>x.Type == Data.Enums.MediaType.Image)).FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Set<Categories>()
+                .Include(x => x.Products)
+                    .ThenInclude(c => c.Media.Where(m => m.Type == Data.Enums.MediaType.Image))
+                .Include(x => x.Products)
+                    .ThenInclude(p => p.DetailEntries)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
 

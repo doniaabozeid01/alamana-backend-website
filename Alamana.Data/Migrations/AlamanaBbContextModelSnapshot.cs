@@ -22,6 +22,30 @@ namespace Alamana.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Alamana.Data.Entities.AdvertisementProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AdvertisementId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("AdvertisementId", "ProductId")
+                        .IsUnique();
+
+                    b.ToTable("AdvertisementProducts");
+                });
+
             modelBuilder.Entity("Alamana.Data.Entities.Advertisements", b =>
                 {
                     b.Property<int>("Id")
@@ -194,6 +218,9 @@ namespace Alamana.Data.Migrations
 
                     b.Property<string>("ImagePath")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MobileImagePath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -438,6 +465,36 @@ namespace Alamana.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PaymentMethods");
+                });
+
+            modelBuilder.Entity("Alamana.Data.Entities.ProductDetailEntry", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("EntryKey")
+                        .IsRequired()
+                        .HasMaxLength(512)
+                        .HasColumnType("nvarchar(512)");
+
+                    b.Property<string>("EntryValue")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductDetailEntries");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.ProductMedia", b =>
@@ -710,6 +767,25 @@ namespace Alamana.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Alamana.Data.Entities.AdvertisementProduct", b =>
+                {
+                    b.HasOne("Alamana.Data.Entities.Advertisements", "Advertisement")
+                        .WithMany("AdvertisementProducts")
+                        .HasForeignKey("AdvertisementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Alamana.Data.Entities.Products", "Product")
+                        .WithMany("AdvertisementProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Advertisement");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Alamana.Data.Entities.Cart", b =>
                 {
                     b.HasOne("Alamana.Data.Entities.ApplicationUser", "user")
@@ -855,6 +931,17 @@ namespace Alamana.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Alamana.Data.Entities.ProductDetailEntry", b =>
+                {
+                    b.HasOne("Alamana.Data.Entities.Products", "Product")
+                        .WithMany("DetailEntries")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Alamana.Data.Entities.ProductMedia", b =>
                 {
                     b.HasOne("Alamana.Data.Entities.Products", "Product")
@@ -939,6 +1026,11 @@ namespace Alamana.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Alamana.Data.Entities.Advertisements", b =>
+                {
+                    b.Navigation("AdvertisementProducts");
+                });
+
             modelBuilder.Entity("Alamana.Data.Entities.Cart", b =>
                 {
                     b.Navigation("cartItems");
@@ -966,6 +1058,10 @@ namespace Alamana.Data.Migrations
 
             modelBuilder.Entity("Alamana.Data.Entities.Products", b =>
                 {
+                    b.Navigation("AdvertisementProducts");
+
+                    b.Navigation("DetailEntries");
+
                     b.Navigation("Media");
 
                     b.Navigation("OrderItems");

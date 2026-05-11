@@ -1,4 +1,4 @@
-﻿using Alamana.Service.Advertisment;
+using Alamana.Service.Advertisment;
 using Alamana.Service.Advertisment.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +20,7 @@ namespace Alamana.Controllers
         }
 
         [HttpGet("GetAllAdvertisements")]
-        public async Task<ActionResult<IReadOnlyList<AdvertiseService>>> GetAllAdvertisements()
+        public async Task<ActionResult<IReadOnlyList<AdvertiseDto>>> GetAllAdvertisements()
         {
             var Advertises = await _advertiseService.GetAllAdvertisements();
             return Ok(Advertises);
@@ -49,13 +49,20 @@ namespace Alamana.Controllers
                 return BadRequest(new { message = "Image is required." });
             }
 
-            var addedImg = await _advertiseService.AddAdvertise(imageDto);
-            if (addedImg == null)
+            try
             {
-                return StatusCode(500, "Failed to add advertise.");
-            }
+                var addedImg = await _advertiseService.AddAdvertise(imageDto);
+                if (addedImg == null)
+                {
+                    return StatusCode(500, "Failed to add advertise.");
+                }
 
-            return CreatedAtAction(nameof(GetAdvertisementById), new { id = addedImg.Id }, addedImg);
+                return CreatedAtAction(nameof(GetAdvertisementById), new { id = addedImg.Id }, addedImg);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
 
@@ -71,13 +78,20 @@ namespace Alamana.Controllers
                 return NotFound(new { message = $"image with ID {id} not found." });
             }
 
-            var updatedImage = await _advertiseService.UpdateAdvertise(id, imageDto);
-            if (updatedImage == null)
+            try
             {
-                return StatusCode(500, "Failed to update image.");
-            }
+                var updatedImage = await _advertiseService.UpdateAdvertise(id, imageDto);
+                if (updatedImage == null)
+                {
+                    return StatusCode(500, "Failed to update image.");
+                }
 
-            return Ok(updatedImage);
+                return Ok(updatedImage);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +16,11 @@ namespace Alamana.Data.Entities
         public string Description { get; set; }
         public bool New { get; set; } = false;
         public ICollection<ProductMedia> Media { get; set; } = new List<ProductMedia>();
+        public ICollection<ProductDetailEntry> DetailEntries { get; set; } = new List<ProductDetailEntry>();
         public int CategoryId { get; set; }
         public Categories Category { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<AdvertisementProduct> AdvertisementProducts { get; set; } = new List<AdvertisementProduct>();
     }
 }
+

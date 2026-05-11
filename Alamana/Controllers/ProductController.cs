@@ -61,8 +61,15 @@ namespace Alamana.Controllers
             var existingProduct = await _productServices.GetProductById(id);
             if (existingProduct == null) return NotFound("No Product found.");
 
-            var updated = await _productServices.UpdateProduct(id, productDto); // ✅ شيل البراميتر الثالث
-            return updated == null ? BadRequest("Failed to update product.") : Ok(updated);
+            try
+            {
+                var updated = await _productServices.UpdateProduct(id, productDto);
+                return updated == null ? BadRequest("Failed to update product.") : Ok(updated);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
 

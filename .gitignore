@@ -1,0 +1,49 @@
+# Ignore build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+
+# Publish folder output
+**/Release/
+**/Debug/
+**/net*/PubTmp/
+
+# Rider
+.idea/
+
+# ASP.NET Static Web Assets
+wwwroot/staticwebassets/
+
+# dotnet-specific files
+*.generated.cs
+*.AssemblyInfo.cs
+*.g.cs
+*.g.i.cs
+Generated_Code/
+
+# Config transforms
+*.csproj.user
+
+# Logs
+logs/
+*.log
+
+# npm / node
+node_modules/
+
+# Others
+.env
+.env.*

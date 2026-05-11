@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,15 +32,17 @@ namespace Alamana.Service.Category
 
 
 
-        public async Task<categoryDto> AddCategory(AddCategoryDto categoryDto, IFormFile image)
+        public async Task<categoryDto> AddCategory(AddCategoryDto categoryDto)
         {
-            var imageUrl = image != null ? await _imageService.UploadToCloudinary(image) : null;
+            var imageUrl = categoryDto.Image != null ? await _imageService.UploadToCloudinary(categoryDto.Image) : null;
+            var mobileUrl = categoryDto.MobileImage != null ? await _imageService.UploadToCloudinary(categoryDto.MobileImage) : null;
 
             var category = new Categories
             {
                 Name = categoryDto.Name,
                 Description = categoryDto.Description,
-                ImagePath = imageUrl
+                ImagePath = imageUrl,
+                MobileImagePath = mobileUrl
             };
 
             await _unitOfWork.Repository<Categories>().AddAsync(category);
@@ -54,22 +56,34 @@ namespace Alamana.Service.Category
 
 
 
-        public async Task<categoryDto> UpdateCategory(int id, AddCategoryDto categoryDto, IFormFile newImage)
+        public async Task<categoryDto> UpdateCategory(int id, AddCategoryDto categoryDto)
         {
             var category = await _unitOfWork.Repository<Categories>().GetByIdAsync(id);
             if (category == null)
                 return null;
 
-            if (newImage != null)
+            if (categoryDto.Image != null)
             {
-                // حذف القديمة
                 if (!string.IsNullOrEmpty(category.ImagePath))
                 {
                     var publicId = _imageService.ExtractPublicIdFromUrl(category.ImagePath);
-                    _imageService.DeleteFromCloudinary(publicId);
+                    if (!string.IsNullOrEmpty(publicId))
+                        _imageService.DeleteFromCloudinary(publicId);
                 }
 
-                category.ImagePath = await _imageService.UploadToCloudinary(newImage);
+                category.ImagePath = await _imageService.UploadToCloudinary(categoryDto.Image);
+            }
+
+            if (categoryDto.MobileImage != null)
+            {
+                if (!string.IsNullOrEmpty(category.MobileImagePath))
+                {
+                    var publicId = _imageService.ExtractPublicIdFromUrl(category.MobileImagePath);
+                    if (!string.IsNullOrEmpty(publicId))
+                        _imageService.DeleteFromCloudinary(publicId);
+                }
+
+                category.MobileImagePath = await _imageService.UploadToCloudinary(categoryDto.MobileImage);
             }
 
             category.Name = categoryDto.Name;
@@ -110,7 +124,18 @@ namespace Alamana.Service.Category
                     {
                         Url = m.Url,
                         Type = m.Type // يحوّل Enum لقيمة نصية مثل "Image" أو "Video"
-                    }).ToList()
+                    }).ToList(),
+                    Details = p.DetailEntries
+                        .OrderBy(e => e.SortOrder)
+                        .ThenBy(e => e.Id)
+                        .Select(e => new ProductDetailEntryDto
+                        {
+                            Id = e.Id,
+                            Key = e.EntryKey,
+                            Value = e.EntryValue,
+                            SortOrder = e.SortOrder
+                        })
+                        .ToList()
                 }).ToList()
             };
         }
@@ -150,7 +175,15 @@ namespace Alamana.Service.Category
             if (!string.IsNullOrEmpty(category.ImagePath))
             {
                 var publicId = _imageService.ExtractPublicIdFromUrl(category.ImagePath);
-                _imageService.DeleteFromCloudinary(publicId);
+                if (!string.IsNullOrEmpty(publicId))
+                    _imageService.DeleteFromCloudinary(publicId);
+            }
+
+            if (!string.IsNullOrEmpty(category.MobileImagePath))
+            {
+                var publicId = _imageService.ExtractPublicIdFromUrl(category.MobileImagePath);
+                if (!string.IsNullOrEmpty(publicId))
+                    _imageService.DeleteFromCloudinary(publicId);
             }
 
             _unitOfWork.Repository<Categories>().Delete(category);

@@ -382,4 +382,12 @@ E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\refint\Ala
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\Alamana.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\Alamana.genruntimeconfig.cache
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\ref\Alamana.dll
+E:\alhendal-Websites\Alamana-website\backend\_build_out\appsettings.Development.json
+E:\alhendal-Websites\Alamana-website\backend\_build_out\appsettings.json
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.staticwebassets.endpoints.json
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.exe
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.deps.json
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.runtimeconfig.json
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.dll
+E:\alhendal-Websites\Alamana-website\backend\_build_out\Alamana.pdb
 E:\alhendal-Websites\Alamana-website\backend\Alamana\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

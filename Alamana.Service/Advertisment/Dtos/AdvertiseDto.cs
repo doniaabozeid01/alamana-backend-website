@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +14,8 @@ namespace Alamana.Service.Advertisment.Dtos
         //public string TitleAr { get; set; }
         public string Description { get; set; }
         //public string DescriptionAr { get; set; }
+
+        public IReadOnlyList<int> ProductIds { get; set; } = Array.Empty<int>();
     }
 
 }
