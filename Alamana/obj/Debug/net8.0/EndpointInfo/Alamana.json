@@ -1279,9 +1279,6 @@
                     "items": {
                       "$ref": "#/components/schemas/ProductDetailFormItem"
                     }
-                  },
-                  "DetailsJson": {
-                    "type": "string"
                   }
                 }
               },
@@ -1311,9 +1308,6 @@
                   "style": "form"
                 },
                 "Details": {
-                  "style": "form"
-                },
-                "DetailsJson": {
                   "style": "form"
                 }
               }
@@ -2875,7 +2869,7 @@
             "type": "string",
             "nullable": true
           },
-          "order": {
+          "sortOrder": {
             "type": "integer",
             "format": "int32",
             "nullable": true

@@ -83,7 +83,7 @@ namespace Alamana.Service.Product
             await _unitOfWork.Repository<Products>().AddAsync(product);
             await _unitOfWork.CompleteAsync();
 
-            if (detailItems != null)
+            if (detailItems is { Count: > 0 })
                 await ReplaceProductDetailEntriesAsync(product.Id, detailItems);
 
             var mediaRepo = _unitOfWork.Repository<ProductMedia>();
@@ -470,11 +470,11 @@ public async Task<bool> DeleteProduct(int id)
 
         private static IReadOnlyList<(string key, string value, int sort)>? ResolveDetailItemsForAdd(AddProductDto dto)
         {
-            if (HasMeaningfulDetailsJson(dto.DetailsJson) &&
-                TryParseDetailsJsonArray(dto.DetailsJson!, out var fromJson))
-            {
-                return fromJson.Count > 0 ? fromJson : null;
-            }
+            //if (HasMeaningfulDetailsJson(dto.DetailsJson) &&
+            //    TryParseDetailsJsonArray(dto.DetailsJson!, out var fromJson))
+            //{
+            //    return fromJson.Count > 0 ? fromJson : null;
+            //}
 
             var list = NormalizeDetailsFromForm(dto.Details);
             return list.Count > 0 ? list : null;
@@ -507,9 +507,24 @@ public async Task<bool> DeleteProduct(int id)
         private static bool TryParseDetailsJsonArray(string json, out List<(string key, string value, int sort)> result)
         {
             result = new List<(string, string, int)>();
+            var normalized = ProductDetailsJsonNormalize.ForJsonParse(json);
+            if (TryDeserializeDetailJsonRows(normalized, out result))
+                return true;
+
+            var recovered = ProductDetailsJsonNormalize.TryRecoverUtf8MisreadAsLatin1(normalized);
+            if (string.IsNullOrEmpty(recovered))
+                return false;
+
+            normalized = ProductDetailsJsonNormalize.ForJsonParse(recovered);
+            return TryDeserializeDetailJsonRows(normalized, out result);
+        }
+
+        private static bool TryDeserializeDetailJsonRows(string normalized, out List<(string key, string value, int sort)> result)
+        {
+            result = new List<(string, string, int)>();
             try
             {
-                var rows = JsonSerializer.Deserialize<List<DetailJsonRow>>(json.Trim(), DetailsJsonSerializerOptions);
+                var rows = JsonSerializer.Deserialize<List<DetailJsonRow>>(normalized, DetailsJsonSerializerOptions);
                 if (rows == null)
                     return true;
 
@@ -540,7 +555,7 @@ public async Task<bool> DeleteProduct(int id)
                 var d = details[i];
                 if (d == null || string.IsNullOrWhiteSpace(d.Key))
                     continue;
-                var sort = d.Order ?? i;
+                var sort = d.SortOrder ?? i;
                 result.Add((d.Key.Trim(), d.Value?.Trim() ?? string.Empty, sort));
             }
             return result;

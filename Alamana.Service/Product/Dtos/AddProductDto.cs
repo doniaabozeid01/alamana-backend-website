@@ -16,14 +16,15 @@ namespace Alamana.Service.Product.Dtos
 
         public int CategoryId { get; set; }
 
-        /// <summary>أقسام المنتج (key / value / order) — اختياري.</summary>
+        /// <summary>
+        /// تفاصيل المنتج — اختياري. من Angular/Postman مع الصور: <c>Details[0].Key</c>, <c>Details[0].Value</c>, <c>Details[0].SortOrder</c>.
+        /// </summary>
         public List<ProductDetailFormItem>? Details { get; set; }
 
         /// <summary>
-        /// اختياري: مصفوفة JSON واحدة مثل
-        /// <c>[{"key":"وصف","value":"نص","sortOrder":1}]</c>
-        /// لها أولوية على <see cref="Details"/> إذا كانت غير فارغة بعد التحليل.
+        /// اختياري: مصفوفة JSON واحدة؛ لها أولوية على <see cref="Details"/> إن وُجدت وصالحة.
+        /// تجنّبي ترك القيمة الافتراضية <c>string</c> في Swagger.
         /// </summary>
-        public string? DetailsJson { get; set; }
+        //public string? DetailsJson { get; set; }
     }
 }

@@ -801,11 +801,6 @@
         "Name": "Details",
         "Type": "System.Collections.Generic.List\u00601[[Alamana.Service.Product.Dtos.ProductDetailFormItem, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
-      },
-      {
-        "Name": "DetailsJson",
-        "Type": "System.String",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": [

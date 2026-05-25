@@ -18,11 +18,13 @@ namespace Alamana.Service.Product.Dtos
 
         public List<int>? RemoveMediaIds { get; set; }
 
-        /// <summary>null = لا تغيّر التفاصيل. قائمة (حتى فارغة) = استبدال كامل.</summary>
+        /// <summary>
+        /// null = لا تغيّر التفاصيل. قائمة (حتى فارغة) = استبدال كامل. من الـ client: <c>Details[i].Key</c>, <c>Value</c>, <c>SortOrder</c>.
+        /// </summary>
         public List<ProductDetailFormItem>? Details { get; set; }
 
         /// <summary>
-        /// إن وُجدت (حتى <c>[]</c>) تستبدل التفاصيل بالكامل؛ لها أولوية على <see cref="Details"/> إن كانت غير فارغة بعد التحليل.
+        /// إن وُجدت وصالحة تستبدل التفاصيل؛ أولوية على <see cref="Details"/>. لا تُرسلي placeholder <c>string</c> من Swagger.
         /// </summary>
         public string? DetailsJson { get; set; }
     }

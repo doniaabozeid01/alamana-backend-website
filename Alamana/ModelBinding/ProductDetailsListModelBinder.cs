@@ -2,15 +2,17 @@ using System.Globalization;
 using System.Linq;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Alamana.Service.Product;
 using Alamana.Service.Product.Dtos;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Primitives;
 
 namespace Alamana.ModelBinding;
 
 /// <summary>
-/// Swagger غالبًا يبعت عناصر <c>Details</c> كحقل واحد لكل index فيه JSON كامل.
-/// الـ binder الافتراضي ما يحوّلهاش لـ <see cref="ProductDetailFormItem"/>، فالقائمة تفضل فاضية.
+/// يدعم الطريقة الموصى بها لـ <c>multipart/form-data</c>: <c>Details[i].Key</c> / <c>Value</c> / <c>SortOrder</c>.
+/// ويدعم احتياطيًا حقول Swagger (كائن أو مصفوفة JSON تحت اسم <c>Details</c>).
 /// </summary>
 public sealed class ProductDetailsListModelBinderProvider : IModelBinderProvider
 {
@@ -78,38 +80,34 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
             var reBracket = new Regex(
                 $@"(?:^|.*\.){escaped}\[(\d+)\]\[([^\]]+)\]$",
                 RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+            // Swagger / عملاء آخرون: Details.0.key أو productDto.Details.0.key
+            var reDot = new Regex(
+                $@"(?:^|.*\.){escaped}\.(\d+)\.(.+)$",
+                RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
 
             foreach (var field in form)
             {
                 AccumulateField(byIndex, field, reIndexed);
                 AccumulateField(byIndex, field, reBracket);
+                AccumulateField(byIndex, field, reDot);
             }
         }
 
         if (byIndex.Count == 0)
         {
-            // Swagger كثيرًا يبعت حقل واحد اسمه Details: إما [{...}] أو كائن واحد {...}
-            if (TryGetRootDetailsFormValue(form, nameVariants, out var rootRaw))
+            // حقل جذر واحد: Details = [{...}] أو {...}
+            if (TryGetRootDetailsFormValue(form, nameVariants, out var rootRaw) &&
+                TryBindDetailsFromJsonString(rootRaw, out var fromRoot))
             {
-                var trimmed = rootRaw.TrimStart();
-                if (trimmed.StartsWith('['))
-                {
-                    var parsed = TryParseDetailsJsonArray(rootRaw);
-                    if (parsed.Count > 0)
-                    {
-                        bindingContext.Result = ModelBindingResult.Success(parsed);
-                        return Task.CompletedTask;
-                    }
-                }
-                else if (trimmed.StartsWith('{'))
-                {
-                    var one = TryFromJson(rootRaw, 0);
-                    if (one != null)
-                    {
-                        bindingContext.Result = ModelBindingResult.Success(new List<ProductDetailFormItem> { one });
-                        return Task.CompletedTask;
-                    }
-                }
+                bindingContext.Result = ModelBindingResult.Success(fromRoot);
+                return Task.CompletedTask;
+            }
+
+            // احتياطي: أي مفتاح فيه "Details" وقيمته JSON (Swagger أحيانًا يغيّر اسم الجزء)
+            if (TryScavengeDetailsJsonFromForm(form, out var scavenged))
+            {
+                bindingContext.Result = ModelBindingResult.Success(scavenged);
+                return Task.CompletedTask;
             }
 
             bindingContext.Result = ModelBindingResult.Success(null);
@@ -165,6 +163,55 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
         return false;
     }
 
+    private static bool TryBindDetailsFromJsonString(string rootRaw, out List<ProductDetailFormItem> result)
+    {
+        result = new List<ProductDetailFormItem>();
+        var trimmed = rootRaw.Trim().TrimStart('\uFEFF');
+        if (trimmed.StartsWith('['))
+        {
+            result = TryParseDetailsJsonArray(rootRaw);
+            return result.Count > 0;
+        }
+
+        if (!trimmed.StartsWith('{'))
+            return false;
+
+        var one = TryFromJson(rootRaw, 0);
+        if (one == null)
+            return false;
+
+        result = new List<ProductDetailFormItem> { one };
+        return true;
+    }
+
+    private static bool TryScavengeDetailsJsonFromForm(IFormCollection form, out List<ProductDetailFormItem> result)
+    {
+        result = new List<ProductDetailFormItem>();
+        foreach (var kv in form)
+        {
+            if (kv.Key.Contains("DetailsJson", StringComparison.OrdinalIgnoreCase))
+                continue;
+            if (!kv.Key.Contains("Details", StringComparison.OrdinalIgnoreCase))
+                continue;
+
+            var v = kv.Value.ToString();
+            if (string.IsNullOrWhiteSpace(v))
+                continue;
+
+            var t = v.Trim().TrimStart('\uFEFF');
+            if (!t.StartsWith('[') && !t.StartsWith('{'))
+                continue;
+
+            if (TryBindDetailsFromJsonString(v, out var parsed) && parsed.Count > 0)
+            {
+                result = parsed;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private static void AccumulateField(
         Dictionary<int, Accumulator> byIndex,
         KeyValuePair<string, StringValues> field,
@@ -191,10 +238,24 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
 
     private static List<ProductDetailFormItem> TryParseDetailsJsonArray(string raw)
     {
+        var normalized = ProductDetailsJsonNormalize.ForJsonParse(raw);
+        var list = TryParseDetailsJsonArrayCore(normalized);
+        if (list.Count > 0)
+            return list;
+
+        var recovered = ProductDetailsJsonNormalize.TryRecoverUtf8MisreadAsLatin1(normalized);
+        if (string.IsNullOrEmpty(recovered))
+            return list;
+
+        return TryParseDetailsJsonArrayCore(ProductDetailsJsonNormalize.ForJsonParse(recovered));
+    }
+
+    private static List<ProductDetailFormItem> TryParseDetailsJsonArrayCore(string normalized)
+    {
         var list = new List<ProductDetailFormItem>();
         try
         {
-            var rows = JsonSerializer.Deserialize<List<JsonRow>>(raw.Trim(), JsonOptions);
+            var rows = JsonSerializer.Deserialize<List<JsonRow>>(normalized, JsonOptions);
             if (rows == null)
                 return list;
 
@@ -208,13 +269,13 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
                 {
                     Key = row.Key.Trim(),
                     Value = row.Value?.Trim() ?? string.Empty,
-                    Order = row.Order ?? row.SortOrder ?? i,
+                    SortOrder = row.Order ?? row.SortOrder ?? i,
                 });
             }
         }
-        catch
+        catch (JsonException)
         {
-            // تجاهل JSON غير صالح لهذا المسار
+            // يُعاد المحاولة من المستدعي بعد استرداد الترميز إن وُجد
         }
 
         return list;
@@ -235,7 +296,7 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
         if (!string.IsNullOrWhiteSpace(orderStr) && int.TryParse(orderStr, NumberStyles.Integer, CultureInfo.InvariantCulture, out var o))
             order = o;
 
-        return new ProductDetailFormItem { Key = key, Value = value, Order = order };
+        return new ProductDetailFormItem { Key = key, Value = value, SortOrder = order };
     }
 
     private static string? Get(Dictionary<string, string> flat, string name)
@@ -254,13 +315,27 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
         if (string.IsNullOrWhiteSpace(raw))
             return null;
 
-        var trimmed = raw.Trim();
+        var trimmed = ProductDetailsJsonNormalize.ForJsonParse(raw);
         if (!trimmed.StartsWith('{'))
             return null;
 
+        var item = TryDeserializeSingleJsonRow(trimmed, fallbackIndex);
+        if (item != null)
+            return item;
+
+        var recovered = ProductDetailsJsonNormalize.TryRecoverUtf8MisreadAsLatin1(trimmed);
+        if (string.IsNullOrEmpty(recovered))
+            return null;
+
+        trimmed = ProductDetailsJsonNormalize.ForJsonParse(recovered);
+        return !trimmed.StartsWith('{') ? null : TryDeserializeSingleJsonRow(trimmed, fallbackIndex);
+    }
+
+    private static ProductDetailFormItem? TryDeserializeSingleJsonRow(string json, int fallbackIndex)
+    {
         try
         {
-            var row = JsonSerializer.Deserialize<JsonRow>(trimmed, JsonOptions);
+            var row = JsonSerializer.Deserialize<JsonRow>(json, JsonOptions);
             if (row == null || string.IsNullOrWhiteSpace(row.Key))
                 return null;
 
@@ -269,10 +344,10 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
             {
                 Key = row.Key.Trim(),
                 Value = row.Value?.Trim() ?? string.Empty,
-                Order = order,
+                SortOrder = order,
             };
         }
-        catch
+        catch (JsonException)
         {
             return null;
         }
