@@ -8,7 +8,8 @@ namespace Alamana.Service.Orders.Dtos
 {
     public class OrderItemResponse
     {
-        public string ProductName { get; set; }
+        public string ProductNameEn { get; set; }
+        public string ProductNameAr { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
         public string ImageUrl { get; set; }

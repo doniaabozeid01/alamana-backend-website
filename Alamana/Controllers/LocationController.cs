@@ -1,4 +1,5 @@
 ﻿using Alamana.Service.Location;
+using Alamana.Service.Location.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +31,77 @@ namespace Alamana.Controllers
             }
         }
 
+
+        [HttpGet("GetCountryById/{countryId}")]
+        public async Task<IActionResult> GetCountryById(int countryId)
+        {
+            try
+            {
+                var country = await _locationServices.GetCountryById(countryId);
+                if (country == null)
+                    return NotFound(new { message = "Country not found." });
+
+                return Ok(country);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpPut("UpdateCountryContact/{countryId}")]
+        public async Task<IActionResult> UpdateCountryContact(int countryId, [FromBody] UpdateCountryContactDto dto)
+        {
+            try
+            {
+                if (dto == null)
+                    return BadRequest(new { message = "Invalid data." });
+
+                var country = await _locationServices.UpdateCountryContactAsync(countryId, dto);
+                if (country == null)
+                    return NotFound(new { message = "Country not found or update failed." });
+
+                return Ok(country);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpGet("GetDefaultCountry")]
+        public async Task<IActionResult> GetDefaultCountry()
+        {
+            try
+            {
+                var country = await _locationServices.GetDefaultCountryAsync();
+                if (country == null)
+                    return NotFound(new { message = "No default country configured." });
+
+                return Ok(country);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpPut("SetDefaultCountry/{countryId}")]
+        public async Task<IActionResult> SetDefaultCountry(int countryId)
+        {
+            try
+            {
+                var country = await _locationServices.SetDefaultCountryAsync(countryId);
+                if (country == null)
+                    return NotFound(new { message = "Country not found or update failed." });
+
+                return Ok(country);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+        }
 
         [HttpGet("GetAllGovernorates")]
         public async Task<IActionResult> GetAllGovernorates()

@@ -54,14 +54,22 @@ namespace Alamana.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
+                    b.Property<string>("DescriptionAr")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("TitleAr")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleEn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -147,6 +155,9 @@ namespace Alamana.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
@@ -159,7 +170,10 @@ namespace Alamana.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("userId");
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("userId", "CountryId")
+                        .IsUnique();
 
                     b.ToTable("Cart");
                 });
@@ -212,7 +226,11 @@ namespace Alamana.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
+                    b.Property<string>("DescriptionAr")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DescriptionEn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -223,13 +241,104 @@ namespace Alamana.Data.Migrations
                     b.Property<string>("MobileImagePath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("NameAr")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameEn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("Alamana.Data.Entities.CountryAdvertisements", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AdvertisementId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("AdvertisementId", "CountryId")
+                        .IsUnique();
+
+                    b.ToTable("CountryAdvertisements");
+                });
+
+            modelBuilder.Entity("Alamana.Data.Entities.CountryCategories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("CategoryId", "CountryId")
+                        .IsUnique();
+
+                    b.ToTable("CountryCategories");
+                });
+
+            modelBuilder.Entity("Alamana.Data.Entities.CountryProducts", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Discount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("IsHeroProduct")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsNew")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("ProductId", "CountryId")
+                        .IsUnique();
+
+                    b.ToTable("CountryProducts");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.District", b =>
@@ -534,22 +643,21 @@ namespace Alamana.Data.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("DescriptionAr")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Discount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("DescriptionEn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("New")
-                        .HasColumnType("bit");
+                    b.Property<string>("NameAr")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<string>("NameEn")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Weight")
                         .IsRequired()
@@ -617,6 +725,9 @@ namespace Alamana.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("bit");
+
                     b.Property<string>("country_code")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -625,11 +736,34 @@ namespace Alamana.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("currency")
+                    b.Property<string>("currency_ar")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("currency_en")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("office_address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("working_hours")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("IsDefault")
+                        .IsUnique()
+                        .HasFilter("[IsDefault] = 1");
 
                     b.ToTable("Country");
                 });
@@ -788,11 +922,19 @@ namespace Alamana.Data.Migrations
 
             modelBuilder.Entity("Alamana.Data.Entities.Cart", b =>
                 {
+                    b.HasOne("Alamana.Data.Entities.country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
                     b.HasOne("Alamana.Data.Entities.ApplicationUser", "user")
                         .WithMany()
                         .HasForeignKey("userId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Country");
 
                     b.Navigation("user");
                 });
@@ -814,6 +956,63 @@ namespace Alamana.Data.Migrations
                     b.Navigation("Cart");
 
                     b.Navigation("product");
+                });
+
+            modelBuilder.Entity("Alamana.Data.Entities.CountryAdvertisements", b =>
+                {
+                    b.HasOne("Alamana.Data.Entities.Advertisements", "Advertisement")
+                        .WithMany("CountryAdvertisements")
+                        .HasForeignKey("AdvertisementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Alamana.Data.Entities.country", "Country")
+                        .WithMany("CountryAdvertisements")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Advertisement");
+
+                    b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("Alamana.Data.Entities.CountryCategories", b =>
+                {
+                    b.HasOne("Alamana.Data.Entities.Categories", "Category")
+                        .WithMany("CountryCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Alamana.Data.Entities.country", "Country")
+                        .WithMany("CountryCategories")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("Alamana.Data.Entities.CountryProducts", b =>
+                {
+                    b.HasOne("Alamana.Data.Entities.country", "Country")
+                        .WithMany("CountryProducts")
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Alamana.Data.Entities.Products", "Product")
+                        .WithMany("CountryProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.District", b =>
@@ -1029,6 +1228,8 @@ namespace Alamana.Data.Migrations
             modelBuilder.Entity("Alamana.Data.Entities.Advertisements", b =>
                 {
                     b.Navigation("AdvertisementProducts");
+
+                    b.Navigation("CountryAdvertisements");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.Cart", b =>
@@ -1038,6 +1239,8 @@ namespace Alamana.Data.Migrations
 
             modelBuilder.Entity("Alamana.Data.Entities.Categories", b =>
                 {
+                    b.Navigation("CountryCategories");
+
                     b.Navigation("Products");
                 });
 
@@ -1060,6 +1263,8 @@ namespace Alamana.Data.Migrations
                 {
                     b.Navigation("AdvertisementProducts");
 
+                    b.Navigation("CountryProducts");
+
                     b.Navigation("DetailEntries");
 
                     b.Navigation("Media");
@@ -1074,6 +1279,12 @@ namespace Alamana.Data.Migrations
 
             modelBuilder.Entity("Alamana.Data.Entities.country", b =>
                 {
+                    b.Navigation("CountryAdvertisements");
+
+                    b.Navigation("CountryCategories");
+
+                    b.Navigation("CountryProducts");
+
                     b.Navigation("Governorate");
                 });
 #pragma warning restore 612, 618

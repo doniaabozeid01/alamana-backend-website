@@ -11,7 +11,7 @@ namespace Alamana.Service.Advertisment
     {
         Task<int> DeleteAdvertisement(int id);
         Task<AdvertiseDto> GetAdvertisementById(int id);
-        Task<IReadOnlyList<AdvertiseDto>> GetAllAdvertisements();
+        Task<IReadOnlyList<AdvertiseDto>> GetAllAdvertisements(int? countryId = null);
         Task<AdvertiseDto> AddAdvertise(AddAdvertise imageDto);
         Task<AdvertiseDto> UpdateAdvertise(int id, AddAdvertise imageDto);
     }

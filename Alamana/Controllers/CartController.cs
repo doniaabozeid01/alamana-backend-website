@@ -30,47 +30,37 @@ namespace Alamana.Controllers
 
 
         [HttpGet("GetOrCreateCart/{userId}")]
-        public async Task<ActionResult<GetCartDto>> GetOrCreateCart (string userId)
+        public async Task<ActionResult<GetCartDto>> GetOrCreateCart(string userId, [FromQuery] int countryId)
         {
-            //if (cartDto == null)
-            //    return BadRequest(new { message = "cart shouldn't be empty." });
+            if (countryId <= 0)
+                return BadRequest(new { message = "countryId is required." });
 
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null) return NotFound(new { message = "User Not Found" });
 
-            var cart = await _cartService.GetCartByUserId(userId);
-            
-
-            //return cart;
+            var cart = await _cartService.GetCartByUserId(userId, countryId);
 
             return cart == null
-                ? NotFound (new { message = "Cart not found." })
+                ? NotFound(new { message = "Cart not found." })
                 : Ok(cart);
-
         }
 
-
-
-
-
-
-
-
         [HttpGet("GetCartByUserId/{userId}")]
-        public async Task<ActionResult<IReadOnlyList<GetCartDto>>> GetCartByUserId(string userId)
+        public async Task<ActionResult<IReadOnlyList<GetCartDto>>> GetCartByUserId(string userId, [FromQuery] int countryId)
         {
             try
             {
+                if (countryId <= 0)
+                    return BadRequest(new { message = "countryId is required." });
+
                 var user = await _userManager.FindByIdAsync(userId);
                 if (user == null) 
                     return NotFound(new { message = "User Not Found" });
 
-                var cart = await _cartService.GetCartByUserId(userId);
+                var cart = await _cartService.GetCartByUserId(userId, countryId);
 
                 if (cart == null)
-                {
-                    return NotFound(new {message= "No cart found."});
-                }
+                    return NotFound(new { message = "No cart found." });
 
                 return Ok(cart);
             }

@@ -20,9 +20,12 @@ namespace Alamana.Controllers
         }
 
         [HttpGet("GetAllAdvertisements")]
-        public async Task<ActionResult<IReadOnlyList<AdvertiseDto>>> GetAllAdvertisements()
+        public async Task<ActionResult<IReadOnlyList<AdvertiseDto>>> GetAllAdvertisements([FromQuery] int countryId)
         {
-            var Advertises = await _advertiseService.GetAllAdvertisements();
+            if (countryId <= 0)
+                return BadRequest(new { message = "countryId is required." });
+
+            var Advertises = await _advertiseService.GetAllAdvertisements(countryId);
             return Ok(Advertises);
         }
 

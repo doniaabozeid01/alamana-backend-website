@@ -37,9 +37,9 @@ namespace Alamana.Repository.Repositories
 
 
 
-        public async Task<Cart> GetCartByUserId(string userId)
+        public async Task<Cart> GetCartByUserId(string userId, int countryId)
         {
-            return await _context.Set<Cart>().FirstOrDefaultAsync(x => x.userId == userId);
+            return await _context.Set<Cart>().FirstOrDefaultAsync(x => x.userId == userId && x.CountryId == countryId);
         }
 
 
@@ -50,6 +50,7 @@ namespace Alamana.Repository.Repositories
                 .Include(x => x.Category)
                 .Include(x => x.Media)
                 .Include(x => x.DetailEntries)
+                .Include(x => x.CountryProducts)
                 .FirstOrDefaultAsync(x => x.Id == productId);
         }
 
@@ -67,37 +68,60 @@ namespace Alamana.Repository.Repositories
         }
 
 
-        public async Task<IReadOnlyList<Products>> GetAllProductsAsync()
+        public async Task<IReadOnlyList<Products>> GetAllProductsAsync(int? categoryId = null, int? countryId = null)
         {
-            return await _context.Set<Products>()
+            var query = _context.Set<Products>()
                 .Include(x => x.Category)
                 .Include(x => x.Media)
                 .Include(x => x.DetailEntries)
-                .ToListAsync();
+                .Include(x => x.CountryProducts)
+                .AsQueryable();
+
+            if (categoryId.HasValue)
+                query = query.Where(p => p.CategoryId == categoryId.Value);
+
+            if (countryId.HasValue)
+                query = query.Where(p => p.CountryProducts.Any(cp => cp.CountryId == countryId.Value));
+
+            return await query.ToListAsync();
         }
 
 
-        public async Task<IReadOnlyList<Products>> GetRandomProductsAsync()
+        public async Task<IReadOnlyList<Products>> GetRandomProductsAsync(int countryId)
         {
             return await _context.Set<Products>()
+                .Where(p => p.CountryProducts.Any(cp => cp.CountryId == countryId))
                 .OrderBy(p => Guid.NewGuid())
                 .Take(5)
                 .Include(x => x.Media)
                 .Include(x => x.Category)
                 .Include(x => x.DetailEntries)
+                .Include(x => x.CountryProducts)
                 .ToListAsync();
         }
 
 
 
-        public async Task<IReadOnlyList<Products>> GetNewProducts()
+        public async Task<IReadOnlyList<Products>> GetNewProducts(int? countryId = null)
         {
-            return await _context.Set<Products>()
+            var query = _context.Set<Products>()
                 .Include(x => x.Media)
                 .Include(x => x.Category)
                 .Include(x => x.DetailEntries)
-                .Where(x => x.New == true)
-                .ToListAsync();
+                .Include(x => x.CountryProducts)
+                .AsQueryable();
+
+            if (countryId.HasValue)
+            {
+                query = query.Where(x => x.CountryProducts.Any(cp =>
+                    cp.CountryId == countryId.Value && cp.IsNew));
+            }
+            else
+            {
+                query = query.Where(x => x.CountryProducts.Any(cp => cp.IsNew));
+            }
+
+            return await query.ToListAsync();
         }
 
 
@@ -114,6 +138,8 @@ namespace Alamana.Repository.Repositories
                     .ThenInclude(c => c.Media.Where(m => m.Type == Data.Enums.MediaType.Image))
                 .Include(x => x.Products)
                     .ThenInclude(p => p.DetailEntries)
+                .Include(x => x.Products)
+                    .ThenInclude(p => p.CountryProducts)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 

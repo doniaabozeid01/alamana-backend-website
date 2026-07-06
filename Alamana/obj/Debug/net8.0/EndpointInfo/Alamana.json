@@ -331,6 +331,16 @@
         "tags": [
           "Advertisements"
         ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -419,10 +429,16 @@
                     "type": "string",
                     "format": "binary"
                   },
-                  "Title": {
+                  "TitleEn": {
                     "type": "string"
                   },
-                  "Description": {
+                  "TitleAr": {
+                    "type": "string"
+                  },
+                  "DescriptionEn": {
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
                     "type": "string"
                   },
                   "ProductIds": {
@@ -438,10 +454,16 @@
                 "ImageUrl": {
                   "style": "form"
                 },
-                "Title": {
+                "TitleEn": {
                   "style": "form"
                 },
-                "Description": {
+                "TitleAr": {
+                  "style": "form"
+                },
+                "DescriptionEn": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
                   "style": "form"
                 },
                 "ProductIds": {
@@ -484,10 +506,16 @@
                     "type": "string",
                     "format": "binary"
                   },
-                  "Title": {
+                  "TitleEn": {
                     "type": "string"
                   },
-                  "Description": {
+                  "TitleAr": {
+                    "type": "string"
+                  },
+                  "DescriptionEn": {
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
                     "type": "string"
                   },
                   "ProductIds": {
@@ -503,10 +531,16 @@
                 "ImageUrl": {
                   "style": "form"
                 },
-                "Title": {
+                "TitleEn": {
                   "style": "form"
                 },
-                "Description": {
+                "TitleAr": {
+                  "style": "form"
+                },
+                "DescriptionEn": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
                   "style": "form"
                 },
                 "ProductIds": {
@@ -559,6 +593,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -597,6 +639,14 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -721,10 +771,16 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "Name": {
+                  "NameEn": {
                     "type": "string"
                   },
-                  "Description": {
+                  "NameAr": {
+                    "type": "string"
+                  },
+                  "DescriptionEn": {
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
                     "type": "string"
                   },
                   "Image": {
@@ -738,10 +794,16 @@
                 }
               },
               "encoding": {
-                "Name": {
+                "NameEn": {
                   "style": "form"
                 },
-                "Description": {
+                "NameAr": {
+                  "style": "form"
+                },
+                "DescriptionEn": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
                   "style": "form"
                 },
                 "Image": {
@@ -800,10 +862,16 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "Name": {
+                  "NameEn": {
                     "type": "string"
                   },
-                  "Description": {
+                  "NameAr": {
+                    "type": "string"
+                  },
+                  "DescriptionEn": {
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
                     "type": "string"
                   },
                   "Image": {
@@ -817,10 +885,16 @@
                 }
               },
               "encoding": {
-                "Name": {
+                "NameEn": {
                   "style": "form"
                 },
-                "Description": {
+                "NameAr": {
+                  "style": "form"
+                },
+                "DescriptionEn": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
                   "style": "form"
                 },
                 "Image": {
@@ -867,6 +941,14 @@
             "name": "id",
             "in": "path",
             "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "countryId",
+            "in": "query",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -920,6 +1002,14 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -950,6 +1040,16 @@
       "get": {
         "tags": [
           "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1054,6 +1154,106 @@
       "get": {
         "tags": [
           "Location"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Location/GetCountryById/{countryId}": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Location/UpdateCountryContact/{countryId}": {
+      "put": {
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCountryContactDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCountryContactDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCountryContactDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Location/GetDefaultCountry": {
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Location/SetDefaultCountry/{countryId}": {
+      "put": {
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -1243,8 +1443,15 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "Name": {
+                  "NameEn": {
                     "type": "string"
+                  },
+                  "NameAr": {
+                    "type": "string"
+                  },
+                  "CountryId": {
+                    "type": "integer",
+                    "format": "int32"
                   },
                   "Price": {
                     "type": "number",
@@ -1253,7 +1460,10 @@
                   "Weight": {
                     "type": "string"
                   },
-                  "Description": {
+                  "DescriptionEn": {
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
                     "type": "string"
                   },
                   "New": {
@@ -1262,6 +1472,10 @@
                   "Discount": {
                     "type": "number",
                     "format": "double"
+                  },
+                  "Stock": {
+                    "type": "integer",
+                    "format": "int32"
                   },
                   "Gallery": {
                     "type": "array",
@@ -1283,7 +1497,13 @@
                 }
               },
               "encoding": {
-                "Name": {
+                "NameEn": {
+                  "style": "form"
+                },
+                "NameAr": {
+                  "style": "form"
+                },
+                "CountryId": {
                   "style": "form"
                 },
                 "Price": {
@@ -1292,13 +1512,19 @@
                 "Weight": {
                   "style": "form"
                 },
-                "Description": {
+                "DescriptionEn": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
                   "style": "form"
                 },
                 "New": {
                   "style": "form"
                 },
                 "Discount": {
+                  "style": "form"
+                },
+                "Stock": {
                   "style": "form"
                 },
                 "Gallery": {
@@ -1360,13 +1586,23 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "Name": {
+                  "NameEn": {
                     "type": "string"
                   },
-                  "Description": {
+                  "NameAr": {
+                    "type": "string"
+                  },
+                  "DescriptionEn": {
+                    "type": "string"
+                  },
+                  "DescriptionAr": {
                     "type": "string"
                   },
                   "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CountryId": {
                     "type": "integer",
                     "format": "int32"
                   },
@@ -1383,6 +1619,10 @@
                   },
                   "New": {
                     "type": "boolean"
+                  },
+                  "Stock": {
+                    "type": "integer",
+                    "format": "int32"
                   },
                   "NewGallery": {
                     "type": "array",
@@ -1410,13 +1650,22 @@
                 }
               },
               "encoding": {
-                "Name": {
+                "NameEn": {
                   "style": "form"
                 },
-                "Description": {
+                "NameAr": {
+                  "style": "form"
+                },
+                "DescriptionEn": {
+                  "style": "form"
+                },
+                "DescriptionAr": {
                   "style": "form"
                 },
                 "CategoryId": {
+                  "style": "form"
+                },
+                "CountryId": {
                   "style": "form"
                 },
                 "Price": {
@@ -1429,6 +1678,9 @@
                   "style": "form"
                 },
                 "New": {
+                  "style": "form"
+                },
+                "Stock": {
                   "style": "form"
                 },
                 "NewGallery": {
@@ -1485,6 +1737,14 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
           }
         ],
         "responses": {
@@ -1526,6 +1786,14 @@
           "Product"
         ],
         "parameters": [
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "categoryId",
             "in": "query",
@@ -1573,6 +1841,16 @@
         "tags": [
           "Product"
         ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1611,6 +1889,16 @@
         "tags": [
           "Product"
         ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -1637,6 +1925,45 @@
                   "items": {
                     "$ref": "#/components/schemas/ProductDto"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Product/hero": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "parameters": [
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDto"
                 }
               }
             }
@@ -1673,6 +2000,14 @@
           "Product"
         ],
         "parameters": [
+          {
+            "name": "countryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "take",
             "in": "query",
@@ -2134,6 +2469,10 @@
           "productId": {
             "type": "integer",
             "format": "int32"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2163,11 +2502,19 @@
             "type": "string",
             "nullable": true
           },
-          "title": {
+          "titleEn": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "titleAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
             "type": "string",
             "nullable": true
           },
@@ -2217,11 +2564,19 @@
             "type": "string",
             "nullable": true
           },
-          "title": {
+          "titleEn": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "titleAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
             "type": "string",
             "nullable": true
           },
@@ -2229,6 +2584,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AdvertisementProduct"
+            },
+            "nullable": true
+          },
+          "countryAdvertisements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryAdvertisements"
             },
             "nullable": true
           }
@@ -2309,11 +2671,19 @@
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "nameEn": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
             "type": "string",
             "nullable": true
           },
@@ -2331,6 +2701,13 @@
               "$ref": "#/components/schemas/Products"
             },
             "nullable": true
+          },
+          "countryCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryCategories"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2342,7 +2719,11 @@
             "type": "integer",
             "format": "int32"
           },
-          "categoryName": {
+          "categoryNameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryNameAr": {
             "type": "string",
             "nullable": true
           },
@@ -2396,6 +2777,96 @@
             "maxLength": 1000,
             "minLength": 1,
             "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CountryAdvertisements": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "advertisementId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "advertisement": {
+            "$ref": "#/components/schemas/Advertisements"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "country": {
+            "$ref": "#/components/schemas/country"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CountryCategories": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "$ref": "#/components/schemas/Categories"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "country": {
+            "$ref": "#/components/schemas/country"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CountryProducts": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "productId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "product": {
+            "$ref": "#/components/schemas/Products"
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "country": {
+            "$ref": "#/components/schemas/country"
+          },
+          "stock": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "discount": {
+            "type": "number",
+            "format": "double"
+          },
+          "isNew": {
+            "type": "boolean"
+          },
+          "isHeroProduct": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2501,6 +2972,10 @@
           "userId": {
             "type": "string",
             "nullable": true
+          },
+          "countryId": {
+            "type": "integer",
+            "format": "int32"
           },
           "createAt": {
             "type": "string",
@@ -2884,7 +3359,11 @@
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "nameEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameAr": {
             "type": "string",
             "nullable": true
           },
@@ -2907,7 +3386,11 @@
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "descriptionEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
             "type": "string",
             "nullable": true
           },
@@ -2962,28 +3445,25 @@
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "nameEn": {
             "type": "string",
             "nullable": true
           },
-          "price": {
-            "type": "number",
-            "format": "double"
-          },
-          "discount": {
-            "type": "number",
-            "format": "double"
+          "nameAr": {
+            "type": "string",
+            "nullable": true
           },
           "weight": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "descriptionEn": {
             "type": "string",
             "nullable": true
           },
-          "new": {
-            "type": "boolean"
+          "descriptionAr": {
+            "type": "string",
+            "nullable": true
           },
           "media": {
             "type": "array",
@@ -3019,6 +3499,13 @@
               "$ref": "#/components/schemas/AdvertisementProduct"
             },
             "nullable": true
+          },
+          "countryProducts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryProducts"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3035,6 +3522,32 @@
             "nullable": true
           },
           "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateCountryContactDto": {
+        "type": "object",
+        "properties": {
+          "office_address": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone2": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "working_hours": {
             "type": "string",
             "nullable": true
           }
@@ -3087,11 +3600,19 @@
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "nameEn": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
             "type": "string",
             "nullable": true
           },
@@ -3156,14 +3677,62 @@
             "type": "string",
             "nullable": true
           },
-          "currency": {
+          "currency_en": {
             "type": "string",
             "nullable": true
+          },
+          "currency_ar": {
+            "type": "string",
+            "nullable": true
+          },
+          "office_address": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone2": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "working_hours": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDefault": {
+            "type": "boolean"
           },
           "governorate": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Governorate"
+            },
+            "nullable": true
+          },
+          "countryProducts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryProducts"
+            },
+            "nullable": true
+          },
+          "countryCategories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryCategories"
+            },
+            "nullable": true
+          },
+          "countryAdvertisements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountryAdvertisements"
             },
             "nullable": true
           }
@@ -3204,11 +3773,19 @@
             "type": "integer",
             "format": "int32"
           },
-          "name": {
+          "nameEn": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "nameAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionAr": {
             "type": "string",
             "nullable": true
           }

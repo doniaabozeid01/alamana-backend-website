@@ -42,6 +42,9 @@ namespace Alamana.Service.Location
         Task<GetCityDto> GetCityById(int cityId);
         Task<GetGovernorateDto> GetGovernorateById(int governorateId);
         Task<GetCountryDto> GetCountryById(int countryId);
+        Task<GetCountryDto?> GetDefaultCountryAsync();
+        Task<GetCountryDto?> SetDefaultCountryAsync(int countryId);
+        Task<GetCountryDto?> UpdateCountryContactAsync(int countryId, UpdateCountryContactDto dto);
 
 
 

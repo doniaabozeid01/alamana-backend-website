@@ -134,6 +134,62 @@ namespace Alamana.Data.Context
                     .OnDelete(DeleteBehavior.Cascade);
             });
 
+            modelBuilder.Entity<CountryProducts>(e =>
+            {
+                e.HasKey(x => x.Id);
+                e.HasIndex(x => new { x.ProductId, x.CountryId }).IsUnique();
+                e.HasOne(x => x.Product)
+                    .WithMany(p => p.CountryProducts)
+                    .HasForeignKey(x => x.ProductId)
+                    .OnDelete(DeleteBehavior.Cascade);
+                e.HasOne(x => x.Country)
+                    .WithMany(c => c.CountryProducts)
+                    .HasForeignKey(x => x.CountryId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<CountryCategories>(e =>
+            {
+                e.HasKey(x => x.Id);
+                e.HasIndex(x => new { x.CategoryId, x.CountryId }).IsUnique();
+                e.HasOne(x => x.Category)
+                    .WithMany(c => c.CountryCategories)
+                    .HasForeignKey(x => x.CategoryId)
+                    .OnDelete(DeleteBehavior.Cascade);
+                e.HasOne(x => x.Country)
+                    .WithMany(c => c.CountryCategories)
+                    .HasForeignKey(x => x.CountryId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<CountryAdvertisements>(e =>
+            {
+                e.HasKey(x => x.Id);
+                e.HasIndex(x => new { x.AdvertisementId, x.CountryId }).IsUnique();
+                e.HasOne(x => x.Advertisement)
+                    .WithMany(a => a.CountryAdvertisements)
+                    .HasForeignKey(x => x.AdvertisementId)
+                    .OnDelete(DeleteBehavior.Cascade);
+                e.HasOne(x => x.Country)
+                    .WithMany(c => c.CountryAdvertisements)
+                    .HasForeignKey(x => x.CountryId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<Cart>(e =>
+            {
+                e.HasIndex(x => new { x.userId, x.CountryId }).IsUnique();
+                e.HasOne(x => x.Country)
+                    .WithMany()
+                    .HasForeignKey(x => x.CountryId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<country>(e =>
+            {
+                e.HasIndex(x => x.IsDefault).IsUnique().HasFilter("[IsDefault] = 1");
+            });
+
 
         }
 
@@ -155,7 +211,9 @@ namespace Alamana.Data.Context
         public DbSet<FavouriteProducts> FavouriteProducts { get; set; }
         public DbSet<EmailConfirmationRequest> EmailConfirmationRequests { get; set; }
         public DbSet<Videos> Videos { get; set; }
-        //public DbSet<Videos> Videos => Set<Videos>();
+        public DbSet<CountryProducts> CountryProducts { get; set; }
+        public DbSet<CountryCategories> CountryCategories { get; set; }
+        public DbSet<CountryAdvertisements> CountryAdvertisements { get; set; }
 
     }
 }

@@ -12,11 +12,11 @@ namespace Alamana.Service.Category
 
         Task<categoryDto> UpdateCategory(int id, AddCategoryDto categoryDto);
 
-        Task<categoryDto> GetCategoryById(int id);
-        Task<IReadOnlyList<categoryDto>> GetAllCategories();
+        Task<categoryDto> GetCategoryById(int id, int? countryId = null);
+        Task<IReadOnlyList<categoryDto>> GetAllCategories(int countryId);
         //Task<int> DeleteCategory(int id);
         Task<int> DeleteCategory(int id);
-        Task<CategoryWithProductsDto> GetCategoryByIdWithInclude(int id);
+        Task<CategoryWithProductsDto> GetCategoryByIdWithInclude(int id, int countryId);
         //Task<IReadOnlyList<categoryDto>> GetAllCategoriesWithInclude();
     }
 }

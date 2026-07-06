@@ -86,22 +86,20 @@ namespace Alamana.Controllers
 
 
         [HttpGet("GetCategoryById/{id}")]
-        public async Task<ActionResult<IReadOnlyList<categoryDto>>> GetCategoryById(int id)
+        public async Task<ActionResult<IReadOnlyList<categoryDto>>> GetCategoryById(int id, [FromQuery] int countryId)
         {
             try
             {
-
-
                 if (id <= 0)
-                {
                     return BadRequest("Invalid Id");
-                }
-                var category = await _categoryServices.GetCategoryById(id);
+
+                if (countryId <= 0)
+                    return BadRequest(new { message = "countryId is required." });
+
+                var category = await _categoryServices.GetCategoryById(id, countryId);
 
                 if (category == null)
-                {
                     return NotFound("No Category found.");
-                }
 
                 return Ok(category);
             }
@@ -110,22 +108,19 @@ namespace Alamana.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
-
-
-
-
-
 
         [HttpGet("GetCategoryWithProductsById/{id}")]
-        public async Task<ActionResult<CategoryWithProductsDto>> GetCategoryWithProductsById(int id)
+        public async Task<ActionResult<CategoryWithProductsDto>> GetCategoryWithProductsById(int id, [FromQuery] int countryId)
         {
             try
             {
                 if (id <= 0)
                     return BadRequest("Invalid Id");
 
-                var category = await _categoryServices.GetCategoryByIdWithInclude(id);
+                if (countryId <= 0)
+                    return BadRequest(new { message = "countryId is required." });
+
+                var category = await _categoryServices.GetCategoryByIdWithInclude(id, countryId);
 
                 if (category == null)
                     return NotFound("No Category found.");
@@ -138,21 +133,16 @@ namespace Alamana.Controllers
             }
         }
 
-
-
-
-
-
-
         [HttpGet("GetAllCategories")]
-        public async Task<ActionResult<IEnumerable<categoryDto>>> GetAllCategories()
+        public async Task<ActionResult<IEnumerable<categoryDto>>> GetAllCategories([FromQuery] int countryId)
         {
-            var categories = await _categoryServices.GetAllCategories();
+            if (countryId <= 0)
+                return BadRequest(new { message = "countryId is required." });
+
+            var categories = await _categoryServices.GetAllCategories(countryId);
 
             if (categories == null || !categories.Any())
-            {
                 return NotFound("No categories found.");
-            }
 
             return Ok(categories);
         }

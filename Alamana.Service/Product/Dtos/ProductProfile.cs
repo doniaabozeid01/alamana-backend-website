@@ -29,11 +29,15 @@ namespace Alamana.Service.Product.Dtos
                     : new productCategoryDto
                     {
                         Id = s.Category.Id,
-                        Name = s.Category.Name,
-                        Description = s.Category.Description
+                        NameEn = s.Category.NameEn,
+                        NameAr = s.Category.NameAr,
+                        DescriptionEn = s.Category.DescriptionEn,
+                        DescriptionAr = s.Category.DescriptionAr
                     }))
-                .ForMember(d => d.priceAfterDiscount, opt => opt.MapFrom(s =>
-                    s.Price - (s.Price * (s.Discount / 100m))));
+                .ForMember(d => d.Price, opt => opt.Ignore())
+                .ForMember(d => d.New, opt => opt.Ignore())
+                .ForMember(d => d.Discount, opt => opt.Ignore())
+                .ForMember(d => d.priceAfterDiscount, opt => opt.Ignore());
         }
     }
 }

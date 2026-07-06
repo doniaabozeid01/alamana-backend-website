@@ -20,6 +20,8 @@ namespace Alamana.Controllers
             _productServices = productServices;
         }
 
+        private static bool IsValidCountryId(int countryId) => countryId > 0;
+
         [HttpPost("AddProduct")]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult<ProductDto>> AddProduct([FromForm] AddProductDto productDto)
@@ -43,14 +45,6 @@ namespace Alamana.Controllers
 
         }
 
-
-
-
-
-
-
-
-
         [HttpPut("UpdateProduct/{id}")]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult<ProductDto>> UpdateProduct(int id, [FromForm] UpdateProductDto productDto)
@@ -72,31 +66,21 @@ namespace Alamana.Controllers
             }
         }
 
-
-
-
-
-
-
-
-
         [HttpGet("GetProductById/{id}")]
-        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProductById(int id)
+        public async Task<ActionResult<IReadOnlyList<ProductDto>>> GetProductById(int id, [FromQuery] int countryId)
         {
             try
             {
-
-
                 if (id <= 0)
-                {
                     return BadRequest("Invalid Id");
-                }
-                var product = await _productServices.GetProductById(id);
+
+                if (!IsValidCountryId(countryId))
+                    return BadRequest(new { message = "countryId is required." });
+
+                var product = await _productServices.GetProductById(id, countryId);
 
                 if (product == null)
-                {
                     return NotFound("No product found.");
-                }
 
                 return Ok(product);
             }
@@ -106,64 +90,56 @@ namespace Alamana.Controllers
             }
         }
 
-
-      
-
-
-
         [HttpGet("GetAllProducts")]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts([FromQuery] int? categoryId = null)
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetAllProducts([FromQuery] int countryId, [FromQuery] int? categoryId = null)
         {
-            var products = await _productServices.GetAllProducts(categoryId);
+            if (!IsValidCountryId(countryId))
+                return BadRequest(new { message = "countryId is required." });
+
+            var products = await _productServices.GetAllProducts(categoryId, countryId);
 
             if (products == null || !products.Any())
-            {
                 return NotFound("No products found.");
-            }
 
             return Ok(products);
         }
-
-
-
-
 
         [HttpGet("GetRandomProducts")]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetRandomProducts()
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetRandomProducts([FromQuery] int countryId)
         {
-            var products = await _productServices.GetRandomProducts();
+            if (!IsValidCountryId(countryId))
+                return BadRequest(new { message = "countryId is required." });
+
+            var products = await _productServices.GetRandomProducts(countryId);
 
             if (products == null || !products.Any())
-            {
                 return NotFound("No products found.");
-            }
 
             return Ok(products);
         }
-
-
-
-
-
-
 
         [HttpGet("GetNewProducts")]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetNewProducts()
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetNewProducts([FromQuery] int countryId)
         {
-            var products = await _productServices.GetNewProducts();
+            if (!IsValidCountryId(countryId))
+                return BadRequest(new { message = "countryId is required." });
 
-            //if (products == null || !products.Any())
-            //{
-            //    return NotFound("No products found.", []);
-            //}
-
+            var products = await _productServices.GetNewProducts(countryId);
             return Ok(products);
         }
 
+        [HttpGet("hero")]
+        public async Task<ActionResult<ProductDto>> GetHeroProduct([FromQuery] int countryId)
+        {
+            if (!IsValidCountryId(countryId))
+                return BadRequest(new { message = "countryId is required." });
 
+            var product = await _productServices.GetHeroProductAsync(countryId);
+            if (product == null)
+                return NotFound(new { message = "No hero product found for this country." });
 
-
-
+            return Ok(product);
+        }
 
         [HttpDelete("DeleteProduct/{id:int}")]
         public async Task<IActionResult> DeleteProduct(int id)
@@ -174,40 +150,14 @@ namespace Alamana.Controllers
             return ok ? NoContent() : NotFound("No product found or failed to delete.");
         }
 
-
-
-
-
-
-
-
-        //[HttpGet("GetBestSellerProducts")]
-        //public async Task<ActionResult<List<ProductDto>>> GetBestSellerProducts()
-        //{
-        //    try
-        //    {
-        //        var result = await _productServices.GetBestSellerProducts();
-        //        return Ok(result);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, $"Internal server error: {ex.Message}");
-        //    }
-        //}
-
-
-
-
-
         [HttpGet("best-sellers")]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetBestSellers([FromQuery] int take = 5)
+        public async Task<ActionResult<IEnumerable<ProductDto>>> GetBestSellers([FromQuery] int countryId, [FromQuery] int take = 5)
         {
-            var products = await _productServices.GetTopBestSellersAsync(take);
+            if (!IsValidCountryId(countryId))
+                return BadRequest(new { message = "countryId is required." });
+
+            var products = await _productServices.GetTopBestSellersAsync(take, countryId);
             return Ok(products);
         }
-
-
-
-
     }
 }

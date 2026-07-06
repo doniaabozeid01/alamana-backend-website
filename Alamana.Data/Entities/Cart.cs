@@ -12,6 +12,8 @@ namespace Alamana.Data.Entities
         public decimal TotalAmount { get; set; }
         public string userId { get; set; }
         public ApplicationUser user { get; set; }
+        public int CountryId { get; set; }
+        public country Country { get; set; }
         public DateTime CreateAt { get; set; }
         public List<CartItems> cartItems { get; set; }
     }

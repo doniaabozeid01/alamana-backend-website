@@ -34,8 +34,10 @@ namespace Alamana.Service.Advertisment
             var img = new Advertisements
             {
                 ImageUrl = imageUrl,
-                Title = imageDto.Title,
-                Description = imageDto.Description,
+                TitleEn = imageDto.TitleEn,
+                TitleAr = imageDto.TitleAr,
+                DescriptionEn = imageDto.DescriptionEn,
+                DescriptionAr = imageDto.DescriptionAr,
             };
 
             await _unitOfWork.Repository<Advertisements>().AddAsync(img);
@@ -67,8 +69,10 @@ namespace Alamana.Service.Advertisment
                 img.ImageUrl = await _imageService.UploadToCloudinary(imageDto.ImageUrl);
             }
 
-            img.Title = imageDto.Title;
-            img.Description = imageDto.Description;
+            img.TitleEn = imageDto.TitleEn;
+            img.TitleAr = imageDto.TitleAr;
+            img.DescriptionEn = imageDto.DescriptionEn;
+            img.DescriptionAr = imageDto.DescriptionAr;
 
             _unitOfWork.Repository<Advertisements>().Update(img);
             var status = await _unitOfWork.CompleteAsync();
@@ -82,14 +86,19 @@ namespace Alamana.Service.Advertisment
             return await GetAdvertisementDtoByIdAsync(id);
         }
 
-        public async Task<IReadOnlyList<AdvertiseDto>> GetAllAdvertisements()
+        public async Task<IReadOnlyList<AdvertiseDto>> GetAllAdvertisements(int? countryId = null)
         {
-            var imgs = await _unitOfWork.Repository<Advertisements>()
+            var query = _unitOfWork.Repository<Advertisements>()
                 .Query()
                 .Include(a => a.AdvertisementProducts)
-                .OrderByDescending(a => a.Id)
-                .ToListAsync();
+                .AsQueryable();
 
+            if (countryId.HasValue && countryId.Value > 0)
+            {
+                query = query.Where(a => a.CountryAdvertisements.Any(ca => ca.CountryId == countryId.Value));
+            }
+
+            var imgs = await query.OrderByDescending(a => a.Id).ToListAsync();
             return _mapper.Map<IReadOnlyList<AdvertiseDto>>(imgs);
         }
 

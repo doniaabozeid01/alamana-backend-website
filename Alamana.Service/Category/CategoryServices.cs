@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using Alamana.Data.Entities;
 using Alamana.Repository.Interfaces;
 using Alamana.Service.Category.Dtos;
+using Alamana.Service.Product;
 using Alamana.Service.Product.Dtos;
 using Alamana.Service.SaveAndDeleteImage;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace Alamana.Service.Category
 {
@@ -39,8 +41,10 @@ namespace Alamana.Service.Category
 
             var category = new Categories
             {
-                Name = categoryDto.Name,
-                Description = categoryDto.Description,
+                NameEn = categoryDto.NameEn,
+                NameAr = categoryDto.NameAr,
+                DescriptionEn = categoryDto.DescriptionEn,
+                DescriptionAr = categoryDto.DescriptionAr,
                 ImagePath = imageUrl,
                 MobileImagePath = mobileUrl
             };
@@ -86,8 +90,10 @@ namespace Alamana.Service.Category
                 category.MobileImagePath = await _imageService.UploadToCloudinary(categoryDto.MobileImage);
             }
 
-            category.Name = categoryDto.Name;
-            category.Description = categoryDto.Description;
+            category.NameEn = categoryDto.NameEn;
+            category.NameAr = categoryDto.NameAr;
+            category.DescriptionEn = categoryDto.DescriptionEn;
+            category.DescriptionAr = categoryDto.DescriptionAr;
 
             _unitOfWork.Repository<Categories>().Update(category);
             var status = await _unitOfWork.CompleteAsync();
@@ -101,41 +107,63 @@ namespace Alamana.Service.Category
 
 
 
-        public async Task<CategoryWithProductsDto> GetCategoryByIdWithInclude(int id)
+        public async Task<CategoryWithProductsDto> GetCategoryByIdWithInclude(int id, int countryId)
         {
-            var category = await _unitOfWork.Repository<Categories>().GetCategoryByIdAsync(id);
+            var category = await _unitOfWork.Repository<Categories>().Query()
+                .Include(c => c.CountryCategories)
+                .Include(c => c.Products)
+                    .ThenInclude(p => p.Media)
+                .Include(c => c.Products)
+                    .ThenInclude(p => p.DetailEntries)
+                .Include(c => c.Products)
+                    .ThenInclude(p => p.CountryProducts)
+                .FirstOrDefaultAsync(c => c.Id == id && c.CountryCategories.Any(cc => cc.CountryId == countryId));
 
             if (category == null)
                 return null;
 
+            var productsInCountry = category.Products?
+                .Where(p => p.CountryProducts.Any(cp => cp.CountryId == countryId))
+                .ToList() ?? new List<Products>();
+
             return new CategoryWithProductsDto
             {
                 CategoryId = category.Id,
-                CategoryName = category.Name,
-                Products = category.Products?.Select(p => new ProductDto
+                CategoryNameEn = category.NameEn,
+                CategoryNameAr = category.NameAr,
+                Products = productsInCountry.Select(p =>
                 {
-                    Id = p.Id,
-                    Name = p.Name,
-                    Price = p.Price,
-                    Weight = p.Weight,
-                    Description = p.Description,
-                    priceAfterDiscount = p.Price - (p.Price * (p.Discount / 100 )),
-                    GalleryUrls = p.Media.Select(m => new mediaDto
+                    var price = ProductCountryPricing.GetPrice(p, countryId);
+                    var discount = ProductCountryPricing.GetDiscount(p, countryId);
+                    return new ProductDto
                     {
-                        Url = m.Url,
-                        Type = m.Type // يحوّل Enum لقيمة نصية مثل "Image" أو "Video"
-                    }).ToList(),
-                    Details = p.DetailEntries
-                        .OrderBy(e => e.SortOrder)
-                        .ThenBy(e => e.Id)
-                        .Select(e => new ProductDetailEntryDto
+                        Id = p.Id,
+                        NameEn = p.NameEn,
+                        NameAr = p.NameAr,
+                        Price = price,
+                        Weight = p.Weight,
+                        DescriptionEn = p.DescriptionEn,
+                        DescriptionAr = p.DescriptionAr,
+                        Discount = discount,
+                        New = ProductCountryPricing.GetIsNew(p, countryId),
+                        priceAfterDiscount = price - (price * (discount / 100m)),
+                        GalleryUrls = p.Media.Select(m => new mediaDto
                         {
-                            Id = e.Id,
-                            Key = e.EntryKey,
-                            Value = e.EntryValue,
-                            SortOrder = e.SortOrder
-                        })
-                        .ToList()
+                            Url = m.Url,
+                            Type = m.Type
+                        }).ToList(),
+                        Details = p.DetailEntries
+                            .OrderBy(e => e.SortOrder)
+                            .ThenBy(e => e.Id)
+                            .Select(e => new ProductDetailEntryDto
+                            {
+                                Id = e.Id,
+                                Key = e.EntryKey,
+                                Value = e.EntryValue,
+                                SortOrder = e.SortOrder
+                            })
+                            .ToList()
+                    };
                 }).ToList()
             };
         }
@@ -145,22 +173,26 @@ namespace Alamana.Service.Category
 
 
 
-        public async Task<IReadOnlyList<categoryDto>> GetAllCategories()
+        public async Task<IReadOnlyList<categoryDto>> GetAllCategories(int countryId)
         {
-            var category = await _unitOfWork.Repository<Categories>().GetAllAsync();
-            var mappedCategory = _mapper.Map<IReadOnlyList<categoryDto>>(category);
-            return mappedCategory;
+            var category = await _unitOfWork.Repository<Categories>().Query()
+                .Where(c => c.CountryCategories.Any(cc => cc.CountryId == countryId))
+                .ToListAsync();
+            return _mapper.Map<IReadOnlyList<categoryDto>>(category);
         }
 
 
 
 
 
-        public async Task<categoryDto> GetCategoryById(int id)
+        public async Task<categoryDto> GetCategoryById(int id, int? countryId = null)
         {
-            var category = await _unitOfWork.Repository<Categories>().GetByIdAsync(id);
-            var mappedCategory = _mapper.Map<categoryDto>(category);
-            return mappedCategory;
+            var query = _unitOfWork.Repository<Categories>().Query().Where(c => c.Id == id);
+            if (countryId.HasValue)
+                query = query.Where(c => c.CountryCategories.Any(cc => cc.CountryId == countryId.Value));
+
+            var category = await query.FirstOrDefaultAsync();
+            return category == null ? null : _mapper.Map<categoryDto>(category);
         }
 
 

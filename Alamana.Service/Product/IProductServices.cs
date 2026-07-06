@@ -15,15 +15,13 @@ namespace Alamana.Service.Product
 
         Task<ProductDto> UpdateProduct(int id, UpdateProductDto dto);
 
-        Task<ProductDto> GetProductById(int id);
-        Task<IReadOnlyList<ProductDto>> GetAllProducts(int? categoryId = null);
-        Task<IReadOnlyList<ProductDto>> GetRandomProducts();
-        Task<IReadOnlyList<ProductDto>> GetNewProducts();
+        Task<ProductDto> GetProductById(int id, int? countryId = null);
+        Task<IReadOnlyList<ProductDto>> GetAllProducts(int? categoryId, int countryId);
+        Task<IReadOnlyList<ProductDto>> GetRandomProducts(int countryId);
+        Task<IReadOnlyList<ProductDto>> GetNewProducts(int countryId);
+        Task<ProductDto?> GetHeroProductAsync(int countryId);
 
-        //Task<int> DeleteCategory(int id);
         Task<bool> DeleteProduct(int id);
-        //Task<ProductDto> GetCategoryByIdWithInclude(int id);
-        Task<IReadOnlyList<ProductDto>> GetTopBestSellersAsync(int take = 5);
-
+        Task<IReadOnlyList<ProductDto>> GetTopBestSellersAsync(int take, int countryId);
     }
 }

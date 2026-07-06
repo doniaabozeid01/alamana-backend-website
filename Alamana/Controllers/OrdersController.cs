@@ -45,7 +45,7 @@ namespace Alamana.Controllers
                 var user = await _userManager.FindByIdAsync(request.UserId);
                 if (user == null) return NotFound(new { message = "User Not Found" });
 
-                var cart = await _cartService.GetCartByUserId(request.UserId);
+                var cart = await _cartService.GetCartByUserId(request.UserId, request.CountryId);
                 if (cart == null) return NotFound(new { message = "Cart Not Found" });
 
                 var orderId = await _orderService.CreateOrderAsync(request);

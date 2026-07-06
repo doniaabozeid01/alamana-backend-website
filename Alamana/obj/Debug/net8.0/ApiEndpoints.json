@@ -203,12 +203,22 @@
         "IsRequired": false
       },
       {
-        "Name": "Title",
+        "Name": "TitleEn",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "Description",
+        "Name": "TitleAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionAr",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -269,7 +279,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IReadOnlyList\u00601[[Alamana.Service.Advertisment.Dtos.AdvertiseDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -301,12 +317,22 @@
         "IsRequired": false
       },
       {
-        "Name": "Title",
+        "Name": "TitleEn",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "Description",
+        "Name": "TitleAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionAr",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -330,6 +356,11 @@
         "Name": "userId",
         "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -356,6 +387,11 @@
         "Name": "userId",
         "Type": "System.String",
         "IsRequired": true
+      },
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -427,12 +463,22 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Name",
+        "Name": "NameEn",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "Description",
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionAr",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -482,7 +528,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Alamana.Service.Category.Dtos.categoryDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -507,6 +559,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -533,6 +590,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -561,12 +623,22 @@
         "IsRequired": true
       },
       {
-        "Name": "Name",
+        "Name": "NameEn",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "Description",
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionAr",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -677,6 +749,32 @@
   },
   {
     "ContainingType": "Alamana.Controllers.LocationController",
+    "Method": "GetCountryById",
+    "RelativePath": "api/Location/GetCountryById/{countryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.LocationController",
+    "Method": "GetDefaultCountry",
+    "RelativePath": "api/Location/GetDefaultCountry",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.LocationController",
     "Method": "GetDistrictsByCityId",
     "RelativePath": "api/Location/GetDistrictsByCityId/{cityId}",
     "HttpMethod": "GET",
@@ -702,6 +800,43 @@
       {
         "Name": "CountryId",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.LocationController",
+    "Method": "SetDefaultCountry",
+    "RelativePath": "api/Location/SetDefaultCountry/{countryId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Alamana.Controllers.LocationController",
+    "Method": "UpdateCountryContact",
+    "RelativePath": "api/Location/UpdateCountryContact/{countryId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "Alamana.Service.Location.Dtos.UpdateCountryContactDto",
         "IsRequired": true
       }
     ],
@@ -758,8 +893,18 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "Name",
+        "Name": "NameEn",
         "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CountryId",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {
@@ -773,7 +918,12 @@
         "IsRequired": false
       },
       {
-        "Name": "Description",
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionAr",
         "Type": "System.String",
         "IsRequired": false
       },
@@ -785,6 +935,11 @@
       {
         "Name": "Discount",
         "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Stock",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {
@@ -823,6 +978,11 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
       {
         "Name": "take",
         "Type": "System.Int32",
@@ -866,6 +1026,11 @@
     "Order": 0,
     "Parameters": [
       {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
         "Name": "categoryId",
         "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
         "IsRequired": false
@@ -890,7 +1055,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Alamana.Service.Product.Dtos.ProductDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
@@ -915,6 +1086,11 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
+      },
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -936,10 +1112,42 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[Alamana.Service.Product.Dtos.ProductDto, Alamana.Service, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Alamana.Controllers.ProductController",
+    "Method": "GetHeroProduct",
+    "RelativePath": "api/Product/hero",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "countryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Alamana.Service.Product.Dtos.ProductDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -963,17 +1171,32 @@
         "IsRequired": true
       },
       {
-        "Name": "Name",
+        "Name": "NameEn",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "Description",
+        "Name": "NameAr",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionEn",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionAr",
         "Type": "System.String",
         "IsRequired": false
       },
       {
         "Name": "CategoryId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CountryId",
         "Type": "System.Int32",
         "IsRequired": false
       },
@@ -995,6 +1218,11 @@
       {
         "Name": "New",
         "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "Stock",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {

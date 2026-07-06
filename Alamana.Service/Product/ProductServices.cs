@@ -67,20 +67,33 @@ namespace Alamana.Service.Product
 
         public async Task<ProductDto> AddProduct(AddProductDto productDto)
         {
+            if (productDto.CountryId <= 0)
+                throw new InvalidOperationException("CountryId is required.");
+
             var detailItems = ResolveDetailItemsForAdd(productDto);
 
             var product = new Products
             {
-                Name = productDto.Name,
-                Description = productDto.Description,
+                NameEn = productDto.NameEn,
+                NameAr = productDto.NameAr,
+                DescriptionEn = productDto.DescriptionEn,
+                DescriptionAr = productDto.DescriptionAr,
                 CategoryId = productDto.CategoryId,
-                Price = productDto.Price,
-                New = productDto.New,
                 Weight = productDto.Weight,
-                Discount = productDto.Discount,
             };
 
             await _unitOfWork.Repository<Products>().AddAsync(product);
+            await _unitOfWork.CompleteAsync();
+
+            await _unitOfWork.Repository<CountryProducts>().AddAsync(new CountryProducts
+            {
+                ProductId = product.Id,
+                CountryId = productDto.CountryId,
+                Price = productDto.Price,
+                Discount = productDto.Discount,
+                IsNew = productDto.New,
+                Stock = productDto.Stock,
+            });
             await _unitOfWork.CompleteAsync();
 
             if (detailItems is { Count: > 0 })
@@ -112,9 +125,10 @@ namespace Alamana.Service.Product
                 .Include(p => p.Category)
                 .Include(p => p.Media)
                 .Include(p => p.DetailEntries)
+                .Include(p => p.CountryProducts)
                 .FirstOrDefaultAsync(p => p.Id == product.Id);
 
-            return loaded == null ? null : _mapper.Map<ProductDto>(loaded);
+            return loaded == null ? null : MapToProductDto(loaded, productDto.CountryId);
         }
 
 
@@ -189,13 +203,40 @@ namespace Alamana.Service.Product
             }
 
             // 1) بيانات أساسية
-            product.Name = dto.Name;
-            product.Description = dto.Description;
+            product.NameEn = dto.NameEn;
+            product.NameAr = dto.NameAr;
+            product.DescriptionEn = dto.DescriptionEn;
+            product.DescriptionAr = dto.DescriptionAr;
             product.CategoryId = dto.CategoryId;
-            product.Price = dto.Price;
             product.Weight = dto.Weight;
-            product.New = dto.New;
-            product.Discount = dto.Discount;
+
+            if (dto.CountryId > 0)
+            {
+                var countryProductRepo = _unitOfWork.Repository<CountryProducts>();
+                var listing = await countryProductRepo.Query()
+                    .FirstOrDefaultAsync(cp => cp.ProductId == id && cp.CountryId == dto.CountryId);
+
+                if (listing == null)
+                {
+                    await countryProductRepo.AddAsync(new CountryProducts
+                    {
+                        ProductId = id,
+                        CountryId = dto.CountryId,
+                        Price = dto.Price,
+                        Discount = dto.Discount,
+                        IsNew = dto.New,
+                        Stock = dto.Stock,
+                    });
+                }
+                else
+                {
+                    listing.Price = dto.Price;
+                    listing.Discount = dto.Discount;
+                    listing.IsNew = dto.New;
+                    listing.Stock = dto.Stock;
+                    countryProductRepo.Update(listing);
+                }
+            }
 
             // helper: آخر ترتيب
             //int maxSort = product.Media.Any() ? product.Media.Max(m => m.SortOrder) : 0;
@@ -252,9 +293,10 @@ namespace Alamana.Service.Product
                 .Include(p => p.Category)
                 .Include(p => p.Media)
                 .Include(p => p.DetailEntries)
+                .Include(p => p.CountryProducts)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            return _mapper.Map<ProductDto>(updated);
+            return MapToProductDto(updated, dto.CountryId > 0 ? dto.CountryId : null);
         }
 
 
@@ -272,160 +314,50 @@ namespace Alamana.Service.Product
 
 
 
-        public async Task<IReadOnlyList<ProductDto>> GetAllProducts(int? categoryId = null)
+        public async Task<IReadOnlyList<ProductDto>> GetAllProducts(int? categoryId, int countryId)
         {
-            var products = await _unitOfWork.Repository<Products>().GetAllProductsAsync();
-            if (categoryId.HasValue)
-            {
-                products = products.Where(p => p.CategoryId == categoryId.Value).ToList();
-            }
-
-            var result = products.Select(p => new ProductDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Weight = p.Weight,
-                Description = p.Description,
-                Discount = p.Discount,
-                New = p.New,
-                priceAfterDiscount = priceAfterDiscount(p.Price, p.Discount),
-
-                category = p.Category == null ? null : new productCategoryDto
-                {
-                    Id = p.Category.Id,
-                    Name = p.Category.Name,
-                    Description = p.Category.Description
-                },
-                // باقي الصور
-                GalleryUrls = p.Media
-                .Select(m => new mediaDto
-                {
-                    Url = m.Url,
-                    Type = m.Type
-                })
-                .ToList(),
-                Details = p.DetailEntries
-                    .OrderBy(e => e.SortOrder)
-                    .ThenBy(e => e.Id)
-                    .Select(e => new ProductDetailEntryDto
-                    {
-                        Id = e.Id,
-                        Key = e.EntryKey,
-                        Value = e.EntryValue,
-                        SortOrder = e.SortOrder
-                    })
-                    .ToList()
-
-            })
-                .ToList();
-
-            return result;
+            var products = await _unitOfWork.Repository<Products>().GetAllProductsAsync(categoryId, countryId);
+            return products.Select(p => MapToProductDto(p, countryId)).ToList();
         }
 
-
-
-
-
-        public async Task<IReadOnlyList<ProductDto>> GetRandomProducts()
+        public async Task<IReadOnlyList<ProductDto>> GetRandomProducts(int countryId)
         {
-            var products = await _unitOfWork.Repository<Products>().GetRandomProductsAsync();
-            var result = products.Select(p => new ProductDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Weight = p.Weight,
-                Description = p.Description,
-                Discount= p.Discount,
-                New = p.New,
-                priceAfterDiscount = priceAfterDiscount(p.Price, p.Discount),
-                category = p.Category == null ? null : new productCategoryDto
-                {
-                    Id = p.Category.Id,
-                    Name = p.Category.Name,
-                    Description = p.Category.Description
-                },
-                // باقي الصور
-                GalleryUrls = p.Media
-                .Select(m => new mediaDto
-                {
-                    Url = m.Url,
-                    Type = m.Type
-                })
-                .ToList(),
-                Details = p.DetailEntries
-                    .OrderBy(e => e.SortOrder)
-                    .ThenBy(e => e.Id)
-                    .Select(e => new ProductDetailEntryDto
-                    {
-                        Id = e.Id,
-                        Key = e.EntryKey,
-                        Value = e.EntryValue,
-                        SortOrder = e.SortOrder
-                    })
-                    .ToList()
-
-            })
-                .ToList(); return result;
+            var products = await _unitOfWork.Repository<Products>().GetRandomProductsAsync(countryId);
+            return products.Select(p => MapToProductDto(p, countryId)).ToList();
         }
 
-
-
-
-
-
-
-        public async Task<IReadOnlyList<ProductDto>> GetNewProducts()
+        public async Task<IReadOnlyList<ProductDto>> GetNewProducts(int countryId)
         {
-            var products = await _unitOfWork.Repository<Products>().GetNewProducts();
-            var result = products.Select(p => new ProductDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Weight = p.Weight,
-                Description = p.Description,
-                New = p.New,
-                Discount = p.Discount,
-                priceAfterDiscount = priceAfterDiscount(p.Price, p.Discount),
-                category = p.Category == null ? null : new productCategoryDto
-                {
-                    Id = p.Category.Id,
-                    Name = p.Category.Name,
-                    Description = p.Category.Description
-                },
-                // باقي الصور
-                GalleryUrls = p.Media
-                .Select(m => new mediaDto
-                {
-                    Url = m.Url,
-                    Type = m.Type
-                })
-                .ToList(),
-                Details = p.DetailEntries
-                    .OrderBy(e => e.SortOrder)
-                    .ThenBy(e => e.Id)
-                    .Select(e => new ProductDetailEntryDto
-                    {
-                        Id = e.Id,
-                        Key = e.EntryKey,
-                        Value = e.EntryValue,
-                        SortOrder = e.SortOrder
-                    })
-                    .ToList()
-
-            })
-                .ToList();
-            return result;
+            var products = await _unitOfWork.Repository<Products>().GetNewProducts(countryId);
+            return products.Select(p => MapToProductDto(p, countryId)).ToList();
         }
 
+        public async Task<ProductDto?> GetHeroProductAsync(int countryId)
+        {
+            var listing = await _context.CountryProducts
+                .Include(cp => cp.Product)
+                    .ThenInclude(p => p.Media)
+                .Include(cp => cp.Product)
+                    .ThenInclude(p => p.Category)
+                .Include(cp => cp.Product)
+                    .ThenInclude(p => p.DetailEntries)
+                .Where(cp => cp.CountryId == countryId && cp.IsHeroProduct)
+                .OrderBy(cp => cp.Id)
+                .FirstOrDefaultAsync();
 
+            return listing?.Product == null ? null : MapToProductDto(listing.Product, countryId);
+        }
 
-        public async Task<ProductDto> GetProductById(int id)
+        public async Task<ProductDto> GetProductById(int id, int? countryId = null)
         {
             var product = await _unitOfWork.Repository<Products>().GetProductByIdAsync(id);
-            return product == null ? null : _mapper.Map<ProductDto>(product);
+            if (product == null)
+                return null;
+
+            if (countryId.HasValue && !product.CountryProducts.Any(cp => cp.CountryId == countryId.Value))
+                return null;
+
+            return MapToProductDto(product, countryId);
         }
 
 
@@ -606,10 +538,10 @@ public async Task<bool> DeleteProduct(int id)
 
 
 
-        public async Task<IReadOnlyList<ProductDto>> GetTopBestSellersAsync(int take = 5)
+        public async Task<IReadOnlyList<ProductDto>> GetTopBestSellersAsync(int take, int countryId)
         {
-            // 1️⃣ نجيب إجمالي المبيعات حسب المنتج
             var topSales = await _context.OrderItem
+                .Where(oi => oi.Order.CountryId == countryId)
                 .GroupBy(o => o.ProductId)
                 .Select(g => new
                 {
@@ -622,20 +554,19 @@ public async Task<bool> DeleteProduct(int id)
 
             var topIds = topSales.Select(x => x.ProductId).ToList();
 
-            // 2️⃣ نجيب المنتجات دي
             var topProducts = await _context.Product
                 .Include(p => p.Category)
                 .Include(p => p.Media)
                 .Include(p => p.DetailEntries)
+                .Include(p => p.CountryProducts)
                 .Where(p => topIds.Contains(p.Id))
+                .Where(p => p.CountryProducts.Any(cp => cp.CountryId == countryId))
                 .ToListAsync();
 
-            // 3️⃣ نحافظ على الترتيب حسب المبيعات
             topProducts = topProducts
                 .OrderBy(p => topIds.IndexOf(p.Id))
                 .ToList();
 
-            // 4️⃣ لو أقل من المطلوب، نكمّل من باقي المنتجات
             var remaining = take - topProducts.Count;
             if (remaining > 0)
             {
@@ -643,33 +574,49 @@ public async Task<bool> DeleteProduct(int id)
                     .Include(p => p.Category)
                     .Include(p => p.Media)
                     .Include(p => p.DetailEntries)
+                    .Include(p => p.CountryProducts)
                     .Where(p => !topIds.Contains(p.Id))
-                    .OrderByDescending(p => p.Id) // أو CreatedAt
+                    .Where(p => p.CountryProducts.Any(cp => cp.CountryId == countryId))
+                    .OrderByDescending(p => p.Id)
                     .Take(remaining)
                     .ToListAsync();
 
                 topProducts.AddRange(filler);
             }
 
-            // 5️⃣ نحولهم إلى DTO
-            var result = topProducts.Select(p => new ProductDto
+            return topProducts.Select(p => MapToProductDto(p, countryId)).ToList();
+        }
+
+        private ProductDto MapToProductDto(Products p, int? countryId)
+        {
+            var price = ProductCountryPricing.GetPrice(p, countryId);
+            var discount = ProductCountryPricing.GetDiscount(p, countryId);
+            var isNew = ProductCountryPricing.GetIsNew(p, countryId);
+
+            return new ProductDto
             {
                 Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                New = p.New,                      // لو عندك عمود IsNew في الـ Entity
-                Discount = p.Discount,
-                priceAfterDiscount = p.Price - (p.Price * (p.Discount / 100)),
+                NameEn = p.NameEn,
+                NameAr = p.NameAr,
+                Price = price,
                 Weight = p.Weight,
-                Description = p.Description,
-                GalleryUrls = p.Media
-                    .Select(m => new mediaDto
-                    {
-                        Url = m.Url,
-                        Type = m.Type
-                    })
-                    .ToList(),
-                Details = p.DetailEntries
+                DescriptionEn = p.DescriptionEn,
+                DescriptionAr = p.DescriptionAr,
+                Discount = discount,
+                New = isNew,
+                priceAfterDiscount = priceAfterDiscount(price, discount),
+                category = p.Category == null ? null : new productCategoryDto
+                {
+                    Id = p.Category.Id,
+                    NameEn = p.Category.NameEn,
+                    NameAr = p.Category.NameAr,
+                    DescriptionEn = p.Category.DescriptionEn,
+                    DescriptionAr = p.Category.DescriptionAr
+                },
+                GalleryUrls = p.Media?
+                    .Select(m => new mediaDto { Url = m.Url, Type = m.Type })
+                    .ToList() ?? new List<mediaDto>(),
+                Details = p.DetailEntries?
                     .OrderBy(e => e.SortOrder)
                     .ThenBy(e => e.Id)
                     .Select(e => new ProductDetailEntryDto
@@ -679,16 +626,8 @@ public async Task<bool> DeleteProduct(int id)
                         Value = e.EntryValue,
                         SortOrder = e.SortOrder
                     })
-                    .ToList(),
-                category = new productCategoryDto
-                {
-                    Id = p.Category.Id,
-                    Name = p.Category.Name,
-                    Description = p.Category.Description
-                }
-            }).ToList();
-
-            return result;
+                    .ToList() ?? new List<ProductDetailEntryDto>()
+            };
         }
 
 

@@ -11,6 +11,7 @@ using Alamana.Service.CartItem.Dtos;
 using Alamana.Service.Carts.Dtos;
 using Alamana.Service.Category.Dtos;
 using Alamana.Service.OperationResultService;
+using Alamana.Service.Product;
 using Alamana.Service.Product.Dtos;
 using Alamana.Service.SaveAndDeleteImage;
 using AutoMapper;
@@ -36,12 +37,13 @@ namespace Alamana.Service.Carts
 
 
 
-        public async Task<GetCartDto> AddCart(string userId)
+        public async Task<GetCartDto> AddCart(string userId, int countryId)
         {
 
             var cart = new Cart
             {
                 userId = userId,
+                CountryId = countryId,
                 TotalAmount = 0,
                 CreateAt = DateTime.Now,
             };
@@ -85,17 +87,17 @@ namespace Alamana.Service.Carts
 
 
 
-        public async Task<GetCartDto> GetCartByUserId(string id)
+        public async Task<GetCartDto> GetCartByUserId(string id, int countryId)
         {
-            //var cart = await _unitOfWork.Repository<Cart>().GetCartByUserIdAsync(id);
-
             var cart = await _context.Cart
-                .Where(c => c.userId == id)
+                .Where(c => c.userId == id && c.CountryId == countryId)
                 .Select(c => new GetCartDto
                 {
                     Id = c.Id,
                     TotalAmount = c.TotalAmount,
+                    CountryId = c.CountryId,
                     CreateAt = c.CreateAt,
+                    userId = c.userId,
                     cartItems = c.cartItems.Select(i => new GetCartItem
                     {
                         Id = i.Id,
@@ -170,24 +172,32 @@ namespace Alamana.Service.Carts
 
         public async Task<OperationResult<AddCartItemResultDto>> AddOrUpdateCartItemAsync(AddCartItem dto, CancellationToken ct = default)
         {
-            // 1) التحقق من المنتج
+            if (dto.countryId <= 0)
+                return OperationResult<AddCartItemResultDto>.Fail("البلد مطلوب");
+
             var productRepo = _unitOfWork.Repository<Products>();
             var product = await productRepo.GetProductByIdAsync(dto.productId);
             if (product == null)
                 return OperationResult<AddCartItemResultDto>.Fail("المنتج غير موجود");
+
+            if (!product.CountryProducts.Any(cp => cp.CountryId == dto.countryId))
+                return OperationResult<AddCartItemResultDto>.Fail("المنتج غير متوفر في هذا البلد");
+
+            var unitPrice = ProductCountryPricing.GetPrice(product, dto.countryId);
 
             // 2) هات/أنشئ السلة
             var cartRepo = _unitOfWork.Repository<Cart>();
             var cart = await cartRepo
                 .Query() 
                 .Include(c => c.cartItems)
-                .FirstOrDefaultAsync(c => c.userId == dto.userId, ct);
+                .FirstOrDefaultAsync(c => c.userId == dto.userId && c.CountryId == dto.countryId, ct);
 
             if (cart == null)
             {
                 cart = new Cart
                 {
                     userId = dto.userId,
+                    CountryId = dto.countryId,
                     TotalAmount = 0m,
                     CreateAt = DateTime.UtcNow
                 };
@@ -205,18 +215,18 @@ namespace Alamana.Service.Carts
                     cartId = cart.Id,                         
                     productId = dto.productId,
                     Quantity = dto.Quantity,
-                    Price = product.Price,                   
+                    Price = unitPrice,
                     ImagePath = product.Media?.FirstOrDefault(x=>x.Type == MediaType.Image)?.Url ?? "https://res.cloudinary.com/dvo2qoi4s/image/upload/v1762765573/categories/sdqfxip73rxgvif0trxm.png",
-                    Name = product.Name,
-                    TotalPrice = product.Price * dto.Quantity
+                    Name = !string.IsNullOrWhiteSpace(product.NameAr) ? product.NameAr : product.NameEn,
+                    TotalPrice = unitPrice * dto.Quantity
                 };
 
                 await itemRepo.AddAsync(newItem);
             }
             else
             {
-                existingItem.Quantity += dto.Quantity;       
-                existingItem.Price = product.Price;          
+                existingItem.Quantity += dto.Quantity;
+                existingItem.Price = unitPrice;
                 existingItem.TotalPrice = existingItem.Price * existingItem.Quantity;
                 itemRepo.Update(existingItem);
             }

@@ -13,6 +13,7 @@ namespace Alamana.Service.Carts.Dtos
         public int Id { get; set; }
         public decimal TotalAmount { get; set; }
         public string userId { get; set; }
+        public int CountryId { get; set; }
         //public ApplicationUser user { get; set; }
         public DateTime CreateAt { get; set; }
 

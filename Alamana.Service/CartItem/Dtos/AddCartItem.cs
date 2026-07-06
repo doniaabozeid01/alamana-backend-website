@@ -16,7 +16,6 @@ namespace Alamana.Service.CartItem.Dtos
         //public decimal TotalPrice { get; set; }
         //public string ImagePath { get; set; }
         public int productId { get; set; }
-
-        //public Cart Cart { get; set; }
+        public int countryId { get; set; }
     }
 }

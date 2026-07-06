@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Alamana.Data.Context;
 using Alamana.Data.Entities;
 using Alamana.Repository.Interfaces;
+using Alamana.Service.Product;
 using Alamana.Service.Product.Dtos;
 using Alamana.Service.ProductFavourite.Dtos;
 using AutoMapper;
@@ -73,7 +74,7 @@ namespace Alamana.Service.ProductFavourite
                 // بما إن Include مفلتر، الـ BranchStocks هنا (لو وُجدت) غالبًا عنصر واحد لنفس الفرع
                 //var bs = p?.BranchStocks?.FirstOrDefault(bs => bs.BranchId == branchId);
 
-                decimal old = p?.Price ?? 0m;
+                decimal old = p == null ? 0m : ProductCountryPricing.GetPrice(p, null);
 
                 var firstImage = p?.Media?
                                    .OrderBy(i => i.Id)
@@ -85,7 +86,8 @@ namespace Alamana.Service.ProductFavourite
                 {
                     Id = fav.Id,
                     ProductId = fav.ProductId,
-                    name = p?.Name,
+                    name = p?.NameEn,
+                    name_ar = p?.NameAr,
                     oldPrice = (int)Math.Round(old),
                     imagePath = firstImage,
                     UserId = fav.UserId,

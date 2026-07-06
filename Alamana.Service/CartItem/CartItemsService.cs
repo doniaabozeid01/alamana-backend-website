@@ -8,6 +8,7 @@ using Alamana.Data.Enums;
 using Alamana.Repository.Interfaces;
 using Alamana.Service.CartItem.Dtos;
 using Alamana.Service.OperationResultService;
+using Alamana.Service.Product;
 using AutoMapper;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -39,16 +40,19 @@ namespace Alamana.Service.CartItem
 
         public async Task<GetCartItem> AddCartItemAsync(AddCartItem dto)
         {
-            var product = await _unitOfWork.Repository<Products>().GetByIdAsync(dto.productId);
+            var product = await _unitOfWork.Repository<Products>().GetProductByIdAsync(dto.productId);
             if (product == null) { }
 
-            var cart = await _unitOfWork.Repository<Cart>().GetCartByUserId(dto.userId);
+            var unitPrice = ProductCountryPricing.GetPrice(product, dto.countryId);
+
+            var cart = await _unitOfWork.Repository<Cart>().GetCartByUserId(dto.userId, dto.countryId);
             if (cart == null) { }
 
 
             var newCart = new Cart
             {
                 userId = dto.userId,
+                CountryId = dto.countryId,
                 TotalAmount = 0,
                 CreateAt = DateTime.Now,
             };
@@ -64,10 +68,10 @@ namespace Alamana.Service.CartItem
                 //cartId = dto.cartId, 
                 productId = dto.productId,
                 Quantity = dto.Quantity,
-                Price = product.Price,
+                Price = unitPrice,
                 ImagePath = product.Media.FirstOrDefault(x => x.Type == MediaType.Image)?.Url,
-                Name = product.Name,
-                TotalPrice = dto.Quantity * product.Price,
+                Name = !string.IsNullOrWhiteSpace(product.NameAr) ? product.NameAr : product.NameEn,
+                TotalPrice = dto.Quantity * unitPrice,
             };
             await _unitOfWork.Repository<CartItems>().AddAsync(newItem);
             await _unitOfWork.CompleteAsync();

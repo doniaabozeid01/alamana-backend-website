@@ -96,7 +96,7 @@ namespace Alamana.Service.Orders
                 .Include(c => c.cartItems)
                 .ThenInclude(ci => ci.product)
                 .Include(x => x.user)
-                .FirstOrDefaultAsync(c => c.userId == request.UserId);
+                .FirstOrDefaultAsync(c => c.userId == request.UserId && c.CountryId == request.CountryId);
 
             if (cart == null || cart.cartItems == null || !cart.cartItems.Any())
                 throw new Exception("سلة التسوق فارغة أو غير موجودة.");
@@ -128,15 +128,16 @@ namespace Alamana.Service.Orders
 
             var orderItems = cart.cartItems.Select(ci =>
             {
-                var itemTotal = ci.product.Price * ci.Quantity;
+                var unitPrice = ci.Price;
+                var itemTotal = unitPrice * ci.Quantity;
                 total += itemTotal;
 
                 return new OrderItem
                 {
-                    OrderId = order.Id,              // ✅ ربط مباشر
+                    OrderId = order.Id,
                     ProductId = ci.productId,
                     Quantity = ci.Quantity,
-                    UnitPrice = ci.product.Price,
+                    UnitPrice = unitPrice,
                     TotalPrice = itemTotal
                 };
             }).ToList();
@@ -182,10 +183,11 @@ namespace Alamana.Service.Orders
                     CreatedAt = o.CreatedAt,
                     Items = o.OrderItems.Select(oi => new OrderItemResponse
                     {
-                        ProductName = oi.Product.Name,
+                        ProductNameEn = oi.Product.NameEn,
+                        ProductNameAr = oi.Product.NameAr,
                         Quantity = oi.Quantity,
                         ImageUrl = oi.Product.Media.FirstOrDefault(x=>x.Type == MediaType.Image).Url ,
-                        Price = oi.Product.Price,
+                        Price = oi.UnitPrice,
                     }).ToList()
                 })
                 .ToListAsync();

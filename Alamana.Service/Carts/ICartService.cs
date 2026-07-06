@@ -11,9 +11,9 @@ namespace Alamana.Service.Carts
 {
     public interface ICartService
     {
-        Task<GetCartDto> GetCartByUserId(string id);
+        Task<GetCartDto> GetCartByUserId(string id, int countryId);
         Task<GetCartDto> UpdateAmountOfCart(int id);
-        Task<GetCartDto> AddCart(string userId);
+        Task<GetCartDto> AddCart(string userId, int countryId);
         Task<GetCartDto> GetCartById(int id);
         Task<bool> DeleteCartByIdAsync(int id);
         Task<OperationResult<AddCartItemResultDto>> AddOrUpdateCartItemAsync(AddCartItem dto, CancellationToken ct = default);

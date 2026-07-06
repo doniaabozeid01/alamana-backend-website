@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 using Alamana.Data.Entities;
 using Alamana.Repository.Interfaces;
 using Alamana.Service.Location.Dtos;
-using Alamana.Service.Product.Dtos;
 using AutoMapper;
-using Org.BouncyCastle.Security;
+using Microsoft.EntityFrameworkCore;
 
 namespace Alamana.Service.Location
 {
@@ -26,9 +25,11 @@ namespace Alamana.Service.Location
 
         public async Task<IReadOnlyList<GetCountryDto>> GetAllCountries()
         {
-            var countries = await _unitOfWork.Repository<country>().GetAllAsync();
-            var mappedCountries = _mapper.Map<IReadOnlyList<GetCountryDto>>(countries);
-            return mappedCountries;
+            var countries = await _unitOfWork.Repository<country>().Query()
+                .OrderByDescending(c => c.IsDefault)
+                .ThenBy(c => c.Id)
+                .ToListAsync();
+            return _mapper.Map<IReadOnlyList<GetCountryDto>>(countries);
         }
 
 
@@ -104,6 +105,54 @@ namespace Alamana.Service.Location
             var country = await _unitOfWork.Repository<country>().GetByIdAsync(countryId);
             var mappedCountry = _mapper.Map<GetCountryDto>(country);
             return mappedCountry;
+        }
+
+        public async Task<GetCountryDto?> GetDefaultCountryAsync()
+        {
+            var country = await _unitOfWork.Repository<country>().Query()
+                .FirstOrDefaultAsync(c => c.IsDefault);
+
+            return country == null ? null : _mapper.Map<GetCountryDto>(country);
+        }
+
+        public async Task<GetCountryDto?> SetDefaultCountryAsync(int countryId)
+        {
+            var repo = _unitOfWork.Repository<country>();
+            var country = await repo.GetByIdAsync(countryId);
+            if (country == null)
+                return null;
+
+            var others = await repo.Query()
+                .Where(c => c.IsDefault && c.Id != countryId)
+                .ToListAsync();
+
+            foreach (var c in others)
+            {
+                c.IsDefault = false;
+                repo.Update(c);
+            }
+
+            country.IsDefault = true;
+            repo.Update(country);
+            var status = await _unitOfWork.CompleteAsync();
+            return status == 0 ? null : _mapper.Map<GetCountryDto>(country);
+        }
+
+        public async Task<GetCountryDto?> UpdateCountryContactAsync(int countryId, UpdateCountryContactDto dto)
+        {
+            var country = await _unitOfWork.Repository<country>().GetByIdAsync(countryId);
+            if (country == null)
+                return null;
+
+            country.office_address = dto.office_address;
+            country.phone = dto.phone;
+            country.phone2 = dto.phone2;
+            country.email = dto.email;
+            country.working_hours = dto.working_hours;
+
+            _unitOfWork.Repository<country>().Update(country);
+            var status = await _unitOfWork.CompleteAsync();
+            return status == 0 ? null : _mapper.Map<GetCountryDto>(country);
         }
 
 
