@@ -4,6 +4,7 @@ using Alamana.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alamana.Data.Migrations
 {
     [DbContext(typeof(AlamanaBbContext))]
-    partial class AlamanaBbContextModelSnapshot : ModelSnapshot
+    [Migration("20260708113200_AddCountryIdToCart")]
+    partial class AddCountryIdToCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +46,7 @@ namespace Alamana.Data.Migrations
                     b.HasIndex("AdvertisementId", "ProductId")
                         .IsUnique();
 
-                    b.ToTable("AdvertisementProducts", (string)null);
+                    b.ToTable("AdvertisementProducts");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.Advertisements", b =>
@@ -75,7 +78,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Advertisements", (string)null);
+                    b.ToTable("Advertisements");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.ApplicationUser", b =>
@@ -175,7 +178,7 @@ namespace Alamana.Data.Migrations
                     b.HasIndex("userId", "CountryId")
                         .IsUnique();
 
-                    b.ToTable("Cart", (string)null);
+                    b.ToTable("Cart");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.CartItems", b =>
@@ -215,7 +218,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("productId");
 
-                    b.ToTable("CartItems", (string)null);
+                    b.ToTable("CartItems");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.Categories", b =>
@@ -251,7 +254,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.CountryAdvertisements", b =>
@@ -275,7 +278,7 @@ namespace Alamana.Data.Migrations
                     b.HasIndex("AdvertisementId", "CountryId")
                         .IsUnique();
 
-                    b.ToTable("CountryAdvertisements", (string)null);
+                    b.ToTable("CountryAdvertisements");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.CountryCategories", b =>
@@ -299,7 +302,7 @@ namespace Alamana.Data.Migrations
                     b.HasIndex("CategoryId", "CountryId")
                         .IsUnique();
 
-                    b.ToTable("CountryCategories", (string)null);
+                    b.ToTable("CountryCategories");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.CountryProducts", b =>
@@ -338,7 +341,7 @@ namespace Alamana.Data.Migrations
                     b.HasIndex("ProductId", "CountryId")
                         .IsUnique();
 
-                    b.ToTable("CountryProducts", (string)null);
+                    b.ToTable("CountryProducts");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.District", b =>
@@ -360,7 +363,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("District", (string)null);
+                    b.ToTable("District");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.EmailConfirmationRequest", b =>
@@ -392,7 +395,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EmailConfirmationRequests", (string)null);
+                    b.ToTable("EmailConfirmationRequests");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.FavouriteProducts", b =>
@@ -420,7 +423,7 @@ namespace Alamana.Data.Migrations
                     b.HasIndex("ProductId", "UserId")
                         .IsUnique();
 
-                    b.ToTable("FavouriteProducts", (string)null);
+                    b.ToTable("FavouriteProducts");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.Governorate", b =>
@@ -442,7 +445,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Governorate", (string)null);
+                    b.ToTable("Governorate");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.Order", b =>
@@ -524,7 +527,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("userId");
 
-                    b.ToTable("Order", (string)null);
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.OrderItem", b =>
@@ -556,7 +559,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItem", (string)null);
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.PaymentMethod", b =>
@@ -573,7 +576,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PaymentMethods", (string)null);
+                    b.ToTable("PaymentMethods");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.ProductDetailEntry", b =>
@@ -612,7 +615,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductDetailEntries", (string)null);
+                    b.ToTable("ProductDetailEntries");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.ProductMedia", b =>
@@ -638,7 +641,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductMedia", (string)null);
+                    b.ToTable("ProductMedia");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.Products", b =>
@@ -676,7 +679,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Product", (string)null);
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.Videos", b =>
@@ -701,7 +704,7 @@ namespace Alamana.Data.Migrations
                         .IsUnique()
                         .HasFilter("[IsDefault] = 1");
 
-                    b.ToTable("Videos", (string)null);
+                    b.ToTable("Videos");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.city", b =>
@@ -723,7 +726,7 @@ namespace Alamana.Data.Migrations
 
                     b.HasIndex("GovernorateId");
 
-                    b.ToTable("City", (string)null);
+                    b.ToTable("City");
                 });
 
             modelBuilder.Entity("Alamana.Data.Entities.country", b =>
@@ -774,7 +777,7 @@ namespace Alamana.Data.Migrations
                         .IsUnique()
                         .HasFilter("[IsDefault] = 1");
 
-                    b.ToTable("Country", (string)null);
+                    b.ToTable("Country");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -186,7 +186,7 @@ namespace Alamana.Service.Product
 
             if (product == null) return null;
 
-            IReadOnlyList<(string key, string value, int sort)>? parsedDetailsReplacement = null;
+            IReadOnlyList<(string keyEn, string keyAr, string valueEn, string valueAr, int sort)>? parsedDetailsReplacement = null;
             var detailsTouched = false;
             if (HasMeaningfulDetailsJson(dto.DetailsJson))
             {
@@ -400,7 +400,7 @@ public async Task<bool> DeleteProduct(int id)
         return status > 0;
     }
 
-        private static IReadOnlyList<(string key, string value, int sort)>? ResolveDetailItemsForAdd(AddProductDto dto)
+        private static IReadOnlyList<(string keyEn, string keyAr, string valueEn, string valueAr, int sort)>? ResolveDetailItemsForAdd(AddProductDto dto)
         {
             //if (HasMeaningfulDetailsJson(dto.DetailsJson) &&
             //    TryParseDetailsJsonArray(dto.DetailsJson!, out var fromJson))
@@ -422,6 +422,10 @@ public async Task<bool> DeleteProduct(int id)
 
         private sealed class DetailJsonRow
         {
+            public string? KeyEn { get; set; }
+            public string? KeyAr { get; set; }
+            public string? ValueEn { get; set; }
+            public string? ValueAr { get; set; }
             public string? Key { get; set; }
             public string? Value { get; set; }
             public int? Order { get; set; }
@@ -436,9 +440,9 @@ public async Task<bool> DeleteProduct(int id)
         };
 
         /// <returns>false لو JSON غير صالح (نُهمِل الحقل).</returns>
-        private static bool TryParseDetailsJsonArray(string json, out List<(string key, string value, int sort)> result)
+        private static bool TryParseDetailsJsonArray(string json, out List<(string keyEn, string keyAr, string valueEn, string valueAr, int sort)> result)
         {
-            result = new List<(string, string, int)>();
+            result = new List<(string, string, string, string, int)>();
             var normalized = ProductDetailsJsonNormalize.ForJsonParse(json);
             if (TryDeserializeDetailJsonRows(normalized, out result))
                 return true;
@@ -451,9 +455,9 @@ public async Task<bool> DeleteProduct(int id)
             return TryDeserializeDetailJsonRows(normalized, out result);
         }
 
-        private static bool TryDeserializeDetailJsonRows(string normalized, out List<(string key, string value, int sort)> result)
+        private static bool TryDeserializeDetailJsonRows(string normalized, out List<(string keyEn, string keyAr, string valueEn, string valueAr, int sort)> result)
         {
-            result = new List<(string, string, int)>();
+            result = new List<(string, string, string, string, int)>();
             try
             {
                 var rows = JsonSerializer.Deserialize<List<DetailJsonRow>>(normalized, DetailsJsonSerializerOptions);
@@ -463,37 +467,60 @@ public async Task<bool> DeleteProduct(int id)
                 for (var i = 0; i < rows.Count; i++)
                 {
                     var r = rows[i];
-                    if (r == null || string.IsNullOrWhiteSpace(r.Key))
+                    if (r == null)
                         continue;
+
+                    var keyEn = FirstNonEmpty(r.KeyEn, r.Key);
+                    if (string.IsNullOrWhiteSpace(keyEn))
+                        continue;
+
                     var sort = r.Order ?? r.SortOrder ?? i;
-                    result.Add((r.Key.Trim(), r.Value?.Trim() ?? string.Empty, sort));
+                    result.Add((
+                        keyEn.Trim(),
+                        r.KeyAr?.Trim() ?? string.Empty,
+                        FirstNonEmpty(r.ValueEn, r.Value)?.Trim() ?? string.Empty,
+                        r.ValueAr?.Trim() ?? string.Empty,
+                        sort));
                 }
 
                 return true;
             }
             catch (JsonException)
             {
-                result = new List<(string, string, int)>();
+                result = new List<(string, string, string, string, int)>();
                 return false;
             }
         }
 
-        private static List<(string key, string value, int sort)> NormalizeDetailsFromForm(List<ProductDetailFormItem>? details)
+        private static List<(string keyEn, string keyAr, string valueEn, string valueAr, int sort)> NormalizeDetailsFromForm(List<ProductDetailFormItem>? details)
         {
-            var result = new List<(string, string, int)>();
+            var result = new List<(string, string, string, string, int)>();
             if (details == null) return result;
             for (var i = 0; i < details.Count; i++)
             {
                 var d = details[i];
-                if (d == null || string.IsNullOrWhiteSpace(d.Key))
+                if (d == null)
                     continue;
+
+                var keyEn = FirstNonEmpty(d.KeyEn, d.Key);
+                if (string.IsNullOrWhiteSpace(keyEn))
+                    continue;
+
                 var sort = d.SortOrder ?? i;
-                result.Add((d.Key.Trim(), d.Value?.Trim() ?? string.Empty, sort));
+                result.Add((
+                    keyEn.Trim(),
+                    d.KeyAr?.Trim() ?? string.Empty,
+                    FirstNonEmpty(d.ValueEn, d.Value)?.Trim() ?? string.Empty,
+                    d.ValueAr?.Trim() ?? string.Empty,
+                    sort));
             }
             return result;
         }
 
-        private async Task ReplaceProductDetailEntriesAsync(int productId, IReadOnlyList<(string key, string value, int sort)> items)
+        private static string? FirstNonEmpty(string? a, string? b) =>
+            !string.IsNullOrWhiteSpace(a) ? a : string.IsNullOrWhiteSpace(b) ? null : b;
+
+        private async Task ReplaceProductDetailEntriesAsync(int productId, IReadOnlyList<(string keyEn, string keyAr, string valueEn, string valueAr, int sort)> items)
         {
             var detailRepo = _unitOfWork.Repository<ProductDetailEntry>();
             var existing = await detailRepo.Query().Where(x => x.ProductId == productId).ToListAsync();
@@ -501,13 +528,15 @@ public async Task<bool> DeleteProduct(int id)
                 detailRepo.Delete(e);
             await _unitOfWork.CompleteAsync();
 
-            foreach (var (key, value, sort) in items)
+            foreach (var (keyEn, keyAr, valueEn, valueAr, sort) in items)
             {
                 await detailRepo.AddAsync(new ProductDetailEntry
                 {
                     ProductId = productId,
-                    EntryKey = key,
-                    EntryValue = value,
+                    EntryKeyEn = keyEn,
+                    EntryKeyAr = keyAr,
+                    EntryValueEn = valueEn,
+                    EntryValueAr = valueAr,
                     SortOrder = sort
                 });
             }
@@ -622,8 +651,10 @@ public async Task<bool> DeleteProduct(int id)
                     .Select(e => new ProductDetailEntryDto
                     {
                         Id = e.Id,
-                        Key = e.EntryKey,
-                        Value = e.EntryValue,
+                        KeyEn = e.EntryKeyEn,
+                        KeyAr = e.EntryKeyAr,
+                        ValueEn = e.EntryValueEn,
+                        ValueAr = e.EntryValueAr,
                         SortOrder = e.SortOrder
                     })
                     .ToList() ?? new List<ProductDetailEntryDto>()

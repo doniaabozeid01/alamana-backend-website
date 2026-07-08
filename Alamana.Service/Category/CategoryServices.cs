@@ -158,8 +158,10 @@ namespace Alamana.Service.Category
                             .Select(e => new ProductDetailEntryDto
                             {
                                 Id = e.Id,
-                                Key = e.EntryKey,
-                                Value = e.EntryValue,
+                                KeyEn = e.EntryKeyEn,
+                                KeyAr = e.EntryKeyAr,
+                                ValueEn = e.EntryValueEn,
+                                ValueAr = e.EntryValueAr,
                                 SortOrder = e.SortOrder
                             })
                             .ToList()

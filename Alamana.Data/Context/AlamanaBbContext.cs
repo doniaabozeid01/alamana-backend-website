@@ -103,8 +103,10 @@ namespace Alamana.Data.Context
             modelBuilder.Entity<ProductDetailEntry>(b =>
             {
                 b.HasKey(x => x.Id);
-                b.Property(x => x.EntryKey).IsRequired().HasMaxLength(512);
-                b.Property(x => x.EntryValue).IsRequired();
+                b.Property(x => x.EntryKeyEn).IsRequired().HasMaxLength(512);
+                b.Property(x => x.EntryKeyAr).IsRequired().HasMaxLength(512);
+                b.Property(x => x.EntryValueEn).IsRequired();
+                b.Property(x => x.EntryValueAr).IsRequired();
                 b.HasOne(x => x.Product)
                     .WithMany(p => p.DetailEntries)
                     .HasForeignKey(x => x.ProductId)

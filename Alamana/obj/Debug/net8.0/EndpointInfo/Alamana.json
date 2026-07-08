@@ -3296,11 +3296,19 @@
           "product": {
             "$ref": "#/components/schemas/Products"
           },
-          "entryKey": {
+          "entryKeyEn": {
             "type": "string",
             "nullable": true
           },
-          "entryValue": {
+          "entryKeyAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "entryValueEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "entryValueAr": {
             "type": "string",
             "nullable": true
           },
@@ -3318,11 +3326,19 @@
             "type": "integer",
             "format": "int32"
           },
-          "key": {
+          "keyEn": {
             "type": "string",
             "nullable": true
           },
-          "value": {
+          "keyAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "valueEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "valueAr": {
             "type": "string",
             "nullable": true
           },
@@ -3336,6 +3352,22 @@
       "ProductDetailFormItem": {
         "type": "object",
         "properties": {
+          "keyEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "keyAr": {
+            "type": "string",
+            "nullable": true
+          },
+          "valueEn": {
+            "type": "string",
+            "nullable": true
+          },
+          "valueAr": {
+            "type": "string",
+            "nullable": true
+          },
           "key": {
             "type": "string",
             "nullable": true

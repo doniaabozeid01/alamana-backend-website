@@ -6,8 +6,10 @@ namespace Alamana.Data.Entities
         public int Id { get; set; }
         public int ProductId { get; set; }
         public Products Product { get; set; }
-        public string EntryKey { get; set; }
-        public string EntryValue { get; set; }
+        public string EntryKeyEn { get; set; }
+        public string EntryKeyAr { get; set; }
+        public string EntryValueEn { get; set; }
+        public string EntryValueAr { get; set; }
         public int SortOrder { get; set; }
     }
 }

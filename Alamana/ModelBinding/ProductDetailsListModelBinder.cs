@@ -11,8 +11,8 @@ using Microsoft.Extensions.Primitives;
 namespace Alamana.ModelBinding;
 
 /// <summary>
-/// يدعم الطريقة الموصى بها لـ <c>multipart/form-data</c>: <c>Details[i].Key</c> / <c>Value</c> / <c>SortOrder</c>.
-/// ويدعم احتياطيًا حقول Swagger (كائن أو مصفوفة JSON تحت اسم <c>Details</c>).
+/// يدعم <c>Details[i].KeyEn</c> / <c>KeyAr</c> / <c>ValueEn</c> / <c>ValueAr</c> / <c>SortOrder</c>.
+/// يُقبل احتياطيًا <c>Key</c> و <c>Value</c> كإنجليزي.
 /// </summary>
 public sealed class ProductDetailsListModelBinderProvider : IModelBinderProvider
 {
@@ -35,6 +35,10 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
 
     private sealed class JsonRow
     {
+        public string? KeyEn { get; set; }
+        public string? KeyAr { get; set; }
+        public string? ValueEn { get; set; }
+        public string? ValueAr { get; set; }
         public string? Key { get; set; }
         public string? Value { get; set; }
         public int? Order { get; set; }
@@ -262,15 +266,9 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
             for (var i = 0; i < rows.Count; i++)
             {
                 var row = rows[i];
-                if (row == null || string.IsNullOrWhiteSpace(row.Key))
-                    continue;
-
-                list.Add(new ProductDetailFormItem
-                {
-                    Key = row.Key.Trim(),
-                    Value = row.Value?.Trim() ?? string.Empty,
-                    SortOrder = row.Order ?? row.SortOrder ?? i,
-                });
+                var item = MapJsonRow(row, i);
+                if (item != null)
+                    list.Add(item);
             }
         }
         catch (JsonException)
@@ -286,18 +284,27 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
         if (flat.Count == 0)
             return null;
 
-        string? key = Get(flat, "Key");
-        if (string.IsNullOrWhiteSpace(key))
+        var keyEn = FirstNonEmpty(Get(flat, "KeyEn"), Get(flat, "Key"));
+        if (string.IsNullOrWhiteSpace(keyEn))
             return null;
 
-        var value = Get(flat, "Value") ?? string.Empty;
         int? order = null;
         var orderStr = Get(flat, "Order") ?? Get(flat, "SortOrder");
         if (!string.IsNullOrWhiteSpace(orderStr) && int.TryParse(orderStr, NumberStyles.Integer, CultureInfo.InvariantCulture, out var o))
             order = o;
 
-        return new ProductDetailFormItem { Key = key, Value = value, SortOrder = order };
+        return new ProductDetailFormItem
+        {
+            KeyEn = keyEn,
+            KeyAr = Get(flat, "KeyAr"),
+            ValueEn = FirstNonEmpty(Get(flat, "ValueEn"), Get(flat, "Value")) ?? string.Empty,
+            ValueAr = Get(flat, "ValueAr"),
+            SortOrder = order
+        };
     }
+
+    private static string? FirstNonEmpty(string? a, string? b) =>
+        !string.IsNullOrWhiteSpace(a) ? a : string.IsNullOrWhiteSpace(b) ? null : b;
 
     private static string? Get(Dictionary<string, string> flat, string name)
     {
@@ -336,20 +343,30 @@ public sealed class ProductDetailsListModelBinder : IModelBinder
         try
         {
             var row = JsonSerializer.Deserialize<JsonRow>(json, JsonOptions);
-            if (row == null || string.IsNullOrWhiteSpace(row.Key))
-                return null;
-
-            var order = row.Order ?? row.SortOrder ?? fallbackIndex;
-            return new ProductDetailFormItem
-            {
-                Key = row.Key.Trim(),
-                Value = row.Value?.Trim() ?? string.Empty,
-                SortOrder = order,
-            };
+            return MapJsonRow(row, fallbackIndex);
         }
         catch (JsonException)
         {
             return null;
         }
+    }
+
+    private static ProductDetailFormItem? MapJsonRow(JsonRow? row, int fallbackIndex)
+    {
+        if (row == null)
+            return null;
+
+        var keyEn = FirstNonEmpty(row.KeyEn, row.Key);
+        if (string.IsNullOrWhiteSpace(keyEn))
+            return null;
+
+        return new ProductDetailFormItem
+        {
+            KeyEn = keyEn.Trim(),
+            KeyAr = row.KeyAr?.Trim(),
+            ValueEn = FirstNonEmpty(row.ValueEn, row.Value)?.Trim() ?? string.Empty,
+            ValueAr = row.ValueAr?.Trim(),
+            SortOrder = row.Order ?? row.SortOrder ?? fallbackIndex,
+        };
     }
 }
